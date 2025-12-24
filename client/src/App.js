@@ -14,7 +14,8 @@ function App() {
         const { latitude, longitude } = pos.coords;
 
         try {
-          const res = await fetch("http://localhost:5000/check-location", {
+          // CANVI FET: Ara ens connectem al servidor de Render 👇
+          const res = await fetch("https://culactiu-web.onrender.com/check-location", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ latitude, longitude }),
