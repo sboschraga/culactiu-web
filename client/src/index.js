@@ -4,10 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// 👇 1. AFEGIM ELS IMPORTS DE VERCEL
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
+    {/* 👇 2. AFEGIM ELS COMPONENTS AQUÍ */}
+    <Analytics />
+    <SpeedInsights />
   </React.StrictMode>
 );
 
