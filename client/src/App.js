@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   const [message, setMessage] = useState("");
@@ -70,6 +71,7 @@ function App() {
           {message}
         </p>
       )}
+      <Analytics />
     </div>
   );
 }
