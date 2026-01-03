@@ -23,7 +23,7 @@ function Home() {
   // Contenidor que agrupa les dues columnes amb espai entre elles
   const contentContainerStyle = {
     display: 'flex',
-    gap: '100px', // Espai generós entre les dues seccions
+    gap: '200px', // Espai generós entre les dues seccions
     alignItems: 'flex-start', // Alinea a dalt per evitar moviments estranys
   };
 
