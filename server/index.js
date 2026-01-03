@@ -16,7 +16,7 @@ const allowedLocations = [
 ];
 
 // Distància màxima permesa en METRES
-const MAX_DISTANCE_METERS = 100;
+const MAX_DISTANCE_METERS = 200;
 
 // --- FUNCIONS MATEMÀTIQUES ---
 
