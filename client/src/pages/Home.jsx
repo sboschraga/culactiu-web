@@ -1,39 +1,42 @@
 import React, { useState } from 'react';
 
-// URL temporals (fes servir aquestes si no tens les imatges locals encara)
-const TEMP_IMG_BLAU = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Spain_traffic_signal_s15a.svg/600px-Spain_traffic_signal_s15a.svg.png";
-const TEMP_IMG_STOP = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/STOP_sign.jpg/600px-STOP_sign.jpg";
+// Import images from the assets folder
+// Make sure the filenames match exactly what you saved!
+import imgRotllana from '../assets/rotllana.jpg';
+import imgSimbol from '../assets/simbol.jpg';
 
 function Home() {
   const [isHovered, setIsHovered] = useState(false);
 
-  // Estils
+  // --- STYLES ---
   const mainContainerStyle = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    minHeight: '60vh', 
-    padding: '50px',
-    cursor: 'pointer' 
+    minHeight: '70vh', 
+    padding: '40px',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease'
   };
 
-  const iconsContainerStyle = {
+  const contentContainerStyle = {
     display: 'flex',
-    gap: '100px', 
-    alignItems: 'center'
+    gap: '80px', // Space between columns
+    maxWidth: '1100px',
+    alignItems: 'flex-start',
+    textAlign: 'left'
   };
 
   const imageStyle = {
-    height: '250px', 
+    height: '350px', // Adjust size as needed
     width: 'auto',
     objectFit: 'contain'
   };
 
-  const textContainerStyle = {
-    display: 'flex',
-    gap: '80px', 
-    maxWidth: '900px',
-    textAlign: 'left'
+  const textColumnStyle = {
+    flex: 1,
+    lineHeight: '1.6', 
+    fontSize: '0.95rem'
   };
 
   return (
@@ -42,30 +45,59 @@ function Home() {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {!isHovered ? (
-        <div style={iconsContainerStyle}>
-          <img src={TEMP_IMG_BLAU} alt="Senyal sense sortida" style={imageStyle} />
-          <img src={TEMP_IMG_STOP} alt="Senyal Stop" style={imageStyle} />
+      
+      {/* CONTAINER THAT CHANGES ON HOVER */}
+      <div style={contentContainerStyle}>
+
+        {/* --- LEFT COLUMN (QUI SOM / ROTLLANA) --- */}
+        <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+          {!isHovered ? (
+            <img src={imgRotllana} alt="Rotllana de gent" style={imageStyle} />
+          ) : (
+            <div style={textColumnStyle}>
+              <h2>QUI SOM?</h2>
+              <p>
+                Som un col·lectiu dedicat als culs de sac, entesos com a espais de pausa urbana i no productivitat. Reflexionem sobre la ciutat, els seus ritmes i l'espai comú. Us convidem a replicar les nostres accions o a crear-ne de noves, tot reivindicant que aquests espais existeixen i són essencials i mereixen ser preservats.
+              </p>
+            </div>
+          )}
         </div>
-      ) : (
-        <div style={textContainerStyle}>
-          <div style={{ flex: 1 }}>
-            <h2>QUI SOM?</h2>
-            <p>
-              lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-              lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum.
-            </p>
-          </div>
-          <div style={{ flex: 1 }}>
-            <h2>QUÈ FEM?</h2>
-            <p>
-              lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-              lorem ipsum lorem ipsum. ipsumlorem ipsum lorem ipsumlorem ipsum
-              lorem ipsum.
-            </p>
-          </div>
+
+        {/* --- RIGHT COLUMN (QUÈ FEM / SÍMBOL) --- */}
+        <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+          {!isHovered ? (
+            <img src={imgSimbol} alt="Símbol Cul de Sac" style={imageStyle} />
+          ) : (
+            <div style={textColumnStyle}>
+              <h2>QUÈ FEM?</h2>
+              {/* whiteSpace preserves your poetic line breaks */}
+              <p style={{ whiteSpace: 'pre-line' }}>
+                Cul Actiu posa els seus cossos contra el terra,
+                cossos que activen una conversa directa amb l’espai públic
+                i exerceixen una sensació més gran de pertinença.
+                {'\n'}
+                El cos Cul Actiu qüestiona les dinàmiques de la ciutat,
+                una ciutat contaminada per ritmes ràpids,
+                desigualtat, productivitat i sistemes binaris.
+                {'\n'}
+                Els cossos cul actiu tracen visible la fina línia
+                entre allò públic i allò privat
+                i hi juguem els seus límits.
+                {'\n'}
+                Cul Actiu activa una materialitat diferent
+                de la rígida presentada,
+                perquè els ciutadans puguin ocupar sense justificar,
+                ocupar sense dominar.
+                {'\n'}
+                Els cossos Cul actiu no conviden
+                ni a la productivitat ni a l'abandó.
+                I són errors, que no s'han de corregir.
+              </p>
+            </div>
+          )}
         </div>
-      )}
+
+      </div>
     </div>
   );
 }
