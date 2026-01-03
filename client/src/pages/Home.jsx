@@ -104,20 +104,20 @@ function Home() {
                 Cul Actiu posa els seus cossos contra el terra,
                 cossos que activen una conversa directa amb l’espai públic
                 i exerceixen una sensació més gran de pertinença.
-                {'\n'}
+                {'\n\n'}
                 El cos Cul Actiu qüestiona les dinàmiques de la ciutat,
                 una ciutat contaminada per ritmes ràpids,
                 desigualtat, productivitat i sistemes binaris.
-                {'\n'}
+                {'\n\n'}
                 Els cossos cul actiu tracen visible la fina línia
                 entre allò públic i allò privat
                 i hi juguem els seus límits.
-                {'\n'}
+                {'\n\n'}
                 Cul Actiu activa una materialitat diferent
                 de la rígida presentada,
                 perquè els ciutadans puguin ocupar sense justificar,
                 ocupar sense dominar.
-                {'\n'}
+                {'\n\n'}
                 Els cossos Cul actiu no conviden
                 ni a la productivitat ni a l'abandó.
                 I són errors, que no s'han de corregir.
