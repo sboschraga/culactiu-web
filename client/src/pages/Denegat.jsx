@@ -22,8 +22,8 @@ function Denegat() {
       <h1 style={{ color: "red", fontSize: "2rem", textTransform: "uppercase" }}>
         Accés Denegat!
       </h1>
-      <p style={{ fontSize: "1.2rem", maxWidth: "600px", margin: "20px 0" }}>
-          ves a un cul de sac per a poder accedir al nostre catàleg.
+      <p style={{ fontSize: "1.2rem", maxWidth: "700px", margin: "20px 0" }}>
+          Ves a un cul de sac per a poder accedir al nostre catàleg.
         <br /><br />
         (estàs a <strong>{distance} metres</strong> del cul de sac registrat més proper)
       </p>
