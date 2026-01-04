@@ -4,16 +4,16 @@ import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react
 
 // Importem les pàgines
 import Home from "./pages/Home";
-import Fitxar from "./pages/Fitxar"; // Pots mantenir-la per "Accions" si vols
-import Denegat from "./pages/Denegat"; // NOVA
-import Cataleg from "./pages/Cataleg"; // NOVA
+import Denegat from "./pages/Denegat";
+import Cataleg from "./pages/Cataleg";
+import Accions from "./pages/Accions"; // <--- Importem la nova pàgina
 
-// Creem un component intern per poder fer servir 'useNavigate'
+// NOTA: Hem esborrat "Fitxar" perquè ja no serveix.
+
 function NavigationContent() {
-  const navigate = useNavigate(); // Eina per canviar de pàgina via codi
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-
-  // --- FUNCIÓ DE CHECK (La que abans tenies a Fitxar) ---
+  
   const handleCheckLocation = () => {
     setLoading(true);
 
@@ -37,10 +37,8 @@ function NavigationContent() {
           const data = await res.json();
 
           if (data.access) {
-            // SI ÉS CORRECTE -> Anem a la pàgina Catàleg
             navigate("/cataleg"); 
           } else {
-            // SI NO -> Anem a la pàgina Denegat i li passem la distància
             navigate("/denegat", { state: { distance: data.distance } });
           }
 
@@ -64,10 +62,16 @@ function NavigationContent() {
     <>
       {/* --- BARRA DE NAVEGACIÓ --- */}
       <nav style={{ display: 'flex', justifyContent: 'space-between', padding: '20px' }}>
-        <div className="logo">CULACTIU</div>
+        
+        {/* 1. EL LOGO ARA PORTA A LA HOME */}
+        <div className="logo">
+            <Link to="/" style={{ textDecoration: 'none', color: 'black', fontWeight: 'bold' }}>
+                CULACTIU
+            </Link>
+        </div>
 
         <div>
-          {/* BOTÓ INTEL·LIGENT: Sembla un link, però és un botó */}
+          {/* 2. EL BOTÓ CATÀLEG SENSE SUBRATLLAR (textDecoration: 'none') */}
           <button 
             onClick={handleCheckLocation} 
             disabled={loading}
@@ -77,7 +81,7 @@ function NavigationContent() {
               cursor: 'pointer', 
               fontSize: 'inherit', 
               fontFamily: 'inherit',
-              textDecoration: 'underline',
+              textDecoration: 'none', // <--- ARA NO ESTÀ SUBRATLLAT
               marginRight: '20px',
               color: loading ? 'grey' : 'black'
             }}
@@ -85,14 +89,20 @@ function NavigationContent() {
             {loading ? "calculant..." : "catàleg"}
           </button>
 
-          <Link to="/fitxar">accions</Link>
+          {/* 3. ACCIONS ARA PORTA A LA PÀGINA NOVA */}
+          <Link to="/accions" style={{ textDecoration: 'none', color: 'black' }}>
+            accions
+          </Link>
         </div>
       </nav>
 
       {/* --- RUTES --- */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/fitxar" element={<Fitxar />} />
+        
+        {/* 4. HEM CANVIAT FITXAR PER ACCIONS */}
+        <Route path="/accions" element={<Accions />} />
+        
         <Route path="/cataleg" element={<Cataleg />} />
         <Route path="/denegat" element={<Denegat />} />
       </Routes>
