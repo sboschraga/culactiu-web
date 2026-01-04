@@ -6,9 +6,7 @@ import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react
 import Home from "./pages/Home";
 import Denegat from "./pages/Denegat";
 import Cataleg from "./pages/Cataleg";
-import Accions from "./pages/Accions"; // <--- Importem la nova pàgina
-
-// NOTA: Hem esborrat "Fitxar" perquè ja no serveix.
+import Accions from "./pages/Accions"; 
 
 function NavigationContent() {
   const navigate = useNavigate();
@@ -61,17 +59,21 @@ function NavigationContent() {
   return (
     <>
       {/* --- BARRA DE NAVEGACIÓ --- */}
-      <nav style={{ display: 'flex', justifyContent: 'space-between', padding: '20px' }}>
+      <nav style={{ display: 'flex', justifyContent: 'space-between', padding: '20px', alignItems: 'center' }}>
         
-        {/* 1. EL LOGO ARA PORTA A LA HOME */}
+        {/* CORRECCIÓ AQUÍ: El Link està DINS del div */}
         <div className="logo">
-            <Link to="/" style={{ textDecoration: 'none', color: 'black', fontWeight: 'bold' }}>
+           <Link to="/" style={{ 
+                textDecoration: 'none', 
+                color: 'black', 
+                fontWeight: 'bold',
+                fontSize: '1.8rem'
+            }}>
                 CULACTIU
-            </Link>
+           </Link>
         </div>
 
         <div>
-          {/* 2. EL BOTÓ CATÀLEG SENSE SUBRATLLAR (textDecoration: 'none') */}
           <button 
             onClick={handleCheckLocation} 
             disabled={loading}
@@ -81,7 +83,7 @@ function NavigationContent() {
               cursor: 'pointer', 
               fontSize: 'inherit', 
               fontFamily: 'inherit',
-              textDecoration: 'none', // <--- ARA NO ESTÀ SUBRATLLAT
+              textDecoration: 'none', 
               marginRight: '20px',
               color: loading ? 'grey' : 'black'
             }}
@@ -89,7 +91,6 @@ function NavigationContent() {
             {loading ? "calculant..." : "catàleg"}
           </button>
 
-          {/* 3. ACCIONS ARA PORTA A LA PÀGINA NOVA */}
           <Link to="/accions" style={{ textDecoration: 'none', color: 'black' }}>
             accions
           </Link>
@@ -99,10 +100,7 @@ function NavigationContent() {
       {/* --- RUTES --- */}
       <Routes>
         <Route path="/" element={<Home />} />
-        
-        {/* 4. HEM CANVIAT FITXAR PER ACCIONS */}
         <Route path="/accions" element={<Accions />} />
-        
         <Route path="/cataleg" element={<Cataleg />} />
         <Route path="/denegat" element={<Denegat />} />
       </Routes>
