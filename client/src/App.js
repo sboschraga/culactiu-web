@@ -1,42 +1,151 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
-// Importem les pàgines
-import Home from "./pages/Home";
-import Fitxar from "./pages/Fitxar";
-import Accions from "./pages/Accions"; // La nova pàgina
+import React, { useState } from "react";
+import "./App.css"; // Els teus estils
 
 function App() {
-  return (
-    <Router>
-      {/* BARRA DE NAVEGACIÓ */}
-      <nav>
-        {/* Logo -> Porta a l'Inici (/) */}
-        <div className="logo">
-          <Link to="/" style={{ marginLeft: 0, fontWeight: 'bold' }}>CULACTIU</Link>
-        </div>
+  // --- ESTATS DE NAVEGACIÓ ---
+  // 'home'    = Pàgina principal
+  // 'cataleg' = Pàgina d'èxit
+  // 'denegat' = Pàgina d'error amb la distància
+  const [paginaActual, setPaginaActual] = useState("home");
+  
+  // Per guardar la distància que ens torna el servidor
+  const [distanciaGuardada, setDistanciaGuardada] = useState(0);
+  
+  // Per mostrar "Calculant..." al botó mentre pensa
+  const [loading, setLoading] = useState(false);
 
-        {/* Enllaços Dreta */}
-        <div>
-          {/* catàleg -> Porta al GPS (/cataleg) */}
-          <Link to="/cataleg">catàleg</Link> 
-          
-          {/* accions -> Porta a la pàgina buida (/accions) */}
-          <Link to="/accions">accions</Link>
-        </div>
-      </nav>
+  // --- CONFIGURACIÓ ---
+  const API_URL = "http://localhost:5000/check-location"; // Canvia per la de Render quan pugis
 
-      {/* RUTES (On diem què es mostra a cada lloc) */}
-      <Routes>
-        <Route path="/" element={<Home />} />
+  // --- FUNCIÓ PRINCIPAL (El "Porter") ---
+  const gestionarClickCataleg = () => {
+    setLoading(true);
+
+    if (!navigator.geolocation) {
+      alert("No tens GPS activat!");
+      setLoading(false);
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        try {
+          const { latitude, longitude } = pos.coords;
+
+          // 1. Preguntem al Backend
+          const response = await fetch(API_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ latitude, longitude }),
+          });
+
+          const data = await response.json();
+
+          // 2. Decidim a quina pàgina enviem l'usuari
+          if (data.access === true) {
+            setPaginaActual("cataleg"); // CAP A DINS!
+          } else {
+            setDistanciaGuardada(data.distance); // Guardem la info
+            setPaginaActual("denegat"); // CAP A FORA!
+          }
+
+        } catch (error) {
+          console.error(error);
+          alert("Error de connexió amb el servidor.");
+        } finally {
+          setLoading(false);
+        }
+      },
+      (err) => {
+        console.error(err);
+        alert("Error obtenint ubicació.");
+        setLoading(false);
+      }
+    );
+  };
+
+  // --- RENDERITZAT DE LES 3 PÀGINES ---
+
+  // 1. PÀGINA HOME (El que es veu al principi)
+  if (paginaActual === "home") {
+    return (
+      <div className="pantalla-home">
+        <nav style={styles.navBar}>
+          <div style={styles.logo}>CULACTIU</div>
+          <div style={styles.menu}>
+            {/* Aquest botó fa la màgia */}
+            <button onClick={gestionarClickCataleg} style={styles.menuBtn} disabled={loading}>
+              {loading ? "BUSCANT..." : "CATÀLEG"}
+            </button>
+            <button style={styles.menuBtn}>ACCIONS</button>
+            <button style={styles.menuBtn}>CULACTIU</button>
+          </div>
+        </nav>
         
-        {/* Hem canviat la ruta /fitxar per /cataleg perquè tingui sentit amb el menú */}
-        <Route path="/cataleg" element={<Fitxar />} />
+        <div style={styles.containerCentral}>
+          <h1>HOME PAGE</h1>
+          <p>Imatges, el text de "Qui som", etc...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // 2. PÀGINA CATÀLEG (Èxit)
+  if (paginaActual === "cataleg") {
+    return (
+      <div className="pantalla-cataleg" style={styles.containerCentral}>
+        <nav style={{width: '100%', textAlign: 'left', padding: '20px'}}>
+             <button onClick={() => setPaginaActual("home")} style={styles.menuBtn}>← TORNAR</button>
+        </nav>
+        <h1>📂 CATÀLEG SECRET</h1>
+        <p>Benvingut al cul de sac. Aquí tens el contingut exclusiu.</p>
+        {/* Aquí poses els teus productes/serveis */}
+      </div>
+    );
+  }
+
+  // 3. PÀGINA D'ACCÉS DENEGAT (Fracàs)
+  if (paginaActual === "denegat") {
+    return (
+      <div className="pantalla-error" style={styles.containerError}>
+        <h1 style={{color: 'red', fontSize: '3rem'}}>ACCÉS DENEGAT!</h1>
         
-        <Route path="/accions" element={<Accions />} />
-      </Routes>
-    </Router>
-  );
+        <p style={{fontSize: '1.5rem', fontFamily: 'monospace', maxWidth: '600px'}}>
+          ves a un cul de sac per a poder accedir al nostre catàleg. 
+          <br/><br/>
+          (estas a <strong>{distanciaGuardada} metres</strong> del cul de sac registrat més proper)
+        </p>
+
+        <button 
+          onClick={() => setPaginaActual("home")} 
+          style={{...styles.menuBtn, border: '2px solid black', marginTop: '30px'}}
+        >
+          TORNAR A LA HOME
+        </button>
+      </div>
+    );
+  }
+
+  return null; // Per seguretat
 }
+
+// --- ESTILS RÀPIDS (Adapta'ls al teu CSS brutalista) ---
+const styles = {
+  navBar: {
+    display: "flex", justifyContent: "space-between", padding: "20px", alignItems: "center"
+  },
+  menuBtn: {
+    background: "transparent", border: "none", cursor: "pointer", 
+    fontSize: "18px", marginLeft: "20px", textTransform: "uppercase", 
+    fontFamily: "'Chivo Mono', monospace" // La teva font
+  },
+  containerCentral: {
+    padding: "50px", textAlign: "center"
+  },
+  containerError: {
+    display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center",
+    height: "100vh", textAlign: "center", padding: "20px", backgroundColor: "#f0f0f0"
+  }
+};
 
 export default App;
