@@ -3,7 +3,9 @@ import React, { useState } from "react";
 function Fitxar() {
   const [message, setMessage] = useState("");
 
-  const checkLocation = () => {
+  // A Fitxar.js (Frontend)
+
+const checkLocation = () => {
     if (!navigator.geolocation) {
       setMessage("Geolocalització no suportada al navegador.");
       return;
@@ -14,6 +16,7 @@ function Fitxar() {
         const { latitude, longitude } = pos.coords;
 
         try {
+          // Assegura't que la URL és la correcta (localhost o render)
           const res = await fetch("https://culactiu-web.onrender.com/check-location", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -23,10 +26,15 @@ function Fitxar() {
           const data = await res.json();
 
           if (data.access) {
-            setMessage(`✅ Accés permès! Carrer detectat: ${data.address}`);
+            // AQUÍ POTS POSAR LA LÒGICA PER MOSTRAR EL CATÀLEG
+            setMessage(`✅ Benvingut! Estàs a: ${data.address}. Mostrant catàleg...`);
+            // Per exemple: setShowCatalog(true);
+            
           } else {
-            setMessage(`❌ Accés denegat! Carrer detectat: ${data.address}`);
+            // AQUI ÉS ON POSEM LA FRASE EXACTA QUE VOLS:
+            setMessage(`accés denegat! ves a un cul de sac per a poder accedir al nostre catàleg. (estas a ${data.distance} metres del cul de sac registrat més proper)`);
           }
+
         } catch (err) {
           console.error(err);
           setMessage("⚠️ Error en connectar amb el servidor.");
@@ -34,11 +42,11 @@ function Fitxar() {
       },
       (err) => {
         console.error(err);
-        setMessage("⚠️ No s'ha pogut obtenir la ubicació.");
+        setMessage("⚠️ No s'ha pogut obtenir la ubicació. Tens el GPS activat?");
       },
       { enableHighAccuracy: true }
     );
-  };
+};
 
   // --- ESTILS ACTUALITZATS ---
   const containerStyle = {

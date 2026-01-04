@@ -66,13 +66,20 @@ app.post("/check-location", (req, res) => {
       // però si només vols validar-ne una, podries parar.
     }
   }
+// A index.js (Backend)
 
   if (allowed) {
     console.log("✅ ACCÉS PERMÈS");
     return res.json({ access: true, address: locationName });
   } else {
-    console.log(`❌ ACCÉS DENEGAT (El punt més proper està a ${minDistance.toFixed(1)} metres)`);
-    return res.json({ access: false, address: `Estàs massa lluny (${minDistance.toFixed(0)}m del punt més proper).` });
+    // AQUÍ ESTÀ EL CANVI:
+    console.log(`❌ DENEGAT. Distància: ${minDistance.toFixed(0)}m`);
+    
+    // Enviem "distance" com a número, perquè el React munti la frase que vulguis
+    return res.json({ 
+        access: false, 
+        distance: Math.round(minDistance) 
+    });
   }
 });
 
