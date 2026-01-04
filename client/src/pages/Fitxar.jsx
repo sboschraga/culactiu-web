@@ -14,7 +14,6 @@ function Fitxar() {
         const { latitude, longitude } = pos.coords;
 
         try {
-          // CANVI FET: Ara ens connectem al servidor de Render 👇
           const res = await fetch("https://culactiu-web.onrender.com/check-location", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -37,38 +36,61 @@ function Fitxar() {
         console.error(err);
         setMessage("⚠️ No s'ha pogut obtenir la ubicació.");
       },
-      { enableHighAccuracy: true } // ajuda a obtenir coordenades més precises
+      { enableHighAccuracy: true }
     );
   };
 
+  // --- ESTILS ACTUALITZATS ---
+  const containerStyle = {
+    textAlign: "center",
+    padding: "50px",
+    minHeight: "60vh",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center"
+  };
+
+  const titleStyle = {
+    fontFamily: "'Azeret Mono', monospace",
+    fontWeight: "400",
+    textTransform: "uppercase",
+    marginBottom: "2rem"
+  };
+
+  const buttonStyle = {
+    marginTop: "2rem",
+    padding: "1rem 2rem",
+    fontSize: "1rem",
+    cursor: "pointer",
+    fontFamily: "'Chivo Mono', monospace", // Font de text
+    backgroundColor: "transparent",
+    border: "2px solid black",
+    textTransform: "uppercase",
+    transition: "all 0.3s ease"
+  };
+
+  const messageStyle = {
+    marginTop: "2rem",
+    fontSize: "1.2rem",
+    fontFamily: "'Chivo Mono', monospace"
+  };
+
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-        fontFamily: "Arial, sans-serif",
-        backgroundColor: "#f9f9f9",
-      }}
-    >
-      <h1 style={{ fontSize: "4rem", color: "#333" }}>CULACTIU</h1>
+    <div style={containerStyle}>
+      <h1 style={titleStyle}>COMPROVAR UBICACIÓ</h1>
+      
       <button
-        style={{
-          marginTop: "2rem",
-          padding: "1rem 2rem",
-          fontSize: "1.2rem",
-          cursor: "pointer",
-        }}
+        style={buttonStyle}
         onClick={checkLocation}
+        onMouseOver={(e) => { e.target.style.backgroundColor = "black"; e.target.style.color = "white"; }}
+        onMouseOut={(e) => { e.target.style.backgroundColor = "transparent"; e.target.style.color = "black"; }}
       >
-        Comprova ubicació
+        📍 Comprova on soc
       </button>
+
       {message && (
-        <p style={{ marginTop: "1rem", fontSize: "1.5rem", textAlign: "center" }}>
-          {message}
-        </p>
+        <p style={messageStyle}>{message}</p>
       )}
     </div>
   );

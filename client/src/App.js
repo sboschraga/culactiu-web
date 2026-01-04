@@ -1,37 +1,39 @@
 import React from "react";
-// Importem les eines per canviar de pàgina
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-// Importem les dues pàgines que has creat
+// Importem les pàgines
 import Home from "./pages/Home";
 import Fitxar from "./pages/Fitxar";
+import Accions from "./pages/Accions"; // La nova pàgina
 
 function App() {
   return (
     <Router>
-      {/* --- BARRA DE NAVEGACIÓ --- */}
+      {/* BARRA DE NAVEGACIÓ */}
       <nav>
-        {/* Part Esquerra: El Logo */}
+        {/* Logo -> Porta a l'Inici (/) */}
         <div className="logo">
-          CULACTIU
+          <Link to="/" style={{ marginLeft: 0, fontWeight: 'bold' }}>CULACTIU</Link>
         </div>
 
-        {/* Part Dreta: Els enllaços */}
+        {/* Enllaços Dreta */}
         <div>
-          {/* Enllaç a la portada */}
-          <Link to="/">catàleg</Link> 
-          {/* Enllaç a la pàgina de fitxar */}
-          <Link to="/fitxar">accions</Link>
+          {/* catàleg -> Porta al GPS (/cataleg) */}
+          <Link to="/cataleg">catàleg</Link> 
+          
+          {/* accions -> Porta a la pàgina buida (/accions) */}
+          <Link to="/accions">accions</Link>
         </div>
       </nav>
 
-      {/* --- EL TEU NAVEGADOR DE PÀGINES --- */}
+      {/* RUTES (On diem què es mostra a cada lloc) */}
       <Routes>
-        {/* Quan la ruta és "/", mostra la portada (Home) */}
         <Route path="/" element={<Home />} />
         
-        {/* Quan la ruta és "/fitxar", mostra el GPS (Fitxar) */}
-        <Route path="/fitxar" element={<Fitxar />} />
+        {/* Hem canviat la ruta /fitxar per /cataleg perquè tingui sentit amb el menú */}
+        <Route path="/cataleg" element={<Fitxar />} />
+        
+        <Route path="/accions" element={<Accions />} />
       </Routes>
     </Router>
   );
