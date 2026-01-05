@@ -1,0 +1,92 @@
+/* src/pages/Cataleg.css */
+
+.catalog-container {
+  padding: 40px;
+  min-height: 100vh;
+  background-color: white;
+  font-family: Arial, sans-serif; 
+  position: relative; /* Necessari per col·locar el botó 'afegir' */
+}
+
+/* Capçalera */
+.catalog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px; /* Espai sota el títol */
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 800; 
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.top-nav {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-link {
+  font-size: 18px;
+  text-decoration: underline;
+  color: black;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-link.active {
+  font-weight: bold;
+}
+
+/* GRAELLA DE CARRERS - La màgia de les 4 columnes */
+.streets-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnes iguals */
+  column-gap: 20px;
+  row-gap: 15px;
+}
+
+.street-item {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  display: block;
+}
+
+.street-item:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* Responsive: Si la pantalla és petita (mòbil), passa a 2 columnes */
+@media (max-width: 768px) {
+  .streets-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Botó 'Afegir' flotant a baix a la dreta */
+.add-button-container {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+}
+
+.add-btn {
+  background: white;
+  border: 2px solid black;
+  border-radius: 50px; /* Això fa la forma ovalada */
+  padding: 8px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-btn:hover {
+  background: black;
+  color: white;
+}
