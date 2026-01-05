@@ -1,0 +1,92 @@
+/* src/pages/DetallCarrer.css */
+
+.detall-container {
+  padding: 40px;
+  max-width: 1200px; /* Perquè no s'estiri infinitament en pantalles grans */
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* --- FILA DE LES FOTOS --- */
+.fotos-row {
+  display: flex;
+  gap: 20px; /* Separació entre les dues fotos */
+  margin-bottom: 40px; /* Separació amb el text de sota */
+  height: 400px; /* Alçada fixa dels quadres grocs */
+}
+
+.foto-box {
+  flex: 1; /* Ocupen el 50% cadascuna */
+  background-color: #FFD700; /* EL GROC DEL DISSENY (Gold) */
+  display: flex; /* Per centrar el text "FOTO X" */
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Si poses una foto real, que no surti de mare */
+}
+
+.placeholder-text {
+  font-size: 24px;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.foto-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- FILA DE INFORMACIÓ (TEXT I SÍMBOLS) --- */
+.info-row {
+  display: flex;
+  justify-content: space-between; /* Un a cada punta */
+  align-items: flex-start; /* Alineats a dalt */
+}
+
+/* COLUMNA ESQUERRA */
+.nom-carrer {
+  font-size: 24px;
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+  font-weight: normal; /* A la imatge sembla regular, no bold */
+}
+
+.ubicacio {
+  font-size: 18px;
+  color: #555;
+  margin: 0;
+}
+
+/* COLUMNA DRETA (SÍMBOLS) */
+.simbols-column {
+  display: flex;
+  gap: 10px; /* Espai entre quadradets de símbols */
+}
+
+.simbol-box {
+  width: 60px;
+  height: 60px;
+  background-color: #FFFACD; /* Un groc més claret pels símbols (LemonChiffon) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  text-align: center;
+  color: #333;
+}
+
+/* RESPONSIVE: Mòbil */
+@media (max-width: 768px) {
+  .fotos-row {
+    flex-direction: column; /* Fotos una sobre l'altra al mòbil */
+    height: auto;
+  }
+  .foto-box {
+    height: 300px; 
+  }
+  .info-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

@@ -1,5 +1,6 @@
 import React from "react";
-import "./Cataleg.css"; 
+import { Link } from "react-router-dom"; // <--- Assegura't de tenir això importat
+import "./Cataleg.css";
 
 const streets = [
   "C/ Cerdà", "C/ Costa de Sant Bartomeu de la Quadra", "C/ d'en Xandri", "C/ d’Aiguallonga",
@@ -23,19 +24,23 @@ const streets = [
 function Cataleg() {
   return (
     <div className="catalog-container">
-      
       {/* HEM ESBORRAT EL HEADER PERQUÈ JA SURT A APP.JS */}
 
-      {/* GRAELLA DE CARRERS */}
+      {/* GRAELLA DE CARRERS AMB ENLLAÇOS */}
       <div className="streets-grid">
         {streets.map((street, index) => (
-          <div key={index} className="street-item">
+          /* ARA ÉS UN LINK UN ALTRE COP */
+          <Link 
+            key={index} 
+            to={`/carrer/${encodeURIComponent(street)}`} 
+            className="street-item"
+            style={{ textDecoration: 'none', color: 'inherit', display: 'block' }} // Estil inline per evitar blau/subratllat lleig
+          >
             {street}
-          </div>
+          </Link>
         ))}
       </div>
 
-      {/* BOTÓ AFEGIR */}
       <div className="add-button-container">
         <button className="add-btn">afegir</button>
       </div>
