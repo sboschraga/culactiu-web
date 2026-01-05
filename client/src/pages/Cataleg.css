@@ -4,89 +4,73 @@
   padding: 40px;
   min-height: 100vh;
   background-color: white;
-  font-family: Arial, sans-serif; 
-  position: relative; /* Necessari per col·locar el botó 'afegir' */
+  font-family: Arial, sans-serif; /* Tipografia neta */
+  position: relative;
+  box-sizing: border-box;
 }
 
-/* Capçalera */
+/* --- CAPÇALERA --- */
 .catalog-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 60px; /* Espai sota el títol */
+  align-items: baseline; /* Alinea el text a la base */
+  margin-bottom: 60px;   /* Espai abans de la llista */
 }
 
 .logo {
-  font-size: 28px;
-  font-weight: 800; 
-  margin: 0;
+  font-size: 32px;
+  font-weight: 900; /* Molt negreta */
   text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 1px;
 }
 
 .top-nav {
   display: flex;
-  gap: 30px;
+  gap: 40px; /* Separació entre 'cataleg' i 'accions' */
 }
 
 .nav-link {
-  font-size: 18px;
+  font-size: 20px;
   text-decoration: underline;
   color: black;
-  background: none;
-  border: none;
   cursor: pointer;
 }
 
-.nav-link.active {
-  font-weight: bold;
-}
-
-/* GRAELLA DE CARRERS - La màgia de les 4 columnes */
+/* --- GRAELLA DE 4 COLUMNES --- */
 .streets-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 columnes iguals */
   column-gap: 20px;
-  row-gap: 15px;
+  row-gap: 5px; /* Poc espai vertical, com a la imatge */
 }
 
 .street-item {
-  text-decoration: none;
-  color: #333;
   font-size: 14px;
-  display: block;
+  color: #333;
+  line-height: 1.4;
 }
 
-.street-item:hover {
-  text-decoration: underline;
-  font-weight: bold;
-}
-
-/* Responsive: Si la pantalla és petita (mòbil), passa a 2 columnes */
+/* Responsive: Si la pantalla és molt petita, passem a 2 columnes per llegibilitat */
 @media (max-width: 768px) {
   .streets-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Botó 'Afegir' flotant a baix a la dreta */
+/* --- BOTÓ AFEGIR --- */
 .add-button-container {
-  position: fixed;
+  position: fixed; /* Fixat a la pantalla, sempre visible */
   bottom: 50px;
-  right: 50px;
+  right: 60px;
 }
 
 .add-btn {
   background: white;
-  border: 2px solid black;
-  border-radius: 50px; /* Això fa la forma ovalada */
-  padding: 8px 30px;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.add-btn:hover {
-  background: black;
-  color: white;
+  border: 2px solid black; /* Vora gruixuda */
+  border-radius: 50px;     /* Forma ovalada */
+  padding: 5px 35px;       /* Padding per fer-lo ample */
+  font-size: 20px;
+  font-family: inherit;
+  cursor: default;         /* Cursor normal ja que no fa res */
 }
