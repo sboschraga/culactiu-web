@@ -3,47 +3,23 @@
 .catalog-container {
   padding: 40px;
   min-height: 100vh;
-  background-color: white;
+  
+  /* CANVI 1: Fons transparent perquè agafi el color de la web general (com la barra) */
+  background-color: transparent; 
+  
   font-family: Arial, sans-serif;
   position: relative;
   box-sizing: border-box;
 }
 
-/* --- CAPÇALERA --- */
-.catalog-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline; /* Alinea el text a la base */
-  margin-bottom: 60px;   /* Espai abans de la llista */
-}
-
-.logo {
-  font-size: 32px;
-  font-weight: 900; /* Molt negreta */
-  text-transform: uppercase;
-  margin: 0;
-  letter-spacing: 1px;
-}
-
-.top-nav {
-  display: flex;
-  gap: 40px; /* Separació entre 'cataleg' i 'accions' */
-}
-
-.nav-link {
-  font-size: 20px;
-  text-decoration: underline;
-  color: black;
-  cursor: pointer;
-}
-
-/* --- GRAELLA DE 4 COLUMNES --- */
+/* --- LLISTA TIPUS "DIARI" --- */
 .streets-grid {
-  /* Això fa que s'ordenin de dalt a baix, i després canviïn de columna */
   column-count: 4; 
-  column-gap: 10px; /* Reduït: menys espai entre columnes */
   
-  /* Opcional: Si vols que tot el bloc tingui una amplada màxima */
+  /* CANVI 2: Aquí controles la separació. 
+     Posa 5px, 10px, 20px... el que t'agradi més. */
+  column-gap: 5px; 
+  
   width: 100%; 
 }
 
@@ -51,12 +27,8 @@
   font-size: 14px;
   color: #333;
   line-height: 1.4;
-  
-  /* Importantíssim: Evita que un nom es talli entre dues columnes */
   break-inside: avoid; 
   page-break-inside: avoid;
-  
-  /* Un petit marge a sota de cada nom */
   margin-bottom: 5px; 
 }
 
@@ -75,7 +47,7 @@
 }
 
 .add-btn {
-  background: white;
+  background: white; /* Si vols que el botó també sigui del mateix color, posa 'transparent' aquí també */
   border: 2px solid black;
   border-radius: 50px;
   padding: 5px 35px;
