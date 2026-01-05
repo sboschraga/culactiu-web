@@ -1,28 +1,59 @@
-import React from "react";
-import { useParams, Link } from "react-router-dom"; // Afegim Link per poder tornar enrere
-import infoCarrers from "../data/infoCarrers"; // Importem les dades
-import "./DetallCarrer.css"; // Importem el CSS que crearem ara
+import React, { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
+import infoCarrers from "../data/infoCarrers"; // Importem les dades amb coordenades
+import "./DetallCarrer.css"; // El mateix CSS d'abans
 
 const DetallCarrer = () => {
   const { name } = useParams();
   const nomReal = decodeURIComponent(name);
-  
-  // Busquem les dades. Si no existeixen, posem valors per defecte (placeholders)
+
+  // 1. Estat per guardar el text de la ubicació (barri, ciutat)
+  const [ubicacioText, setUbicacioText] = useState("Calculant ubicació...");
+
+  // Recuperem les dades del fitxer (fotos, simbols, lat, lon)
   const dades = infoCarrers[nomReal] || {
-    districte: "Districte desconegut",
-    ciutat: "Ciutat desconeguda",
-    fotos: [null, null], // Null farà que surti el quadre groc
+    lat: null,
+    lon: null,
+    fotos: [null, null],
     simbols: ["X", "X", "X", "X", "X"]
   };
 
+  // 2. EFECTE: Quan carreguem la pàgina, preguntem a OpenStreetMap on som
+  useEffect(() => {
+    if (dades.lat && dades.lon) {
+      // URL del servei de geocodificació inversa
+      const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${dades.lat}&lon=${dades.lon}`;
+
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data && data.address) {
+            // Intentem trobar el barri o districte en aquest ordre
+            const barri = data.address.suburb || data.address.neighbourhood || data.address.district || "Zona desconeguda";
+            const ciutat = data.address.city || data.address.town || data.address.village || "Barcelona";
+            
+            setUbicacioText(`${barri}, ${ciutat}`);
+          } else {
+            setUbicacioText("Ubicació no trobada");
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+          setUbicacioText("Error de connexió");
+        });
+    } else {
+      setUbicacioText("Coordenades no definides");
+    }
+  }, [dades.lat, dades.lon]); // Només s'executa si canvien les coordenades
+
   return (
     <div className="detall-container">
-      {/* Botó petit per tornar al catàleg */}
+      {/* Botó per tornar */}
       <div className="back-link-container">
         <Link to="/cataleg" className="back-link">← Tornar</Link>
       </div>
 
-      {/* ZONA SUPERIOR: 2 FOTOS (GROGUES SI NO N'HI HA) */}
+      {/* ZONA FOTOS (GROGUES) */}
       <div className="fotos-row">
         {dades.fotos.map((foto, index) => (
           <div key={index} className="foto-box">
@@ -35,20 +66,21 @@ const DetallCarrer = () => {
         ))}
       </div>
 
-      {/* ZONA INFERIOR: TEXT A L'ESQUERRA, SÍMBOLS A LA DRETA */}
+      {/* ZONA INFO */}
       <div className="info-row">
         
-        {/* ESQUERRA: Nom i lloc */}
+        {/* ESQUERRA: Nom i Ubicació Automàtica */}
         <div className="text-column">
           <h1 className="nom-carrer">{nomReal}</h1>
-          <p className="ubicacio">{dades.districte}, {dades.ciutat}</p>
+          <p className="ubicacio">{ubicacioText}</p>
         </div>
 
-        {/* DRETA: 5 Símbols */}
+        {/* DRETA: Símbols */}
         <div className="simbols-column">
           {dades.simbols.map((simbol, index) => (
             <div key={index} className="simbol-box">
-              <span className="simbol-text">simbol<br/>{simbol}</span>
+              {/* Mostra l'emoji o text que has posat al fitxer infoCarrers.js */}
+              <span className="simbol-text">{simbol}</span>
             </div>
           ))}
         </div>
