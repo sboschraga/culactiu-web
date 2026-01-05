@@ -4,7 +4,7 @@
   padding: 40px;
   min-height: 100vh;
   background-color: white;
-  font-family: Arial, sans-serif; /* Tipografia neta */
+  font-family: Arial, sans-serif;
   position: relative;
   box-sizing: border-box;
 }
@@ -39,38 +39,47 @@
 
 /* --- GRAELLA DE 4 COLUMNES --- */
 .streets-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columnes iguals */
-  column-gap: 20px;
-  row-gap: 5px; /* Poc espai vertical, com a la imatge */
+  /* Això fa que s'ordenin de dalt a baix, i després canviïn de columna */
+  column-count: 4; 
+  column-gap: 10px; /* Reduït: menys espai entre columnes */
+  
+  /* Opcional: Si vols que tot el bloc tingui una amplada màxima */
+  width: 100%; 
 }
 
 .street-item {
   font-size: 14px;
   color: #333;
   line-height: 1.4;
+  
+  /* Importantíssim: Evita que un nom es talli entre dues columnes */
+  break-inside: avoid; 
+  page-break-inside: avoid;
+  
+  /* Un petit marge a sota de cada nom */
+  margin-bottom: 5px; 
 }
 
-/* Responsive: Si la pantalla és molt petita, passem a 2 columnes per llegibilitat */
+/* Responsive: 2 columnes en pantalles petites */
 @media (max-width: 768px) {
   .streets-grid {
-    grid-template-columns: repeat(2, 1fr);
+    column-count: 2;
   }
 }
 
 /* --- BOTÓ AFEGIR --- */
 .add-button-container {
-  position: fixed; /* Fixat a la pantalla, sempre visible */
+  position: fixed;
   bottom: 50px;
   right: 60px;
 }
 
 .add-btn {
   background: white;
-  border: 2px solid black; /* Vora gruixuda */
-  border-radius: 50px;     /* Forma ovalada */
-  padding: 5px 35px;       /* Padding per fer-lo ample */
+  border: 2px solid black;
+  border-radius: 50px;
+  padding: 5px 35px;
   font-size: 20px;
   font-family: inherit;
-  cursor: default;         /* Cursor normal ja que no fa res */
+  cursor: default;
 }

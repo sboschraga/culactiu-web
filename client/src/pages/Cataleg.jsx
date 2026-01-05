@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./Cataleg.css"; // Ara crearem aquest fitxer per fer les 4 columnes
+import "./Cataleg.css"; 
 
 const streets = [
   "C/ Cerdà", "C/ Costa de Sant Bartomeu de la Quadra", "C/ d'en Xandri", "C/ d’Aiguallonga",
@@ -24,17 +23,10 @@ const streets = [
 function Cataleg() {
   return (
     <div className="catalog-container">
-      {/* CAPÇALERA */}
-      <header className="catalog-header">
-        <h1 className="logo">CULACTIU</h1>
-        <nav className="top-nav">
-          {/* Aquests sí que són links per poder navegar pel menú */}
-          <Link to="/cataleg" className="nav-link active">catàleg</Link>
-          <Link to="/accions" className="nav-link">accions</Link>
-        </nav>
-      </header>
+      
+      {/* HEM ESBORRAT EL HEADER PERQUÈ JA SURT A APP.JS */}
 
-      {/* GRAELLA DE CARRERS (Text pla, sense clicar) */}
+      {/* GRAELLA DE CARRERS */}
       <div className="streets-grid">
         {streets.map((street, index) => (
           <div key={index} className="street-item">
@@ -43,7 +35,7 @@ function Cataleg() {
         ))}
       </div>
 
-      {/* BOTÓ AFEGIR (Sense funció) */}
+      {/* BOTÓ AFEGIR */}
       <div className="add-button-container">
         <button className="add-btn">afegir</button>
       </div>
