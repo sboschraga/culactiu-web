@@ -11,8 +11,7 @@ const DetallCarrer = () => {
   const dades = infoCarrers[nomReal] || {
     lat: null,
     lon: null,
-    // Si no hi ha dades, posem 2 placeholders per defecte
-    fotos: ["null", "null"],
+    fotos: [], // Si no hi ha dades, array buit
     simbols: ["X", "X", "X", "X", "X"]
   };
 
@@ -42,17 +41,21 @@ const DetallCarrer = () => {
         <Link to="/cataleg" className="back-link">← Tornar</Link>
       </div>
 
-      {/* ZONA DE FOTOS: Ara accepta qualsevol quantitat de fotos */}
+      {/* ZONA DE FOTOS DINÀMICA */}
       <div className="fotos-row">
-        {dades.fotos.map((foto, index) => (
-          <div key={index} className="foto-box">
-            {foto && foto !== "null" ? (
+        {dades.fotos.map((foto, index) => {
+          // 1. COMPROVACIÓ: Si la foto és "null", null, o està buida, no renderitzem res.
+          if (!foto || foto === "null") {
+            return null;
+          }
+
+          // 2. Si la foto és vàlida, renderitzem la caixa
+          return (
+            <div key={index} className="foto-box">
               <img src={foto} alt={`Detall ${index}`} />
-            ) : (
-              <span className="placeholder-text">FOTO {index + 1}</span>
-            )}
-          </div>
-        ))}
+            </div>
+          );
+        })}
       </div>
 
       <div className="info-row">
