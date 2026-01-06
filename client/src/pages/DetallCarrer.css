@@ -1,5 +1,3 @@
-/* src/pages/DetallCarrer.css */
-
 .detall-container {
   padding: 20px 40px;
   max-width: 1200px;
@@ -27,26 +25,31 @@
   gap: 20px; 
   margin-bottom: 40px; 
   
-  /* Aquesta propietat permet que si hi ha 3 fotos es reparteixin l'espai */
-  /* Si en vols moltes, pots posar 'overflow-x: auto' per fer scroll */
-  flex-wrap: nowrap; 
+  /* Centrem les fotos horitzontalment per si n'hi ha poques */
+  justify-content: left; 
+  
+  /* Important: Això permet que les caixes respectin la seva alçada */
+  align-items: stretch;
 }
 
 .foto-box {
-  /* Això fa que totes les fotos tinguin la mateixa amplada relativa */
-  flex: 1; 
+  /* flex: 1 fa que ocupin tota l'amplada disponible. 
+     Però per evitar que siguin gegants, posem un max-width */
+  flex: 1;
   
-  /* MÀGIA: Proporció 3:4 (3 d'ample per 4 d'alt) */
+  /* AQUÍ ESTÀ LA CLAU DEL 3:4 */
   aspect-ratio: 3 / 4; 
   
-  /* Si vols limitar l'alçada màxima perquè no siguin gegants en pantalles grans: */
-  max-height: 500px; 
+  /* Limitem l'amplada màxima perquè no es facin enormes en pantalles grans */
+  max-width: 400px; 
   
-  background-color: #FFD700; /* Groc base */
+  background-color: #FFD700; 
   display: flex; 
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   overflow: hidden; 
+  position: relative; /* Necessari per controlar la imatge */
+  border-radius: 4px; /* Opcional: queda més polit */
 }
 
 .placeholder-text {
@@ -57,19 +60,16 @@
 
 .foto-box img {
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* Retalla la foto perquè ompli tot el rectangle 3:4 sense deformar-se */
+  height: 100%; /* Força la imatge a arribar a baix de tot de la caixa 3:4 */
+  object-fit: cover; /* Retalla el sobrant dels costats perquè no es deformi */
+  display: block;
 }
 
-/* --- RESTA D'ESTILS IGUALS --- */
+/* --- RESTA D'ESTILS (IGUAL QUE ABANS) --- */
 .info-row {
   display: flex;
   justify-content: space-between;
   align-items: flex-start; 
-}
-
-.text-column {
-  /* Donem espai al text */
 }
 
 .nom-carrer {
@@ -88,34 +88,34 @@
 .simbols-column {
   display: flex;
   gap: 10px; 
-  flex-wrap: wrap; /* Per si hi ha molts símbols */
+  flex-wrap: wrap; 
   justify-content: flex-end;
 }
 
 .simbol-box {
-  width: 50px; /* Una mica més petits */
+  width: 50px; 
   height: 50px;
   background-color: #FFFACD; 
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 20px; /* Mida de l'emoji */
+  justify-content: left;
+  font-size: 24px; 
   color: #333;
 }
 
 /* RESPONSIVE: Mòbil */
 @media (max-width: 768px) {
   .fotos-row {
-    /* En mòbil, potser vols que es vegin una sota l'altra o amb scroll */
     flex-direction: row; 
-    overflow-x: auto; /* Scroll lateral si n'hi ha moltes */
-    padding-bottom: 10px; /* Espai per la barra de scroll */
+    overflow-x: auto; /* Scroll lateral al mòbil */
+    justify-content: flex-start; /* Alinia a l'esquerra al mòbil per fer scroll */
+    padding-bottom: 10px;
   }
   
   .foto-box {
-    /* En mòbil fem que cada foto ocupi quasi tota la pantalla (80%) */
-    flex: 0 0 80%; 
-    max-height: none;
+    /* Al mòbil les fem una mica més petites per veure'n més d'una */
+    flex: 0 0 70%; 
+    max-width: none;
   }
 
   .info-row {
