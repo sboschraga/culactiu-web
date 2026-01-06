@@ -23,49 +23,49 @@
 .fotos-row {
   display: flex;
   gap: 20px; 
-  margin-bottom: 40px; 
-  
-  /* Centrem les fotos horitzontalment per si n'hi ha poques */
-  justify-content: left; 
-  
-  /* Important: Això permet que les caixes respectin la seva alçada */
+  margin-bottom: 30px; /* Reduït una mica el marge inferior */
+  justify-content: flex-start; /* Alineat a l'esquerra (equivalent a 'left' en flex) */
   align-items: stretch;
 }
 
 .foto-box {
-  /* flex: 1 fa que ocupin tota l'amplada disponible. 
-     Però per evitar que siguin gegants, posem un max-width */
   flex: 1;
   
-  /* AQUÍ ESTÀ LA CLAU DEL 3:4 */
+  /* AQUÍ ESTÀ LA SOLUCIÓ DE LA MIDA: */
+  /* Reduïm de 400px a 260px. */
+  /* Matemàticament: 260px d'ample = 346px d'alt. Això deixa espai pel text sota. */
+  max-width: 260px; 
+  
   aspect-ratio: 3 / 4; 
   
-  /* Limitem l'amplada màxima perquè no es facin enormes en pantalles grans */
-  max-width: 400px; 
+  /* AQUÍ TREIEM EL GROC: */
+  background-color: transparent; /* O 'white' si ho prefereixes */
   
-  background-color: #FFD700; 
+  /* Opcional: una vora molt fina i gris fluixet per saber on és la caixa si no carrega */
+  border: 1px solid #f0f0f0; 
+
   display: flex; 
   align-items: center;
-  justify-content: left;
+  justify-content: center;
   overflow: hidden; 
-  position: relative; /* Necessari per controlar la imatge */
-  border-radius: 4px; /* Opcional: queda més polit */
+  position: relative; 
+  border-radius: 4px;
 }
 
 .placeholder-text {
-  font-size: 24px;
-  color: #333;
+  font-size: 18px; /* Més petit perquè no molesti */
+  color: #ccc;     /* Gris fluix enlloc de negre fort */
   text-transform: uppercase;
 }
 
 .foto-box img {
   width: 100%;
-  height: 100%; /* Força la imatge a arribar a baix de tot de la caixa 3:4 */
-  object-fit: cover; /* Retalla el sobrant dels costats perquè no es deformi */
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
-/* --- RESTA D'ESTILS (IGUAL QUE ABANS) --- */
+/* --- RESTA D'ESTILS --- */
 .info-row {
   display: flex;
   justify-content: space-between;
@@ -98,7 +98,7 @@
   background-color: #FFFACD; 
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: center; /* Sol quedar millor centrat, però pots posar left si vols */
   font-size: 24px; 
   color: #333;
 }
@@ -107,14 +107,14 @@
 @media (max-width: 768px) {
   .fotos-row {
     flex-direction: row; 
-    overflow-x: auto; /* Scroll lateral al mòbil */
-    justify-content: flex-start; /* Alinia a l'esquerra al mòbil per fer scroll */
+    overflow-x: auto; 
+    justify-content: flex-start; 
     padding-bottom: 10px;
   }
   
   .foto-box {
-    /* Al mòbil les fem una mica més petites per veure'n més d'una */
-    flex: 0 0 70%; 
+    /* Al mòbil fem les fotos una mica més petites també */
+    flex: 0 0 200px; /* Amplada fixa al mòbil per fer scroll còmode */
     max-width: none;
   }
 
