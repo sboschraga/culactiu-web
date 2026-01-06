@@ -8,10 +8,13 @@ const DetallCarrer = () => {
   const nomReal = decodeURIComponent(name);
   const [ubicacioText, setUbicacioText] = useState("Calculant ubicació...");
 
+  // 1. ESTAT NOU: Guardem la URL de la foto que volem veure gran (o null si està tancat)
+  const [fotoAmpliada, setFotoAmpliada] = useState(null);
+
   const dades = infoCarrers[nomReal] || {
     lat: null,
     lon: null,
-    fotos: [], // Si no hi ha dades, array buit
+    fotos: [], 
     simbols: ["X", "X", "X", "X", "X"]
   };
 
@@ -41,18 +44,19 @@ const DetallCarrer = () => {
         <Link to="/cataleg" className="back-link">← Tornar</Link>
       </div>
 
-      {/* ZONA DE FOTOS DINÀMICA */}
       <div className="fotos-row">
         {dades.fotos.map((foto, index) => {
-          // 1. COMPROVACIÓ: Si la foto és "null", null, o està buida, no renderitzem res.
-          if (!foto || foto === "null") {
-            return null;
-          }
+          if (!foto || foto === "null") return null;
 
-          // 2. Si la foto és vàlida, renderitzem la caixa
           return (
             <div key={index} className="foto-box">
-              <img src={foto} alt={`Detall ${index}`} />
+              {/* 2. AFEGIM EL CLICK: Quan cliquem, guardem aquesta foto a l'estat */}
+              <img 
+                src={foto} 
+                alt={`Detall ${index}`} 
+                onClick={() => setFotoAmpliada(foto)} 
+                style={{ cursor: "zoom-in" }} // Canvia el cursor per indicar que es pot clicar
+              />
             </div>
           );
         })}
@@ -71,6 +75,17 @@ const DetallCarrer = () => {
           ))}
         </div>
       </div>
+
+      {/* 3. EL MODAL (FINESTRA EMERGENT): Només es mostra si fotoAmpliada té valor */}
+      {fotoAmpliada && (
+        <div className="modal-overlay" onClick={() => setFotoAmpliada(null)}>
+          <div className="modal-content">
+            <img src={fotoAmpliada} alt="Ampliada" />
+            <p className="tancar-text">Clica per tancar</p>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };

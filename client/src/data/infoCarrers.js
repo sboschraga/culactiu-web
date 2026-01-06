@@ -256,7 +256,7 @@ const infoCarrers = {
   "Torrent de Parellada": {
     lat: 41.43220110347789,
     lon: 2.1880854347440897,
-    fotos: ["/img/Sant-Andreu/Torrent-de-parellada-1_Sant-Andreu.jpg", "/img/Sant-Andreu/Torrent-de-parellada-1_Sant-Andreu.jpg"],
+    fotos: ["/img/Sant-Andreu/Torrent-de-parellada-1_Sant-Andreu.jpg", "/img/Sant-Andreu/Torrent-de-parellada-2_Sant-Andreu.jpg"],
     simbols: ["📍", "💧", "🌊", "🌉", "🐸"]
   },
   "C/ de Parellada": {
