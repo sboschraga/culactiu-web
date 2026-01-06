@@ -1,74 +1,208 @@
 /* src/pages/DetallCarrer.css */
 
-/* ... (tot el CSS anterior dels thumbnails es queda igual) ... */
+/* --- CONFIGURACIÓ GENERAL DE LA PÀGINA --- */
+.detall-container {
+  padding: 20px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
 
+.back-link-container {
+  margin-bottom: 20px;
+}
+.back-link {
+  text-decoration: none;
+  color: #666;
+  font-size: 14px;
+}
+.back-link:hover {
+  text-decoration: underline;
+  color: black;
+}
 
-/* --- ESTILS DEL MODAL (FOTO AMPLIADA 3:4) --- */
+/* =========================================
+   PART 1: LES FOTOS PETITES (MINIATURES)
+   ========================================= */
 
-/* 1. El fons fosc (overlay) */
+.fotos-row {
+  display: flex;
+  gap: 20px; 
+  margin-bottom: 30px; 
+  
+  /* Alineació a l'esquerra */
+  justify-content: flex-start; 
+  
+  /* Important: Això fa que totes tinguin la mateixa alçada */
+  align-items: stretch;
+}
+
+.foto-box {
+  flex: 1;
+  
+  /* MIDA DE LES MINIATURES */
+  /* Això és el que controla que es vegin una al costat de l'altra bé */
+  max-width: 260px; 
+  
+  /* Proporció vertical 3:4 */
+  aspect-ratio: 3 / 4; 
+  
+  background-color: transparent; 
+  border: 1px solid #f0f0f0; 
+
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; 
+  position: relative; 
+  border-radius: 4px;
+  
+  /* Cursor per indicar que es poden clicar */
+  cursor: zoom-in;
+}
+
+.foto-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Retalla per omplir el 3:4 */
+  display: block;
+  
+  /* Petita animació en passar el ratolí */
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.foto-box img:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
+.placeholder-text {
+  font-size: 18px;
+  color: #ccc;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   PART 2: INFORMACIÓ (TEXT I SÍMBOLS)
+   ========================================= */
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; 
+}
+
+.nom-carrer {
+  font-size: 24px;
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+  font-weight: normal; 
+}
+
+.ubicacio {
+  font-size: 18px;
+  color: #555;
+  margin: 0;
+}
+
+.simbols-column {
+  display: flex;
+  gap: 10px; 
+  flex-wrap: wrap; 
+  justify-content: flex-end;
+}
+
+.simbol-box {
+  width: 50px; 
+  height: 50px;
+  background-color: #FFFACD; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px; 
+  color: #333;
+}
+
+/* =========================================
+   PART 3: EL MODAL (FOTO AMPLIADA)
+   ========================================= */
+
+/* Fons fosc que cobreix tota la pantalla */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.9); /* Una mica més fosc (90%) */
+  background-color: rgba(0, 0, 0, 0.9); /* Fons fosc translúcid (90%) */
+  
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
-  cursor: zoom-out;
+  z-index: 9999; /* Per sobre de tot */
+  cursor: zoom-out; /* Cursor per tancar */
   
-  /* AQUÍ DEFINIM ELS MARGES SUPERIOR I INFERIOR QUE DEMANES */
-  /* 5vh vol dir el 5% de l'alçada de la pantalla. */
+  /* MARGES SUPERIOR I INFERIOR: 5% d'alçada a dalt i a baix */
   padding: 5vh 20px; 
-  box-sizing: border-box; /* Important perquè el padding no sumi alçada */
+  box-sizing: border-box;
 }
 
-/* 2. El contenidor que donarà la forma 3:4 */
+/* Contenidor de la foto gran */
 .modal-content {
-  /* Intentarà ocupar tota l'alçada disponible dins del padding (el 90% restant) */
+  /* Ocuparà tota l'alçada disponible dins del padding */
   height: 100%; 
   
-  /* LA CLAU: Forcem la proporció 3:4. L'amplada es calcularà sola basant-se en l'alçada. */
+  /* FORCEM LA PROPORCIÓ 3:4 TAMBÉ AL MODAL */
   aspect-ratio: 3 / 4;
-
-  /* SEGURETAT: Si la pantalla és molt estreta (mòbil), que no surti pels costats */
-  max-width: 100%; 
   
-  position: relative; /* Necessari per posar el text a sota */
-  box-shadow: 0 0 40px rgba(0,0,0,1); /* Ombra forta per destacar del fons */
-  background: #000; /* Fons negre per si la imatge triga a carregar */
+  max-width: 100%; /* Seguretat per mòbils */
+  position: relative;
+  box-shadow: 0 0 40px rgba(0,0,0,1);
+  background: black;
 }
 
-/* 3. La imatge dins del contenidor 3:4 */
+/* La imatge dins del modal */
 .modal-content img {
   width: 100%;
   height: 100%;
-  
-  /* IMPORTANT: 'cover' retallarà la foto perquè ompli exactament el rectangle 3:4.
-     Si volguessis veure la foto sencera sense retallar (encara que quedin bandes negres),
-     canvia 'cover' per 'contain'. Però pel que demanes, 'cover' és el correcte. */
-  object-fit: cover; 
-  
+  object-fit: cover; /* Retalla per mantenir el 3:4 perfecte */
   border-radius: 4px;
 }
 
-/* Text petit a sota */
 .tancar-text {
   position: absolute;
-  bottom: -35px; /* El posem fora de la caixa, a sota */
+  bottom: -35px;
   width: 100%;
   text-align: center;
   color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
 }
 
-/* Hover als thumbnails petits (igual que abans) */
-.foto-box img {
-  transition: transform 0.2s, opacity 0.2s;
-}
-.foto-box img:hover {
-  transform: scale(1.03);
-  opacity: 0.9;
+
+/* =========================================
+   RESPONSIVE (MÒBIL)
+   ========================================= */
+@media (max-width: 768px) {
+  .fotos-row {
+    flex-direction: row; 
+    overflow-x: auto; /* Scroll lateral */
+    justify-content: flex-start;
+    padding-bottom: 10px;
+  }
+  
+  .foto-box {
+    /* Mida fixa al mòbil per fer scroll */
+    flex: 0 0 200px; 
+    max-width: none;
+  }
+
+  .info-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .simbols-column {
+    justify-content: flex-start;
+  }
 }
