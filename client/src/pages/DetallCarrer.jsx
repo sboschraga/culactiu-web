@@ -7,8 +7,6 @@ const DetallCarrer = () => {
   const { name } = useParams();
   const nomReal = decodeURIComponent(name);
   const [ubicacioText, setUbicacioText] = useState("Calculant ubicació...");
-
-  // 1. ESTAT NOU: Guardem la URL de la foto que volem veure gran (o null si està tancat)
   const [fotoAmpliada, setFotoAmpliada] = useState(null);
 
   const dades = infoCarrers[nomReal] || {
@@ -44,39 +42,43 @@ const DetallCarrer = () => {
         <Link to="/cataleg" className="back-link">← Tornar</Link>
       </div>
 
-      <div className="fotos-row">
-        {dades.fotos.map((foto, index) => {
-          if (!foto || foto === "null") return null;
-
-          return (
-            <div key={index} className="foto-box">
-              {/* 2. AFEGIM EL CLICK: Quan cliquem, guardem aquesta foto a l'estat */}
-              <img 
-                src={foto} 
-                alt={`Detall ${index}`} 
-                onClick={() => setFotoAmpliada(foto)} 
-                style={{ cursor: "zoom-in" }} // Canvia el cursor per indicar que es pot clicar
-              />
-            </div>
-          );
-        })}
-      </div>
-
-      <div className="info-row">
-        <div className="text-column">
-          <h1 className="nom-carrer">{nomReal}</h1>
-          <p className="ubicacio">{ubicacioText}</p>
+      {/* --- NOVA SECCIÓ SUPERIOR: FOTOS + SÍMBOLS --- */}
+      <div className="top-section">
+        
+        {/* 1. GRUP DE FOTOS */}
+        <div className="fotos-group">
+          {dades.fotos.map((foto, index) => {
+            if (!foto || foto === "null") return null;
+            return (
+              <div key={index} className="foto-box">
+                <img 
+                  src={foto} 
+                  alt={`Detall ${index}`} 
+                  onClick={() => setFotoAmpliada(foto)} 
+                />
+              </div>
+            );
+          })}
         </div>
-        <div className="simbols-column">
+
+        {/* 2. COLUMNA DE SÍMBOLS (ARA AL COSTAT DE LES FOTOS) */}
+        <div className="simbols-vertical">
           {dades.simbols.map((simbol, index) => (
             <div key={index} className="simbol-box">
               <span className="simbol-text">{simbol}</span>
             </div>
           ))}
         </div>
+
       </div>
 
-      {/* 3. EL MODAL (FINESTRA EMERGENT): Només es mostra si fotoAmpliada té valor */}
+      {/* --- SECCIÓ INFERIOR: TEXT --- */}
+      <div className="info-text-section">
+          <h1 className="nom-carrer">{nomReal}</h1>
+          <p className="ubicacio">{ubicacioText}</p>
+      </div>
+
+      {/* MODAL (FOTO AMPLIADA) - IGUAL QUE ABANS */}
       {fotoAmpliada && (
         <div className="modal-overlay" onClick={() => setFotoAmpliada(null)}>
           <div className="modal-content">

@@ -1,6 +1,5 @@
 /* src/pages/DetallCarrer.css */
 
-/* --- CONFIGURACIÓ GENERAL DE LA PÀGINA --- */
 .detall-container {
   padding: 20px 40px;
   max-width: 1200px;
@@ -22,75 +21,71 @@
   color: black;
 }
 
-/* =========================================
-   PART 1: LES FOTOS PETITES (MINIATURES)
-   ========================================= */
-
-.fotos-row {
+/* --- SECCIÓ SUPERIOR (FOTOS + SÍMBOLS) --- */
+.top-section {
   display: flex;
-  gap: 20px; 
-  margin-bottom: 30px; 
-  
-  /* Alineació a l'esquerra */
-  justify-content: flex-start; 
-  
-  /* Important: Això fa que totes tinguin la mateixa alçada */
-  align-items: stretch;
+  gap: 20px; /* Separació entre el bloc de fotos i la columna de símbols */
+  margin-bottom: 30px;
+  align-items: flex-start; /* Alineat a dalt */
+}
+
+/* Grup de fotos (Horitzontal) */
+.fotos-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; /* Si n'hi ha moltes, que baixin */
 }
 
 .foto-box {
-  flex: 1;
-  
-  /* MIDA DE LES MINIATURES */
-  /* Això és el que controla que es vegin una al costat de l'altra bé */
-  max-width: 260px; 
-  
-  /* Proporció vertical 3:4 */
+  /* Mida de les fotos */
+  width: 260px; /* Amplada fixa */
   aspect-ratio: 3 / 4; 
   
   background-color: transparent; 
   border: 1px solid #f0f0f0; 
-
   display: flex; 
   align-items: center;
   justify-content: center;
   overflow: hidden; 
   position: relative; 
   border-radius: 4px;
-  
-  /* Cursor per indicar que es poden clicar */
   cursor: zoom-in;
 }
 
 .foto-box img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Retalla per omplir el 3:4 */
+  object-fit: cover;
   display: block;
-  
-  /* Petita animació en passar el ratolí */
   transition: transform 0.2s, opacity 0.2s;
 }
-
 .foto-box img:hover {
   transform: scale(1.03);
   opacity: 0.9;
 }
 
-.placeholder-text {
-  font-size: 18px;
-  color: #ccc;
-  text-transform: uppercase;
+/* Columna de Símbols (VERTICAL) */
+.simbols-vertical {
+  display: flex;
+  flex-direction: column; /* Aquesta línia els posa un sobre l'altre */
+  gap: 10px; /* Separació vertical entre símbols */
 }
 
-/* =========================================
-   PART 2: INFORMACIÓ (TEXT I SÍMBOLS)
-   ========================================= */
-
-.info-row {
+.simbol-box {
+  width: 50px; 
+  height: 50px;
+  background-color: #FFFACD; 
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start; 
+  align-items: center;
+  justify-content: center;
+  font-size: 24px; 
+  color: #333;
+  border-radius: 4px; /* Opcional */
+}
+
+/* --- SECCIÓ INFERIOR (TEXT) --- */
+.info-text-section {
+  margin-top: 20px;
 }
 
 .nom-carrer {
@@ -106,67 +101,36 @@
   margin: 0;
 }
 
-.simbols-column {
-  display: flex;
-  gap: 10px; 
-  flex-wrap: wrap; 
-  justify-content: flex-end;
-}
-
-.simbol-box {
-  width: 50px; 
-  height: 50px;
-  background-color: #FFFACD; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px; 
-  color: #333;
-}
-
-/* =========================================
-   PART 3: EL MODAL (FOTO AMPLIADA)
-   ========================================= */
-
-/* Fons fosc que cobreix tota la pantalla */
+/* --- EL MODAL (FOTO AMPLIADA) - IGUAL QUE ABANS --- */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.9); /* Fons fosc translúcid (90%) */
-  
+  background-color: rgba(0, 0, 0, 0.9); 
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999; /* Per sobre de tot */
-  cursor: zoom-out; /* Cursor per tancar */
-  
-  /* MARGES SUPERIOR I INFERIOR: 5% d'alçada a dalt i a baix */
+  z-index: 9999; 
+  cursor: zoom-out; 
   padding: 5vh 20px; 
   box-sizing: border-box;
 }
 
-/* Contenidor de la foto gran */
 .modal-content {
-  /* Ocuparà tota l'alçada disponible dins del padding */
   height: 100%; 
-  
-  /* FORCEM LA PROPORCIÓ 3:4 TAMBÉ AL MODAL */
   aspect-ratio: 3 / 4;
-  
-  max-width: 100%; /* Seguretat per mòbils */
+  max-width: 100%; 
   position: relative;
   box-shadow: 0 0 40px rgba(0,0,0,1);
   background: black;
 }
 
-/* La imatge dins del modal */
 .modal-content img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Retalla per mantenir el 3:4 perfecte */
+  object-fit: cover; 
   border-radius: 4px;
 }
 
@@ -179,30 +143,28 @@
   font-size: 14px;
 }
 
-
-/* =========================================
-   RESPONSIVE (MÒBIL)
-   ========================================= */
+/* --- RESPONSIVE (MÒBIL) --- */
 @media (max-width: 768px) {
-  .fotos-row {
-    flex-direction: row; 
-    overflow-x: auto; /* Scroll lateral */
-    justify-content: flex-start;
+  /* Al mòbil, posem la columna de símbols a sota de les fotos per falta d'espai?
+     O al costat amb scroll? Et proposo posar-los a sota de les fotos al mòbil */
+  
+  .top-section {
+    flex-direction: column; /* Fotos dalt, símbols baix al mòbil */
+  }
+
+  .fotos-group {
+    flex-wrap: nowrap;
+    overflow-x: auto; /* Scroll lateral de fotos */
+    width: 100%;
     padding-bottom: 10px;
   }
   
   .foto-box {
-    /* Mida fixa al mòbil per fer scroll */
-    flex: 0 0 200px; 
-    max-width: none;
+    flex: 0 0 200px; /* Mida fixa al mòbil */
   }
 
-  .info-row {
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .simbols-column {
-    justify-content: flex-start;
+  .simbols-vertical {
+    flex-direction: row; /* Al mòbil els posem horitzontals de nou perquè no ocupin tanta alçada */
+    flex-wrap: wrap;
   }
 }
