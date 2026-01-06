@@ -34,7 +34,7 @@
   /* AQUÍ ESTÀ LA SOLUCIÓ DE LA MIDA: */
   /* Reduïm de 400px a 260px. */
   /* Matemàticament: 260px d'ample = 346px d'alt. Això deixa espai pel text sota. */
-  max-width: 320px; 
+  max-width: 300px; 
   
   aspect-ratio: 3 / 4; 
   
