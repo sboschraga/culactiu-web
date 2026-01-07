@@ -1,99 +1,93 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import infoCarrers from "../data/infoCarrers";
+import infoCarrers from "../data/infoCarrers"; // Importem les dades
 import "./DetallCarrer.css";
 
-const DetallCarrer = () => {
-  const { name } = useParams();
-  const nomReal = decodeURIComponent(name);
-  const [ubicacioText, setUbicacioText] = useState("Calculant ubicació...");
+function DetallCarrer() {
+  const { nom } = useParams();
+  
+  // Decodifiquem el nom per si té accents o espais estranys a la URL
+  const nomCarrer = decodeURIComponent(nom);
+  
+  // Busquem la informació del carrer a la nostra base de dades
+  const carrer = infoCarrers[nomCarrer];
+
+  // Estat per al modal de la foto ampliada
   const [fotoAmpliada, setFotoAmpliada] = useState(null);
 
-  const dades = infoCarrers[nomReal] || {
-    lat: null,
-    lon: null,
-    fotos: [], 
-    simbols: ["X", "X", "X", "X", "X"]
-  };
-
-  useEffect(() => {
-    if (dades.lat && dades.lon) {
-      const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${dades.lat}&lon=${dades.lon}`;
-      fetch(url)
-        .then((res) => res.json())
-        .then((data) => {
-          if (data && data.address) {
-            const barri = data.address.suburb || data.address.neighbourhood || data.address.district || "Zona desconeguda";
-            const ciutat = data.address.city || data.address.town || "Barcelona";
-            setUbicacioText(`${barri}, ${ciutat}`);
-          } else {
-            setUbicacioText("Ubicació no trobada");
-          }
-        })
-        .catch(() => setUbicacioText("Error de connexió"));
-    } else {
-      setUbicacioText("Coordenades no definides");
-    }
-  }, [dades.lat, dades.lon]);
+  // Si no trobem el carrer (per exemple si escrius malament la URL), mostrem avís
+  if (!carrer) {
+    return (
+      <div style={{ padding: "20px", textAlign: "center" }}>
+        <h2>Carrer no trobat: {nomCarrer}</h2>
+        <Link to="/cataleg">Tornar al catàleg</Link>
+      </div>
+    );
+  }
 
   return (
     <div className="detall-container">
+      {/* Botó per tornar enrere */}
       <div className="back-link-container">
-        <Link to="/cataleg" className="back-link">← Tornar</Link>
+        <Link to="/cataleg" className="back-link">
+          ← tornar al catàleg
+        </Link>
       </div>
 
-      {/* --- NOVA SECCIÓ SUPERIOR: FOTOS + SÍMBOLS --- */}
       <div className="top-section">
-        
-        {/* Grup de fotos */}
-<div className="fotos-group">
-  {carrer.fotos.map((src, index) => {
-    // AQUESTA CONDICIÓ ÉS LA NOVA:
-    // Si la foto és "null" (text) o null (valor), no pintem res.
-    if (src === "null" || src === null) return null;
+        {/* GRUP DE FOTOS */}
+        <div className="fotos-group">
+          {carrer.fotos.map((src, index) => {
+            // AQUÍ ESTÀ LA MÀGIA: Si la foto és "null" o no existeix, no la pintem
+            if (src === "null" || src === null || !src) return null;
 
-    return (
-      <div 
-        key={index} 
-        className="foto-box" 
-        onClick={() => setFotoAmpliada(src)}
-      >
-        <img src={src} alt={`Foto ${index + 1} de ${nomCarrer}`} />
-      </div>
-    );
-  })}
-</div>
+            return (
+              <div 
+                key={index} 
+                className="foto-box" 
+                onClick={() => setFotoAmpliada(src)}
+              >
+                <img src={src} alt={`Foto ${index + 1} de ${nomCarrer}`} />
+              </div>
+            );
+          })}
+        </div>
 
-        {/* 2. COLUMNA DE SÍMBOLS */}
+        {/* COLUMNA DE SÍMBOLS */}
         <div className="simbols-vertical">
-          {dades.simbols.map((simbol, index) => (
+          {carrer.simbols.map((simbol, index) => (
             <div key={index} className="simbol-box">
-              {/* CORRECTE: Fem servir img */}
-              <img src={simbol} alt={`Símbol ${index}`} className="simbol-img" />
+              {/* Si el símbol comença per "/", és una ruta d'imatge real */}
+              {simbol.startsWith("/") ? (
+                <img src={simbol} alt="simbol" className="simbol-img" />
+              ) : (
+                /* Si és text antic tipus "simbol1", posem un text de moment */
+                <span>{simbol}</span>
+              )}
             </div>
           ))}
         </div>
-
-      </div> {/* <--- AQUESTA ÉS LA LÍNIA QUE FALTAVA PER TANCAR LA PART DE DALT */}
-
-      {/* --- SECCIÓ INFERIOR: TEXT --- */}
-      <div className="info-text-section">
-          <h1 className="nom-carrer">{nomReal}</h1>
-          <p className="ubicacio">{ubicacioText}</p>
       </div>
 
-      {/* MODAL (FOTO AMPLIADA) */}
+      {/* TEXT INFORMATIU A SOTA */}
+      <div className="info-text-section">
+        <h1 className="nom-carrer">{nomCarrer}</h1>
+        <p className="ubicacio">
+          Lat: {carrer.lat}, Lon: {carrer.lon}
+        </p>
+      </div>
+
+      {/* MODAL PER VEURE FOTO AMPLIADA */}
       {fotoAmpliada && (
         <div className="modal-overlay" onClick={() => setFotoAmpliada(null)}>
-          <div className="modal-content">
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <img src={fotoAmpliada} alt="Ampliada" />
-            <p className="tancar-text">Clica per tancar</p>
+            <div className="tancar-text">Prem fora per tancar</div>
           </div>
         </div>
       )}
-
     </div>
   );
-};
+}
 
 export default DetallCarrer;
