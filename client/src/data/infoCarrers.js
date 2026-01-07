@@ -2,7 +2,7 @@
 
 const infoCarrers = {
   "La Rambla": {
-    amagat: true
+    amagat: true,
     lat: 41.380775,
     lon: 2.173661,
     fotos: ["null", "null"],
@@ -15,7 +15,7 @@ const infoCarrers = {
     ]
   },
   "Plaça Urquinaona": {
-    amagat: true
+    amagat: true,
     lat: 41.388480,
     lon: 2.174390,
     fotos: ["null", "null"],
@@ -28,7 +28,7 @@ const infoCarrers = {
     ]
   },
   "Carrer Moianès": {
-    amagat: true
+    amagat: true,
     lat: 41.6141373,
     lon: 2.2893226,
     fotos: ["null", "null"],
@@ -41,7 +41,7 @@ const infoCarrers = {
     ]
   },
   "Plaça de les Olles": {
-    amagat: true
+    amagat: true,
     lat: 41.6084448,
     lon: 2.2872299,
     fotos: ["null", "null"],
