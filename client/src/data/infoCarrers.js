@@ -415,7 +415,7 @@ const infoCarrers = {
     fotos: ["null", "null"],
     simbols: [
       "/simbols/1linea.png",
-      "simb/simbols/2menys15.png",
+      "/simbols/2menys15.png",
       "/simbols/3porta.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
@@ -825,7 +825,7 @@ const infoCarrers = {
       "/simbols/1ele.png",
       "/simbols/2mes15.png",
       "/simbols/3paret.png",
-      "simb/simbols/4públic.png",
+      "/simbols/4públic.png",
       "/simbols/5ambdues.png"
     ]
   },
