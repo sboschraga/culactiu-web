@@ -237,7 +237,7 @@ const infoCarrers = {
       "/simbols/1linea.png",
       "/simbols/2mes15.png",
       "/simbols/3paret.png",
-      "simb/simbols/4públic.png",
+      "/simbols/4públic.png",
       "/simbols/5ambdues.png"
     ]
   },
@@ -430,7 +430,7 @@ const infoCarrers = {
       "/simbols/2menys15.png",
       "/simbols/3porta.png",
       "/simbols/4públic.png",
-      "simb/simbols/5peatonal.png"
+      "/simbols/5peatonal.png"
     ]
   },
   "C/ de Llerona": {
@@ -825,7 +825,7 @@ const infoCarrers = {
       "/simbols/1ele.png",
       "/simbols/2mes15.png",
       "/simbols/3paret.png",
-      "simb/simbols/4públic.pngl4",
+      "simb/simbols/4públic.png",
       "/simbols/5ambdues.png"
     ]
   },
