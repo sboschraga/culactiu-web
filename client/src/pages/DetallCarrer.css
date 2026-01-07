@@ -74,19 +74,27 @@
 /* src/pages/DetallCarrer.css */
 /* src/pages/DetallCarrer.css */
 
+/* src/pages/DetallCarrer.css */
+
 .simbol-box {
   width: 50px; 
   height: 50px;
   
-  /* 1. Treiem el color de fons (o el posem transparent) */
   background-color: transparent; 
   
-  /* 2. IMPORTANT: Posem el padding a 0 perquè la imatge toqui les vores */
-  padding: 0; 
+  /* ABANS: padding: 0; */
+  /* ARA: Posem 5px (o el que vulguis) perquè no toqui la vora */
+  padding: 5px; 
   
+  /* Assegura que el padding no faci el quadrat més gran de 50px */
+  box-sizing: border-box;
+
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  /* Opcional: Si vols veure on acaba la caixa per ajustar-ho, pots posar una vora temporal */
+  /* border: 1px solid #ddd; */
 }
 
 .simbol-img {
