@@ -1,19 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom"; 
-import infoCarrers from "../data/infoCarrers"; // 1. IMPORTEM LES DADES REALS
+import infoCarrers from "../data/infoCarrers"; 
 import "./Cataleg.css";
 
 function Cataleg() {
   
-  // 2. GENEREM LA LLISTA AUTOMÀTICAMENT
-  // Object.keys agafa tots els noms (ex: "La Rambla", "C/ Cerdà"...) del fitxer
-  // .sort() els ordena alfabèticament
-  const streets = Object.keys(infoCarrers).sort((a, b) => a.localeCompare(b));
+  // LOGICA NOVA:
+  // 1. Object.keys agafa tots els noms.
+  // 2. .filter() només deixa passar els que NO tenen "amagat: true".
+  // 3. .sort() els ordena.
+  const streets = Object.keys(infoCarrers)
+    .filter(nom => !infoCarrers[nom].amagat) 
+    .sort((a, b) => a.localeCompare(b));
 
   return (
     <div className="catalog-container">
-      
-      {/* GRAELLA DE CARRERS AMB ENLLAÇOS */}
       <div className="streets-grid">
         {streets.map((street, index) => (
           <Link 
@@ -26,10 +27,7 @@ function Cataleg() {
           </Link>
         ))}
       </div>
-
-      <div className="add-button-container">
-        <button className="add-btn">afegir</button>
-      </div>
+      {/* Botó afegir, etc... */}
     </div>
   );
 }

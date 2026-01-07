@@ -45,21 +45,24 @@ const DetallCarrer = () => {
       {/* --- NOVA SECCIÓ SUPERIOR: FOTOS + SÍMBOLS --- */}
       <div className="top-section">
         
-        {/* 1. GRUP DE FOTOS */}
-        <div className="fotos-group">
-          {dades.fotos.map((foto, index) => {
-            if (!foto || foto === "null") return null;
-            return (
-              <div key={index} className="foto-box">
-                <img 
-                  src={foto} 
-                  alt={`Detall ${index}`} 
-                  onClick={() => setFotoAmpliada(foto)} 
-                />
-              </div>
-            );
-          })}
-        </div>
+        {/* Grup de fotos */}
+<div className="fotos-group">
+  {carrer.fotos.map((src, index) => {
+    // AQUESTA CONDICIÓ ÉS LA NOVA:
+    // Si la foto és "null" (text) o null (valor), no pintem res.
+    if (src === "null" || src === null) return null;
+
+    return (
+      <div 
+        key={index} 
+        className="foto-box" 
+        onClick={() => setFotoAmpliada(src)}
+      >
+        <img src={src} alt={`Foto ${index + 1} de ${nomCarrer}`} />
+      </div>
+    );
+  })}
+</div>
 
         {/* 2. COLUMNA DE SÍMBOLS */}
         <div className="simbols-vertical">
