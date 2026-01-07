@@ -71,16 +71,26 @@
   gap: 10px; /* Separació vertical entre símbols */
 }
 
+/* src/pages/DetallCarrer.css */
+
 .simbol-box {
   width: 50px; 
   height: 50px;
-  background-color: #FFFACD; 
+  background-color: #FFFACD; /* Pots treure el color si la icona ja té fons */
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px; 
-  color: #333;
-  border-radius: 4px; /* Opcional */
+  
+  border-radius: 4px;
+  padding: 5px; /* Un petit marge intern perquè la icona respiri */
+  box-sizing: border-box;
+}
+
+/* Nova classe per la imatge del símbol */
+.simbol-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 'contain' fa que es vegi tota la icona sense retallar-se */
 }
 
 /* --- SECCIÓ INFERIOR (TEXT) --- */

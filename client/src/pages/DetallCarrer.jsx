@@ -61,16 +61,17 @@ const DetallCarrer = () => {
           })}
         </div>
 
-        {/* 2. COLUMNA DE SÍMBOLS (ARA AL COSTAT DE LES FOTOS) */}
+        {/* 2. COLUMNA DE SÍMBOLS */}
         <div className="simbols-vertical">
           {dades.simbols.map((simbol, index) => (
             <div key={index} className="simbol-box">
-              <span className="simbol-text">{simbol}</span>
+              {/* CORRECTE: Fem servir img */}
+              <img src={simbol} alt={`Símbol ${index}`} className="simbol-img" />
             </div>
           ))}
         </div>
 
-      </div>
+      </div> {/* <--- AQUESTA ÉS LA LÍNIA QUE FALTAVA PER TANCAR LA PART DE DALT */}
 
       {/* --- SECCIÓ INFERIOR: TEXT --- */}
       <div className="info-text-section">
@@ -78,7 +79,7 @@ const DetallCarrer = () => {
           <p className="ubicacio">{ubicacioText}</p>
       </div>
 
-      {/* MODAL (FOTO AMPLIADA) - IGUAL QUE ABANS */}
+      {/* MODAL (FOTO AMPLIADA) */}
       {fotoAmpliada && (
         <div className="modal-overlay" onClick={() => setFotoAmpliada(null)}>
           <div className="modal-content">
