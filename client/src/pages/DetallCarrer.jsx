@@ -5,42 +5,31 @@ import "./DetallCarrer.css";
 
 function DetallCarrer() {
   const { nom } = useParams();
-  
-  // Decodifiquem el nom de la URL
   const nomCarrer = decodeURIComponent(nom);
-  
-  // Busquem les dades
   const carrer = infoCarrers[nomCarrer];
 
-  // Estats per la foto ampliada i l'adreça automàtica
   const [fotoAmpliada, setFotoAmpliada] = useState(null);
   const [adrecaText, setAdrecaText] = useState("Calculant ubicació...");
 
-  // --- MÀGIA: Calcular Barri i Ciutat automàticament ---
   useEffect(() => {
     if (carrer) {
-      // Fem una consulta a OpenStreetMap per convertir lat/lon en text
       fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${carrer.lat}&lon=${carrer.lon}`)
         .then((res) => res.json())
         .then((data) => {
           if (data && data.address) {
-            // Busquem el barri, el districte o el poble
             const barri = data.address.suburb || data.address.neighbourhood || data.address.city_district || "";
             const ciutat = data.address.city || data.address.town || "Barcelona";
-            
-            // Si tenim barri, el posem. Si no, només ciutat.
             setAdrecaText(barri ? `${barri}, ${ciutat}` : ciutat);
           } else {
             setAdrecaText("Barcelona");
           }
         })
         .catch(() => {
-          setAdrecaText("Barcelona"); // Si falla la connexió, posem genèric
+          setAdrecaText("Barcelona");
         });
     }
-  }, [carrer]); // S'executa cada cop que canviem de carrer
+  }, [carrer]);
 
-  // Si no trobem el carrer
   if (!carrer) {
     return (
       <div style={{ padding: "20px", textAlign: "center" }}>
@@ -59,10 +48,9 @@ function DetallCarrer() {
       </div>
 
       <div className="top-section">
-        {/* FOTOS */}
+        {/* GRUP DE FOTOS (Esquerra) */}
         <div className="fotos-group">
           {carrer.fotos.map((src, index) => {
-            // Si és "null", no pintem res
             if (src === "null" || src === null || !src) return null;
             return (
               <div 
@@ -76,25 +64,39 @@ function DetallCarrer() {
           })}
         </div>
 
-        {/* SÍMBOLS */}
-        <div className="simbols-vertical">
-          {carrer.simbols.map((simbol, index) => (
-            <div key={index} className="simbol-box">
-              {simbol.startsWith("/") ? (
-                <img src={simbol} alt="simbol" className="simbol-img" />
-              ) : (
-                <span>{simbol}</span>
-              )}
-            </div>
-          ))}
+        {/* NOU BLOC: SÍMBOLS + TEXT (Dreta) */}
+        <div className="simbols-i-text">
+          {/* Columna de símbols */}
+          <div className="simbols-vertical">
+            {carrer.simbols.map((simbol, index) => (
+              <div key={index} className="simbol-box">
+                {simbol.startsWith("/") ? (
+                  <img src={simbol} alt="simbol" className="simbol-img" />
+                ) : (
+                  <span>{simbol}</span>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Nou text descriptiu */}
+          <div className="text-descriptiu">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+            </p>
+            <p>
+              Duis aute irure dolor in reprehenderit in voluptate velit esse 
+              cillum dolore eu fugiat nulla pariatur.
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* TEXT INFORMATIU */}
+      {/* INFO CARRER (A sota) */}
       <div className="info-text-section">
         <h1 className="nom-carrer">{nomCarrer}</h1>
-        
-        {/* AQUÍ ÉS ON SURT L'ADREÇA EN COMPTES DE LES COORDENADES */}
         <p className="ubicacio" style={{ textTransform: "capitalize" }}>
           {adrecaText}
         </p>

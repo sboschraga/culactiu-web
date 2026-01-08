@@ -1,13 +1,15 @@
-/* src/pages/DetallCarrer.css */
+/* src/pages/DetallCarrer.css - VERSIÓ FINAL NETEJA */
 
+/* --- CONTENIDOR PRINCIPAL --- */
 .detall-container {
   padding: 20px 40px;
   max-width: 1200px;
   margin: 0 auto;
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif; /* O la font que facis servir: 'Courier Prime', monospace, etc. */
   box-sizing: border-box;
 }
 
+/* --- ENLLAÇ TORNAR --- */
 .back-link-container {
   margin-bottom: 20px;
 }
@@ -21,33 +23,30 @@
   color: black;
 }
 
-/* --- SECCIÓ SUPERIOR (FOTOS + SÍMBOLS) --- */
+/* --- SECCIÓ SUPERIOR (TOT EL BLOC: FOTOS + SÍMBOLS + TEXT) --- */
 .top-section {
-  display: flex;
-  gap: 20px; /* Separació entre el bloc de fotos i la columna de símbols */
+  display: flex; /* Això posa les FOTOS a l'esquerra i els SÍMBOLS/TEXT a la dreta */
+  gap: 40px;     /* Separació gran entre el bloc de fotos i el bloc de la dreta */
+  align-items: flex-start;
   margin-bottom: 30px;
-  align-items: flex-start; /* Alineat a dalt */
 }
 
-/* Grup de fotos (Horitzontal) */
+/* --- BLOC DE FOTOS (ESQUERRA) --- */
 .fotos-group {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap; /* Si n'hi ha moltes, que baixin */
+  display: flex;        /* MÀGIA: Posa les fotos una al costat de l'altra */
+  gap: 20px;            /* Espai entre foto i foto */
+  flex-wrap: wrap;      /* Si no hi caben, baixen */
 }
 
 .foto-box {
-  /* Mida de les fotos */
-  width: 260px; /* Amplada fixa */
-  aspect-ratio: 3 / 4; 
-  
-  background-color: transparent; 
-  border: 1px solid #f0f0f0; 
-  display: flex; 
+  width: 260px;         /* Amplada de cada foto */
+  aspect-ratio: 3 / 4;  /* Format vertical de la foto */
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden; 
-  position: relative; 
+  overflow: hidden;
   border-radius: 4px;
   cursor: zoom-in;
 }
@@ -56,7 +55,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
   transition: transform 0.2s, opacity 0.2s;
 }
 .foto-box img:hover {
@@ -64,127 +62,138 @@
   opacity: 0.9;
 }
 
-/* Columna de Símbols (VERTICAL) */
-.simbols-vertical {
-  display: flex;
-  flex-direction: column; /* Aquesta línia els posa un sobre l'altre */
-  gap: 10px; /* Separació vertical entre símbols */
+/* --- BLOC DRET (SÍMBOLS + TEXT DESCRIPTIU) --- */
+.simbols-i-text {
+  display: flex;    /* Posa els símbols i el text de costat */
+  gap: 25px;        /* Espai entre la columna de símbols i el text */
+  flex: 1;          /* Ocupa la resta d'espai disponible */
 }
 
-/* src/pages/DetallCarrer.css */
-/* src/pages/DetallCarrer.css */
-
-/* src/pages/DetallCarrer.css */
+/* Columna de símbols (Vertical) */
+.simbols-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Separació vertical entre símbols */
+  flex-shrink: 0; /* Evita que la columna s'aixafi si hi ha poc espai */
+}
 
 .simbol-box {
-  width: 50px; 
+  width: 50px;
   height: 50px;
-  
-  background-color: transparent; 
-  
-  /* ABANS: padding: 0; */
-  /* ARA: Posem 5px (o el que vulguis) perquè no toqui la vora */
-  padding: 5px; 
-  
-  /* Assegura que el padding no faci el quadrat més gran de 50px */
+  padding: 5px;
   box-sizing: border-box;
-
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  /* Opcional: Si vols veure on acaba la caixa per ajustar-ho, pots posar una vora temporal */
-  /* border: 1px solid #ddd; */
 }
 
 .simbol-img {
   width: 100%;
   height: 100%;
-  object-fit: contain; 
+  object-fit: contain;
 }
 
-/* --- SECCIÓ INFERIOR (TEXT) --- */
+/* Text descriptiu (al costat dels símbols) */
+.text-descriptiu {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin-top: -5px; /* Petit ajust visual per alinear amb el primer símbol */
+}
+
+.text-descriptiu p {
+  margin-bottom: 15px; /* Espai entre paràgrafs */
+}
+
+/* --- SECCIÓ INFERIOR (TÍTOL CARRER I UBICACIÓ) --- */
 .info-text-section {
   margin-top: 20px;
+  border-top: 1px solid #eee; /* Opcional: línia separadora */
+  padding-top: 20px;
 }
 
 .nom-carrer {
   font-size: 24px;
   text-transform: uppercase;
   margin: 0 0 10px 0;
-  font-weight: normal; 
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .ubicacio {
   font-size: 18px;
-  color: #555;
+  color: #666;
   margin: 0;
 }
 
-/* --- EL MODAL (FOTO AMPLIADA) - IGUAL QUE ABANS --- */
+/* --- MODAL (FOTO AMPLIADA) --- */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.9); 
+  background-color: rgba(255, 255, 255, 0.95); /* Fons blanc o negre, com vulguis */
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999; 
-  cursor: zoom-out; 
-  padding: 5vh 20px; 
-  box-sizing: border-box;
+  z-index: 9999;
+  cursor: zoom-out;
+  padding: 20px;
 }
 
 .modal-content {
-  height: 100%; 
-  aspect-ratio: 3 / 4;
-  max-width: 100%; 
+  height: 90vh;
+  max-width: 90vw;
   position: relative;
-  box-shadow: 0 0 40px rgba(0,0,0,1);
-  background: black;
 }
 
 .modal-content img {
-  width: 100%;
+  width: auto;
   height: 100%;
-  object-fit: cover; 
-  border-radius: 4px;
+  object-fit: contain;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
 .tancar-text {
   position: absolute;
-  bottom: -35px;
+  bottom: -30px;
   width: 100%;
   text-align: center;
-  color: rgba(255, 255, 255, 0.7);
+  color: #666;
   font-size: 14px;
 }
 
 /* --- RESPONSIVE (MÒBIL) --- */
-@media (max-width: 768px) {
-  /* Al mòbil, posem la columna de símbols a sota de les fotos per falta d'espai?
-     O al costat amb scroll? Et proposo posar-los a sota de les fotos al mòbil */
-  
+@media (max-width: 900px) {
+  /* Quan la pantalla és petita, ho posem tot en columna */
   .top-section {
-    flex-direction: column; /* Fotos dalt, símbols baix al mòbil */
+    flex-direction: column;
+    gap: 30px;
   }
-
+  
+  /* Al mòbil, potser volem les fotos més petites o que ocupin tot l'ample */
   .fotos-group {
-    flex-wrap: nowrap;
-    overflow-x: auto; /* Scroll lateral de fotos */
     width: 100%;
-    padding-bottom: 10px;
+    justify-content: center; /* Centrem les fotos */
   }
   
   .foto-box {
-    flex: 0 0 200px; /* Mida fixa al mòbil */
+    width: 45%; /* Dues fotos per fila al mòbil */
   }
 
-  .simbols-vertical {
-    flex-direction: row; /* Al mòbil els posem horitzontals de nou perquè no ocupin tanta alçada */
-    flex-wrap: wrap;
+  /* El bloc de símbols i text també s'adapta */
+  .simbols-i-text {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .foto-box {
+    width: 100%; /* Una sola foto gran al mòbil petit */
+  }
+  
+  .simbols-i-text {
+    flex-direction: row; /* Mantem símbols al costat del text */
   }
 }
