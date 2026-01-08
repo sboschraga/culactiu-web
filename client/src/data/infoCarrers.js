@@ -65,6 +65,7 @@ const infoCarrers = {
       "/simbols/5ambdues.png"
     ]
   },
+
   "C/ Rera Sant Just": { 
     lat: 41.38253836691902,
     lon: 2.1777601558566126,
@@ -87,7 +88,14 @@ const infoCarrers = {
       "/simbols/3plaça.png",
       "/simbols/4privat.png",
       "/simbols/5peatonal.png"
-    ]
+    ],
+
+    text: ["Com és que vens aquí a seure una estona?",
+          "Estic esperant a que la meva amiga surti del taller, i doncs aquí s’està molt bé.",
+          "Vens sovint?",
+          "Si."
+        ],
+
   },
   "C/ de Riudarenes": {
     lat: 41.3809908455344,
