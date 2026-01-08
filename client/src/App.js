@@ -109,7 +109,7 @@ function NavigationContent() {
         <Route path="/denegat" element={<Denegat />} />
         
         {/* 2. NOVA RUTA AFEGIDA AQUÍ BAIX: */}
-        <Route path="/carrer/:name" element={<DetallCarrer />} />
+        <Route path="/carrer/:nom" element={<DetallCarrer />} />
       </Routes>
     </>
   );
