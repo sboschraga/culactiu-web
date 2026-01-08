@@ -79,17 +79,17 @@ function DetallCarrer() {
             ))}
           </div>
 
-          {/* Nou text descriptiu */}
+          {/* Nou text descriptiu DINÀMIC */}
           <div className="text-descriptiu">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-            </p>
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse 
-              cillum dolore eu fugiat nulla pariatur.
-            </p>
+            {carrer.text ? (
+              // Si el carrer té text, el pintem paràgraf a paràgraf
+              carrer.text.map((paragraf, i) => (
+                <p key={i}>{paragraf}</p>
+              ))
+            ) : (
+              // Si no té text definit, pintem un text per defecte o res
+              <p>Informació detallada no disponible actualment.</p>
+            )}
           </div>
         </div>
       </div>
