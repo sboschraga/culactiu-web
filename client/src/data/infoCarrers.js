@@ -68,7 +68,7 @@ const infoCarrers = {
   "C/ Rera Sant Just": { 
     lat: 41.38253836691902,
     lon: 2.1777601558566126,
-    fotos: ["/img/Ciutat-vella/carrer-de-rera-sant-just_ciutat-vella.jpg", "/img/Ciutat-vella/carrer-de-rera-sant-just_2_ciutat-vella.jpg"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1linea.png",
       "/simbols/2menys15.png",
@@ -80,7 +80,7 @@ const infoCarrers = {
   "C/ de Sant Simplici": {
     lat: 41.38164065999463,
     lon: 2.1789911726284483,
-    fotos: ["/img/Ciutat-vella/carrer-de-sant-simplici_ciutat-vella.jpg", "/img/Ciutat-vella/carrer-de-sant-simplici_2_ciutat-vella.jpg"],
+    fotos: ["null","null"],
     simbols: [
       "/simbols/1obtús.png",
       "/simbols/2mes15.png",
@@ -128,7 +128,7 @@ const infoCarrers = {
   "C/ de Nicolau de Sant Climent": {
     lat: 41.38372377336681,
     lon: 2.18092523534211,
-    fotos: ["/img/Ciutat-vella/carrer-de-nicolau-de-sant-climent_ciutat-vella.jpg", "null"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1linea.png",
       "/simbols/2mes15.png",
@@ -140,7 +140,7 @@ const infoCarrers = {
   "Ptge. de l’Oli": {
     lat: 41.38486990940606,
     lon: 2.1785662819454026,
-    fotos: ["/img/Ciutat-vella/carrer-de-loli_ciutat_vella.jpg", "/img/Ciutat-vella/carrer-de-loli_2_ciutat-vella.jpg"],
+    fotos: ["null","null"],
     simbols: [
       "/simbols/1linea.png",
       "/simbols/2mes15.png",
@@ -152,7 +152,7 @@ const infoCarrers = {
   "C/ de la Volta de la Perdiu": {
     lat: 41.386606008492606,
     lon: 2.176915928572149,
-    fotos: ["/img/Ciutat-vella/carrer-de-la-volta-de-la-perdiu_ciutat vella.jpg", "null"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1obtús.png",
       "/simbols/2mes15.png",
@@ -164,7 +164,7 @@ const infoCarrers = {
   "Ptge. de Lucà": {
     lat: 41.41052575307892,
     lon: 2.139402273531987,
-    fotos: ["/img/Sarrià-Sant Gervàsi/passatge-de-luca_sarria_sant-gervasi.jpg", "null"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1linea.png",
       "/simbols/2mes15.png",
@@ -188,7 +188,7 @@ const infoCarrers = {
   "Ptge. del Putxet": {
     lat: 41.404059059346295,
     lon: 2.1426867923084196,
-    fotos: ["/img/Sarrià-Sant Gervàsi/passatge-del-putxet_sarria_sant-gervasi.jpg", "/img/Sarrià-Sant Gervàsi/passatge-del-putxet_2_sarria_sant-gervasi.jpg"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1obtús.png",
       "/simbols/2mes15.png",
@@ -200,7 +200,7 @@ const infoCarrers = {
   "C/ de Felip Gil": {
     lat: 41.40718403377116,
     lon: 2.143423553734635,
-    fotos: ["/img/Sarrià-Sant Gervàsi/carrer-de-felip-gil_sarria_sant-gervasi.jpg", "/img/Sarrià-Sant Gervàsi/carrer-de-felip-gil_2_sarria_sant-gervasi.jpg"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1linea.png",
       "/simbols/2menys15.png",
@@ -212,7 +212,7 @@ const infoCarrers = {
   "C/ del Francolí": {
     lat: 41.40457692270555,
     lon: 2.147912951761781,
-    fotos: ["/img/Sarrià-Sant Gervàsi/carrer-francoli_sarria_sant-gervasi.jpg", "/img/Sarrià-Sant Gervàsi/carrer-francoli_2_sarria_sant-gervasi.jpg"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1linea.png",
       "/simbols/2mes15.png",
@@ -236,7 +236,7 @@ const infoCarrers = {
   "Ptge. de Sant Josep de la Muntanya": {
     lat: 41.411051638905015,
     lon: 2.1544306190168947,
-    fotos: ["/img/Gràcia/passatge-de-josep-de-la-muntanya_gracia.jpg", "/img/Gràcia/passatge-de-josep-de-la-muntanya_2_gracia.jpg"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1linea.png",
       "/simbols/2mes15.png",
@@ -248,7 +248,7 @@ const infoCarrers = {
   "C/ de Sant Cugat del Vallès": {
     lat: 41.411355377738964,
     lon: 2.1535206226931103,
-    fotos: ["/img/Gràcia/carrer-de-sant-cugat-del-valles_gracia.jpg", "/img/Gràcia/carrer-de-sant-cugat-del-valles_2_gracia.jpg"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1linea.png",
       "/simbols/2mes15.png",
@@ -272,7 +272,7 @@ const infoCarrers = {
   "Ptge. de l’Oli": {
     lat: 41.38486990940606,
     lon: 2.1785662819454026,
-    fotos: ["/img/Ciutat-vella/carrer-de-loli_ciutat_vella.jpg", "/img/Ciutat-vella/carrer-de-loli_2_ciutat-vella.jpg"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1linea.png",
       "/simbols/2mes15.png",
@@ -488,7 +488,7 @@ const infoCarrers = {
   "C/ del Verdet": {
     lat: 41.43847228336899,
     lon: 2.189590832442194,
-    fotos: ["/img/Sant-Andreu/Carrer-del-verdet-1_Sant-Andreu.jpg", "/img/Sant-Andreu/Carrer-del-verdet-2_Sant-Andreu.jpg"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1linea.png",
       "/simbols/2mes15.png",
@@ -500,7 +500,7 @@ const infoCarrers = {
   "C/ de Tremp": {
     lat: 41.43869276227528,
     lon: 2.1877591976670163,
-    fotos: ["/img/Sant-Andreu/Carrer-de-tremp-1_Sant-Andreu.jpg", "/img/Sant-Andreu/Carrer-de-tremp-2_Sant-Andreu.jpg", "/img/Sant-Andreu/Carrer-de-tremp-3_Sant-Andreu.jpg"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1ele.png",
       "/simbols/2menys15.png",
@@ -512,7 +512,7 @@ const infoCarrers = {
   "C/ d'en Xandri": {
     lat: 41.43830655157453,
     lon: 2.185560476891055,
-    fotos: ["/img/Sant-Andreu/Carrer-den-Xandri-1_Sant-Andreu.jpg", "/img/Sant-Andreu/Carrer-den-Xandri-2_Sant-Andreu.jpg"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1linea.png",
       "/simbols/2mes15.png",
@@ -524,7 +524,7 @@ const infoCarrers = {
   "Ptge. Baliarda": {
     lat: 41.436544364374875,
     lon: 2.188796995245255,
-    fotos: ["/img/Sant-Andreu/Passatge-Baliarda-1_Sant-Andreu.jpg", "/img/Sant-Andreu/Passatge-Baliarda-2_Sant-Andreu.jpg"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1linea.png",
       "/simbols/2menys15.png",
@@ -536,7 +536,7 @@ const infoCarrers = {
   "C/ Cerdà": {
     lat: 41.43565547293505,
     lon: 2.188819434514976,
-    fotos: ["/img/Sant-Andreu/Carrer-cerdà-1_Sant-Andreu.jpg", "/img/Sant-Andreu/Carrer-cerdà-2_Sant-Andreu.jpg"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1linea.png",
       "/simbols/2mes15.png",
@@ -548,7 +548,7 @@ const infoCarrers = {
   "C/ de Gordi": {
     lat: 41.43565547293505,
     lon: 2.188819434514976,
-    fotos: ["/img/Sant-Andreu/Carrer-gordi-1_Sant-Andreu.jpg", "/img/Sant-Andreu/Carrer-gordi-2_Sant-Andreu.jpg", "/img/Sant-Andreu/Carrer-gordi-3_Sant-Andreu.jpg"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1ele.png",
       "/simbols/2mes15.png",
@@ -560,7 +560,7 @@ const infoCarrers = {
   "C/ de Parellada": {
     lat: 41.43220110347789,
     lon: 2.1880854347440897,
-    fotos: ["/img/Sant-Andreu/Carrer-de-parellada-1_Sant-Andreu.jpg", "/img/Sant-Andreu/Carrer-de-parellada-2_Sant-Andreu.jpg"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1linea.png",
       "/simbols/2mes15.png",
@@ -572,7 +572,7 @@ const infoCarrers = {
   "Torrent de Parellada": {
     lat: 41.43220110347789,
     lon: 2.1880854347440897,
-    fotos: ["/img/Sant-Andreu/Carrer-de-parellada-1_Sant-Andreu.jpg", "/img/Sant-Andreu/Carrer-de-parellada-2_Sant-Andreu.jpg"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1linea.png",
       "/simbols/2mes15.png",
@@ -584,7 +584,7 @@ const infoCarrers = {
   "Ptge. d'Irlanda": {
     lat: 41.43150959397617,
     lon: 2.18633448074808,
-    fotos: ["/img/Sant-Andreu/ptge-dirlanda-1_Sant-Andreu.jpg", "/img/Sant-Andreu/ptge-dirlanda-2_Sant-Andreu.jpg"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1linea.png",
       "/simbols/2mes15.png",
@@ -596,7 +596,7 @@ const infoCarrers = {
   "C/ dels Afores": {
     lat: 41.429528606195724,
     lon: 2.190764445532401,
-    fotos: ["/img/Sant-Andreu/Carrer-dels-afores-1_Sant-Andreu.jpg", "/img/Sant-Andreu/Carrer-dels-afores-2_Sant-Andreu.jpg"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1linea.png",
       "/simbols/2menys15.png",
@@ -788,7 +788,7 @@ const infoCarrers = {
   "C/ de Demòstenes": {
     lat: 41.376259785732664,
     lon: 2.1335985029724776,
-    fotos: ["/img/Sants-Montuïc/carrer-de-demostens_sants_montjuic.jpg", "/img/Sants-Montuïc/carrer-de-demostens_2_sants_montjuic.jpg", "/img/Sants-Montuïc/carrer-de-demostens_3_sants_montjuic.jpg"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1ele.png",
       "/simbols/2mes15.png",
@@ -800,7 +800,7 @@ const infoCarrers = {
   "C/ de López Catalan": {
     lat: 41.3759601350936,
     lon: 2.1374172879565547,
-    fotos: ["/img/Sants-Montuïc/carrer-de-lopez-catalan_sants_montjuic.jpg", "/img/Sants-Montuïc/carrer-de-lopez-catalan_2_sants_montjuic.jpg"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1obtús.png",
       "/simbols/2mes15.png",
@@ -812,7 +812,7 @@ const infoCarrers = {
   "C/ dels Dominics": {
     lat: 41.40963557844661,
     lon: 2.1340033531724725,
-    fotos: ["/img/Sarrià-Sant Gervàsi/carrer-dels-dominics_sarria_sant-gervasi.jpg", "/img/Sarrià-Sant Gervàsi/carrer-dels-dominics_2_sarria_sant-gervasi.jpg"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1obtús.png",
       "/simbols/2mes15.png",
@@ -824,7 +824,7 @@ const infoCarrers = {
   "C/ de les Canàries": {
     lat: 41.40533168309466,
     lon: 2.1247430963679292,
-    fotos: ["/img/sarria_sant gervasi/carrer-de-canaries_sarria_sant-gervasi.jpg", "/img/sarria_sant gervasi/carrer-de-canaries_2_sarria_sant-gervasi.jpg"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1ele.png",
       "/simbols/2mes15.png",
@@ -836,7 +836,7 @@ const infoCarrers = {
   "C/ de Margenat": {
     lat: 41.403586230370884,
     lon: 2.123442258686652,
-    fotos: ["/img/Sarrià-Sant Gervàsi/carrer-margenat_sarria_sant-gervasi.jpg", "null"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1linea.png",
       "/simbols/2menys15.png",
@@ -848,7 +848,7 @@ const infoCarrers = {
   "C/ de l’Arquitecte Mas": {
     lat: 41.39934449380521,
     lon: 2.1209996214326345,
-    fotos: ["/img/Sarrià-Sant Gervàsi/carrer-de-larquitecta_sarria_sant-gervasi.jpg", "null"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1linea.png",
       "/simbols/2menys15.png",
@@ -860,7 +860,7 @@ const infoCarrers = {
   "C/ Pau Alcover": {
     lat: 41.40041764061599,
     lon: 2.128642166103607,
-    fotos: ["/img/Sarrià-Sant Gervàsi/carrer-de-pau-alcover_sarria_sant-gervasi.jpg", "null"],
+    fotos: ["null", "null"],
     simbols: [
       "/simbols/1linea.png",
       "/simbols/2mes15.png",
