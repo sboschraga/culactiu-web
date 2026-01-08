@@ -164,7 +164,9 @@ function Home() {
 
               <p style={paragraphStyle}>
 
-                Som un col·lectiu dedicat als culs de sac, entesos com a espais de pausa urbana i no productivitat. Reflexionem sobre la ciutat, els seus ritmes i l'espai comú. Us convidem a replicar les nostres accions o a crear-ne de noves, tot reivindicant que aquests espais existeixen i són essencials i mereixen ser preservats.
+                Som un col·lectiu dedicat als culs de sac, entesos com a espais de pausa urbana i no productivitat. Reflexionem sobre la ciutat, els seus ritmes i l'espai comú. 
+                {'\n\n'} 
+                Us convidem a replicar les nostres accions o a crear-ne de noves, tot reivindicant que aquests espais existeixen i són essencials i mereixen ser preservats.
 
               </p>
 
