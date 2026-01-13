@@ -1,56 +1,59 @@
 import React, { useState } from "react";
-// Importem useNavigate i useLocation a més de les rutes
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
 
 // --- IMPORTACIONS DE PÀGINES ---
 import Home from "./pages/Home";
-import Denegat from "./pages/Denegat";
 import Cataleg from "./pages/Cataleg";
-import Accions from "./pages/Accions"; 
-import DetallCarrer from "./pages/DetallCarrer"; // <--- 1. NOVA IMPORTACIÓ AQUÍ
+import Denegat from "./pages/Denegat";
+import Accions from "./pages/Accions";
+import DetallCarrer from "./pages/DetallCarrer";
 
-function NavigationContent() {
+// Component que conté la Barra de Navegació i la lògica del GPS
+function Layout() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  
+
   const handleCheckLocation = () => {
     setLoading(true);
 
-    if (!navigator.geolocation) {
-      alert("El navegador no suporta geolocalització.");
+    if (!("geolocation" in navigator)) {
+      alert("El teu navegador no suporta geolocalització.");
       setLoading(false);
       return;
     }
 
     navigator.geolocation.getCurrentPosition(
-      async (pos) => {
-        const { latitude, longitude } = pos.coords;
-        try {
-          // Canvia la URL si puges a Render o si fas servir localhost
-          const res = await fetch("https://culactiu-web.onrender.com/check-location", { 
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ latitude, longitude }),
-          });
+      (position) => {
+        const { latitude, longitude } = position.coords;
 
-          const data = await res.json();
+        // --- ZONA PERMESA (Barcelona i voltants) ---
+        // Ajusta aquests números si cal
+        const latMin = 41.0; 
+        const latMax = 41.8;
+        const lonMin = 1.9;
+        const lonMax = 2.4;
 
-          if (data.access) {
-            navigate("/cataleg"); 
-          } else {
-            navigate("/denegat", { state: { distance: data.distance } });
-          }
+        const dinsZona = 
+          latitude >= latMin && 
+          latitude <= latMax && 
+          longitude >= lonMin && 
+          longitude <= lonMax;
 
-        } catch (err) {
-          console.error(err);
-          alert("Error de connexió amb el servidor");
-        } finally {
-          setLoading(false);
+        // SI VOLS ENTRAR SEMPRE PER FER PROVES, DESCOMENTA LA LÍNIA DE SOTA:
+        // const dinsZona = true; 
+
+        if (dinsZona) {
+          // Si és correcte, anem directes a la llista
+          navigate("/cataleg");
+        } else {
+          // Si no, a la pàgina d'error
+          navigate("/denegat");
         }
+        setLoading(false);
       },
-      (err) => {
-        console.error(err);
-        alert("No s'ha pogut obtenir la ubicació. Activa el GPS.");
+      (error) => {
+        console.error("Error GPS:", error);
+        alert("No s'ha pogut obtenir la teva ubicació. Revisa els permisos.");
         setLoading(false);
       },
       { enableHighAccuracy: true }
@@ -60,10 +63,6 @@ function NavigationContent() {
   return (
     <>
       {/* --- BARRA DE NAVEGACIÓ --- */}
-      {/* Nota: Com que la pàgina 'Cataleg' ja té la seva pròpia capçalera, 
-          potser voldràs amagar aquesta barra quan estiguis a /cataleg, 
-          però de moment ho deixem tal qual perquè funcioni la lògica. */}
-      
       <nav style={{ display: 'flex', justifyContent: 'space-between', padding: '20px', alignItems: 'center' }}>
         
         <div className="logo">
@@ -72,12 +71,13 @@ function NavigationContent() {
                 color: 'black', 
                 fontWeight: 'bold',
                 fontSize: '1.8rem'
-            }}>
+           }}>
                 CULACTIU
            </Link>
         </div>
 
         <div>
+          {/* BOTÓ CATÀLEG: Comprova ubicació al clicar */}
           <button 
             onClick={handleCheckLocation} 
             disabled={loading}
@@ -92,7 +92,7 @@ function NavigationContent() {
               color: loading ? 'grey' : 'black'
             }}
           >
-            {loading ? "calculant..." : "catàleg"}
+            {loading ? "comprovant..." : "catàleg"}
           </button>
 
           <Link to="/accions" style={{ textDecoration: 'none', color: 'black' }}>
@@ -104,12 +104,18 @@ function NavigationContent() {
       {/* --- RUTES --- */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/accions" element={<Accions />} />
-        <Route path="/cataleg" element={<Cataleg />} />
-        <Route path="/denegat" element={<Denegat />} />
         
-        {/* 2. NOVA RUTA AFEGIDA AQUÍ BAIX: */}
+        {/* Ruta directa al catàleg (protegida pel botó anterior) */}
+        <Route path="/cataleg" element={<Cataleg />} />
+        
+        <Route path="/denegat" element={<Denegat />} />
+        <Route path="/accions" element={<Accions />} />
+        
+        {/* Ruta Detall Carrer */}
         <Route path="/carrer/:nom" element={<DetallCarrer />} />
+
+        {/* Ruta per afegir carrer (placeholder) */}
+        <Route path="/afegir-carrer" element={<div style={{padding: 20}}>Pàgina per afegir carrer (en construcció)</div>} />
       </Routes>
     </>
   );
@@ -118,7 +124,7 @@ function NavigationContent() {
 function App() {
   return (
     <Router>
-      <NavigationContent />
+      <Layout />
     </Router>
   );
 }

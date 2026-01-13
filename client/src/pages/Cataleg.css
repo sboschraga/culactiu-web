@@ -1,57 +1,202 @@
 /* src/pages/Cataleg.css */
 
-.catalog-container {
-  padding: 40px;
-  min-height: 100vh;
-  
-  /* CANVI 1: Fons transparent perquè agafi el color de la web general (com la barra) */
-  background-color: transparent; 
-  
-  font-family: Arial, sans-serif;
-  position: relative;
-  box-sizing: border-box;
+.cataleg-container {
+  padding: 20px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
 }
 
-/* --- LLISTA TIPUS "DIARI" --- */
-.streets-grid {
+/* --- 1. FILTRES (A DALT) --- */
+.filtres-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; 
+  /* Reduïm una mica el marge perquè el buscador està just a sota */
+  margin-bottom: 20px; 
+}
+
+.grup-filtre {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 100px;
+  margin-bottom: 20px;
+  /* Eliminem el background-color al hover per treure el requadre blanc */
+  padding: 10px 10px 10px 0; /* Ajustem padding perquè no es mogui */
+  border-radius: 8px;
+  transition: none; /* Ja no cal transició de fons */
+}
+
+/* JA NO HI HA BACKGROUND AL HOVER */
+.grup-filtre:hover {
+  background-color: transparent;
+}
+
+.titol-grup {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #000;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  font-weight: normal;
+}
+
+.icones-grup {
+  display: flex;
+  gap: 15px;
+}
+
+.wrapper-filtre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60px;
+}
+
+.botó-filtre {
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 2px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1; 
+  transition: transform 0.2s;
+  margin-bottom: 5px;
+}
+
+.botó-filtre:hover {
+  transform: scale(1.15); 
+}
+
+.botó-filtre img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.botó-filtre.actiu {
+  background-color: black;
+  border-radius: 4px;
+}
+.botó-filtre.actiu img {
+  filter: invert(1);
+}
+
+/* Llegenda */
+.legenda-simbol {
+  font-size: 0.7rem;
+  color: #666;
+  text-align: center;
+  line-height: 1.1;
+  opacity: 0; 
+  transition: opacity 0.3s ease;
+}
+
+.grup-filtre:hover .legenda-simbol {
+  opacity: 1;
+}
+
+/* --- 2. ZONA INTERMÈDIA (Cercador + Netejar) --- */
+.zona-intermedia {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Separació entre buscador i botó netejar */
+  margin-bottom: 40px; /* Espai abans de la llista */
+  padding-left: 0;
+}
+
+.buscador-container {
+  text-align: left;
+}
+
+.input-cercador {
+  padding: 5px 0;
+  width: 100%;
+  
+  /* CANVI: Més petit */
+  max-width: 200px; 
+  
+  border: none;
+  border-bottom: 1px solid #000; 
+  font-size: 0.9rem; /* Lletra una mica més discreta */
+  outline: none;
+  font-family: inherit;
+  background: transparent;
+}
+
+.input-cercador::placeholder {
+  color: #999;
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+.netejar-filtres {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  color: #666;
+  font-size: 0.85rem;
+  padding: 0;
+}
+.netejar-filtres:hover {
+  color: black;
+}
+
+/* --- 3. LLISTA --- */
+.contenidor-llista {
   column-count: 4; 
-  
-  /* CANVI 2: Aquí controles la separació. 
-     Posa 5px, 10px, 20px... el que t'agradi més. */
-  column-gap: 5px; 
-  
-  width: 100%; 
+  column-gap: 40px; 
 }
 
-.street-item {
-  font-size: 14px;
-  color: #333;
-  line-height: 1.4;
+.item-llista {
+  display: block; 
+  text-decoration: none;
+  color: #000;
+  font-size: 0.85rem; 
+  margin-bottom: 8px; 
   break-inside: avoid; 
   page-break-inside: avoid;
-  margin-bottom: 5px; 
+  font-weight: normal;
 }
 
-/* Responsive: 2 columnes en pantalles petites */
-@media (max-width: 768px) {
-  .streets-grid {
-    column-count: 2;
+.item-llista:hover {
+  text-decoration: underline;
+  color: #555;
+}
+
+.no-resultats {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .contenidor-llista {
+    column-count: 3;
   }
 }
-
-/* --- BOTÓ AFEGIR --- */
-.add-button-container {
-  position: fixed;
-  bottom: 50px;
-  right: 60px;
-}
-
-.add-btn {
-  background: white; /* Si vols que el botó també sigui del mateix color, posa 'transparent' aquí també */
-  border: 2px solid black;
-  border-radius: 50px;
-  padding: 5px 35px;
-  font-size: 20px;
-  font-family: inherit;
-  cursor: default;
+@media (max-width: 600px) {
+  .filtres-section {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .grup-filtre {
+    padding: 0;
+  }
+  .contenidor-llista {
+    column-count: 1; 
+  }
+  .zona-intermedia {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .legenda-simbol {
+    opacity: 1; /* Al mòbil sempre visibles */
+  }
 }
