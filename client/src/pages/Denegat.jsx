@@ -4,11 +4,10 @@ import { useLocation, Link } from "react-router-dom";
 function Denegat() {
   const location = useLocation();
   
-  // Recuperem les dades que ens envia l'App.js
   const nomCarrer = location.state?.nomCarrer || "desconegut";
   const distanciaKm = location.state?.distanciaKm || 0;
 
-  // Convertim a metres per mostrar-ho més maco
+  // Convertim a metres
   const metres = Math.round(distanciaKm * 1000);
 
   const containerStyle = {
@@ -18,7 +17,8 @@ function Denegat() {
     alignItems: "center",
     height: "80vh",
     textAlign: "center",
-    padding: "20px"
+    padding: "20px",
+    fontFamily: "Arial, sans-serif"
   };
 
   return (
@@ -27,22 +27,14 @@ function Denegat() {
         Accés Denegat!
       </h1>
       
-      <p style={{ fontSize: "1.2rem", maxWidth: "700px", margin: "20px 0" }}>
+      {/* Tot el text té la mateixa mida (1.2rem) i estil */}
+      <p style={{ fontSize: "1.2rem", maxWidth: "700px", margin: "20px 0", lineHeight: "1.6" }}>
         Ves a un cul de sac per a poder accedir al nostre catàleg.
         <br /><br />
-        
-        {/* Aquí mostrem el carrer més proper */}
-        El cul de sac registrat més proper és:
-        <br/>
-        <strong style={{ fontSize: "1.5rem", display: "block", marginTop: "10px" }}>
-          {nomCarrer}
-        </strong>
-        <span style={{ fontSize: "0.9rem", color: "#666" }}>
-          (a uns {metres} metres d'aquí)
-        </span>
+        El cul de sac registrat més proper és <strong>{nomCarrer}</strong> (a uns {metres} metres d'aquí).
       </p>
 
-      <Link to="/" style={{ textDecoration: "underline", color: "black", cursor: "pointer" }}>
+      <Link to="/" style={{ textDecoration: "underline", color: "black", cursor: "pointer", marginTop: "10px" }}>
         TORNAR A LA HOME
       </Link>
     </div>
