@@ -5,28 +5,28 @@ import "./Cataleg.css";
 
 const GRUPS_SIMBOLS = {
   "Forma": [
-    { src: "/simbols/1linea.png", nom: "Rectilini" },
-    { src: "/simbols/1obtús.png", nom: "Obtús" },
-    { src: "/simbols/1ele.png", nom: "Forma L" }
+    { src: "/simbols/1linea.svg", nom: "Rectilini" },
+    { src: "/simbols/1obtús.svg", nom: "Obtús" },
+    { src: "/simbols/1ele.svg", nom: "Forma L" }
   ],
-  "Pendent": [
-    { src: "/simbols/2mes15.png", nom: "> 15m" },
-    { src: "/simbols/2menys15.png", nom: "< 15m" }
+  "Llargada": [
+    { src: "/simbols/2mes15.svg", nom: "> 15m" },
+    { src: "/simbols/2menys15.svg", nom: "< 15m" }
   ],
-  "Tancament": [
-    { src: "/simbols/3porta.png", nom: "Porta" },
-    { src: "/simbols/3paret.png", nom: "Paret" },
-    { src: "/simbols/3muntanya.png", nom: "Muntanya" },
-    { src: "/simbols/3plaça.png", nom: "Plaça" },
-    { src: "/simbols/3valla.png", nom: "Valla" }
+  "Final del carrer": [
+    { src: "/simbols/3porta.svg", nom: "Porta" },
+    { src: "/simbols/3paret.svg", nom: "Paret" },
+    { src: "/simbols/3muntanya.svg", nom: "Muntanya" },
+    { src: "/simbols/3plaça.svg", nom: "Plaça" },
+    { src: "/simbols/3valla.svg", nom: "Valla" }
   ],
   "Propietat": [
-    { src: "/simbols/4públic.png", nom: "Públic" },
-    { src: "/simbols/4privat.png", nom: "Privat" }
+    { src: "/simbols/4públic.svg", nom: "Públic" },
+    { src: "/simbols/4privat.svg", nom: "Privat" }
   ],
   "Accés": [
-    { src: "/simbols/5peatonal.png", nom: "Vianants" },
-    { src: "/simbols/5ambdues.png", nom: "Mixt" }
+    { src: "/simbols/5peatonal.svg", nom: "Vianants" },
+    { src: "/simbols/5ambdues.svg", nom: "Mixt" }
   ]
 };
 
@@ -62,6 +62,13 @@ function Cataleg() {
   return (
     <div className="cataleg-container">
       
+      {/* --- NOU BOTÓ TORNAR --- */}
+      <div style={{ marginBottom: "20px" }}>
+        <Link to="/cataleg" className="boto-tornar">
+          ← TORNAR
+        </Link>
+      </div>
+
       {/* 1. PRIMER ELS SÍMBOLS (FILTRES) */}
       <div className="filtres-section">
         {Object.entries(GRUPS_SIMBOLS).map(([categoria, simbols]) => (

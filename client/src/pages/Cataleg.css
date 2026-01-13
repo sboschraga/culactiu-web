@@ -12,7 +12,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between; 
-  /* Reduïm una mica el marge perquè el buscador està just a sota */
   margin-bottom: 20px; 
 }
 
@@ -22,13 +21,11 @@
   align-items: flex-start;
   min-width: 100px;
   margin-bottom: 20px;
-  /* Eliminem el background-color al hover per treure el requadre blanc */
-  padding: 10px 10px 10px 0; /* Ajustem padding perquè no es mogui */
+  padding: 10px 10px 10px 0; 
   border-radius: 8px;
-  transition: none; /* Ja no cal transició de fons */
+  transition: none; 
 }
 
-/* JA NO HI HA BACKGROUND AL HOVER */
 .grup-filtre:hover {
   background-color: transparent;
 }
@@ -105,8 +102,8 @@
 .zona-intermedia {
   display: flex;
   align-items: center;
-  gap: 20px; /* Separació entre buscador i botó netejar */
-  margin-bottom: 40px; /* Espai abans de la llista */
+  gap: 20px; 
+  margin-bottom: 40px; 
   padding-left: 0;
 }
 
@@ -117,13 +114,10 @@
 .input-cercador {
   padding: 5px 0;
   width: 100%;
-  
-  /* CANVI: Més petit */
   max-width: 200px; 
-  
   border: none;
   border-bottom: 1px solid #000; 
-  font-size: 0.9rem; /* Lletra una mica més discreta */
+  font-size: 0.9rem; 
   outline: none;
   font-family: inherit;
   background: transparent;
@@ -175,6 +169,22 @@
   margin-top: 50px;
 }
 
+/* --- AFEGIT BOTÓ TORNAR --- */
+.boto-tornar {
+  text-decoration: none;
+  color: black;
+  font-weight: normal; /* Sense negreta */
+  font-size: 0.8rem;   /* Més petit */
+  text-transform: uppercase;
+  transition: opacity 0.3s;
+  display: inline-block;
+}
+
+.boto-tornar:hover {
+  text-decoration: underline;
+  opacity: 0.7;
+}
+
 /* --- RESPONSIVE --- */
 @media (max-width: 900px) {
   .contenidor-llista {
@@ -197,6 +207,6 @@
     align-items: flex-start;
   }
   .legenda-simbol {
-    opacity: 1; /* Al mòbil sempre visibles */
+    opacity: 1; 
   }
 }

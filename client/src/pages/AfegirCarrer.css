@@ -1,0 +1,186 @@
+.form-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.titol-form {
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.formulari {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.camp {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* CANVI: Negreta als títols dels camps */
+.camp label {
+  font-weight: bold; 
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+/* Inputs */
+input[type="text"], textarea {
+  padding: 15px;
+  border: none;
+  border-bottom: 1px solid black;
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: transparent;
+}
+input[type="text"]:focus, textarea:focus {
+  outline: none;
+  border-bottom: 2px solid black;
+}
+
+/* FOTOS */
+.inputs-fotos {
+  display: flex;
+  gap: 20px;
+}
+.input-foto {
+  flex: 1;
+  border: 1px solid #ddd;
+  padding: 20px;
+  text-align: center;
+}
+
+/* --- ESTIL SÍMBOLS (IGUAL QUE CATÀLEG) --- */
+.graella-simbols-cataleg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px; 
+}
+
+.grup-seleccio {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 100px;
+}
+
+.titol-categoria-form {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #000;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  font-weight: normal; 
+}
+
+.icones-seleccio {
+  display: flex;
+  gap: 15px;
+}
+
+.wrapper-filtre-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60px;
+  cursor: pointer;
+}
+
+/* CANVI: Mides i efectes clavats al catàleg */
+.botó-filtre-form {
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 2px;
+  width: 40px;   /* Mida fixa */
+  height: 40px;  /* Mida fixa */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1; 
+  transition: transform 0.2s;
+  margin-bottom: 5px;
+}
+
+.botó-filtre-form:hover {
+  transform: scale(1.15); /* Efecte zoom igual que catàleg */
+}
+
+.botó-filtre-form img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Quan està seleccionat es posa negre */
+.botó-filtre-form.actiu {
+  background-color: black;
+  border-radius: 4px;
+}
+.botó-filtre-form.actiu img {
+  filter: invert(1);
+}
+
+.legenda-simbol-form {
+  font-size: 0.7rem;
+  color: #666;
+  text-align: center;
+  line-height: 1.1;
+  opacity: 1; 
+}
+
+/* BOTÓ ENVIAR */
+.boto-enviar {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  border: 1px solid black;
+  cursor: pointer;
+  margin-top: 20px;
+  font-family: inherit;
+  transition: all 0.3s;
+}
+
+.boto-enviar:hover {
+  background-color: white;
+  color: black;
+}
+
+@media (max-width: 600px) {
+  .inputs-fotos {
+    flex-direction: column;
+  }
+}
+/* Afegeix això al final del fitxer CSS */
+
+/* src/pages/AfegirCarrer.css */
+
+.boto-tornar {
+  text-decoration: none;
+  color: black;
+  
+  /* CANVI: Sense negreta i més petit */
+  font-weight: normal; 
+  font-size: 0.8rem; 
+  
+  text-transform: uppercase;
+  transition: opacity 0.3s;
+  
+  /* Opcional: per assegurar que queda alineat a l'esquerra */
+  display: inline-block;
+}
+
+.boto-tornar:hover {
+  text-decoration: underline;
+  opacity: 0.7;
+}

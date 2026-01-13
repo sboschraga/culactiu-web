@@ -1,0 +1,79 @@
+/* Contenidor principal AMB IMATGE DE FONS */
+.menu-split-container {
+  display: flex;
+  width: 100%;
+  
+  /* CANVI AQUÍ: */
+  /* 100vh és tota la pantalla. Li restem uns 90px de la barra de menú. */
+  /* Pots ajustar el '90px' si veus que et sobra o falta espai. */
+  height: calc(113vh - 90px); 
+  
+  /* Assegura't que tens això perquè la imatge s'adapti bé al nou tamany */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Cada meitat ocupa el 50% */
+.meitat-menu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  box-sizing: border-box;
+  
+  /* Opcional: Si vols que el fons s'enfosqueixi una mica per llegir millor: */
+  /* background-color: rgba(255, 255, 255, 0.3); */
+}
+
+/* BOTONS */
+.boto-titol {
+  /* CANVI: Fons blanc perquè ressalti sobre la foto */
+  background: white; 
+  
+  border: 1px solid black; 
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: normal; /* Sense negreta */
+  text-transform: uppercase;
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit; 
+  min-width: 250px;
+  text-align: center;
+  
+  /* Ombra suau perquè floti sobre la imatge */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.boto-titol:hover {
+  background-color: black;
+  color: white;
+  transform: scale(1.05); /* Petit efecte zoom */
+}
+
+/* Enllaç tipus bloc */
+.link-boto {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .menu-split-container {
+    flex-direction: column;
+    height: auto;
+    /* Al mòbil potser vols que la imatge es vegi diferent o treure-la */
+    min-height: 80vh; 
+  }
+  
+  .meitat-menu {
+    padding: 60px 20px; 
+  }
+}

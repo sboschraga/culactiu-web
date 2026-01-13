@@ -58,11 +58,11 @@ const infoCarrers = {
     lon: 2.1538305943850613,
     fotos: ["/img/gracia/carrer-de-langel_gracia.jpg", "/img/gracia/carrer-de-langel_2_gracia.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ]
   },
 
@@ -71,11 +71,11 @@ const infoCarrers = {
     lon: 2.1777601558566126,
     fotos: ["/img/ciutat_vella/carrer-de-rera-sant-just_ciutat-vella.jpg", "/img/ciutat_vella/carrer-de-rera-sant-just_2_ciutat-vella.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2menys15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5peatonal.png"
+      "/simbols/1linea.svg",
+      "/simbols/2menys15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5peatonal.svg"
     ]
   },
   "C/ de Sant Simplici": {
@@ -83,11 +83,11 @@ const infoCarrers = {
     lon: 2.1789911726284483,
     fotos: ["/img/ciutat_vella/carrer-de-sant-simplici_ciutat-vella.jpg","/img/ciutat_vella/carrer-de-sant-simplici_2_ciutat-vella.jpg"],
     simbols: [
-      "/simbols/1obtús.png",
-      "/simbols/2mes15.png",
-      "/simbols/3plaça.png",
-      "/simbols/4privat.png",
-      "/simbols/5peatonal.png"
+      "/simbols/1obtús.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3plaça.svg",
+      "/simbols/4privat.svg",
+      "/simbols/5peatonal.svg"
     ],
 
     text: ["Com és que vens aquí a seure una estona?",
@@ -102,11 +102,11 @@ const infoCarrers = {
     lon: 2.1797510001495874,
     fotos: ["/img/ciutat_vella/carrer-de-riudarenes_ciutat-vella.jpg", "/img/ciutat_vella/carrer-de-riudarenes_2_ciutat-vella.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5peatonal.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5peatonal.svg"
     ]
   },
   "C/ del Tonell": {
@@ -114,11 +114,11 @@ const infoCarrers = {
     lon: 2.17991098173389,
     fotos: ["/img/ciutat_vella/carrer-del-tonell_ciutat-vella.jpg", "null"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2menys15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5peatonal.png"
+      "/simbols/1linea.svg",
+      "/simbols/2menys15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5peatonal.svg"
     ]
   },
   "C/ de la Tarongeta": {
@@ -126,11 +126,11 @@ const infoCarrers = {
     lon: 2.181049643017582,
     fotos: ["/img/ciutat_vella/carrer-de-la-tarongeta_ciutat-vella.jpg", "null"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3paret.png",
-      "/simbols/4privat.png",
-      "/simbols/5peatonal.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3paret.svg",
+      "/simbols/4privat.svg",
+      "/simbols/5peatonal.svg"
     ]
   },
   "C/ de Nicolau de Sant Climent": {
@@ -138,11 +138,11 @@ const infoCarrers = {
     lon: 2.18092523534211,
     fotos: ["/img/ciutat_vella/carrer-de-nicolau-de-sant-climent_ciutat-vella.jpg", "null"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3porta.png",
-      "/simbols/4privat.png",
-      "/simbols/5peatonal.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4privat.svg",
+      "/simbols/5peatonal.svg"
     ],
 
     text: ["El passatge és exclusiu del museu?",
@@ -156,11 +156,11 @@ const infoCarrers = {
     lon: 2.1785662819454026,
     fotos: ["/img/ciutat_vella/carrer-de-loli_ciutat-vella.jpg","/img/ciutat_vella/carrer-de-loli_2_ciutat-vella.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Hola perdona, viu a aquí?",
@@ -173,11 +173,11 @@ const infoCarrers = {
     lon: 2.176915928572149,
     fotos: ["/img/ciutat_vella/carrer-de-la-volta-de-la-perdiu_ciutat-vella.jpg", "null"],
     simbols: [
-      "/simbols/1obtús.png",
-      "/simbols/2mes15.png",
-      "/simbols/3porta.png",
-      "/simbols/4privat.png",
-      "/simbols/5peatonal.png"
+      "/simbols/1obtús.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4privat.svg",
+      "/simbols/5peatonal.svg"
     ]
   },
   "Ptge. de Lucà": {
@@ -185,11 +185,11 @@ const infoCarrers = {
     lon: 2.139402273531987,
     fotos: ["/img/sarria_sant_gervasi/passatge-de-luca_sarria_sant-gervasi.jpg", "null"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3valla.png",
-      "/simbols/4privat.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3valla.svg",
+      "/simbols/4privat.svg",
+      "/simbols/5ambdues.svg"
     ]
   },
   "C/ de Ciudad Real": { 
@@ -197,11 +197,11 @@ const infoCarrers = {
     lon: 2.159143219515575,
     fotos: ["/img/gracia/carrer-de-ciudad-real_gracia.jpg", "null"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Es muy transitada esta zona?",
@@ -215,11 +215,11 @@ const infoCarrers = {
     lon: 2.1426867923084196,
     fotos: ["/img/sarria_sant_gervasi/passatge-del-putxet_sarria_sant-gervasi.jpg", "/img/sarria_sant_gervasi/passatge-del-putxet_2_sarria_sant-gervasi.jpg"],
     simbols: [
-      "/simbols/1obtús.png",
-      "/simbols/2mes15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1obtús.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ]
   },
   "C/ de Felip Gil": {
@@ -227,11 +227,11 @@ const infoCarrers = {
     lon: 2.143423553734635,
     fotos: ["/img/sarria_sant_gervasi/carrer-de-felip-gil_sarria_sant-gervasi.jpg", "/img/sarria_sant_gervasi/carrer-de-felip-gil_2_sarria_sant-gervasi.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2menys15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2menys15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ]
   },
   "C/ del Francolí": {
@@ -239,11 +239,11 @@ const infoCarrers = {
     lon: 2.147912951761781,
     fotos: ["/img/sarria_sant_gervasi/carrer-francoli_sarria_sant-gervasi.jpg", "/img/sarria_sant_gervasi/carrer-francoli_2_sarria_sant-gervasi.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ]
   },
   "Carreró de les Carolines": {
@@ -251,11 +251,11 @@ const infoCarrers = {
     lon: 2.151093767983999,
     fotos: ["/img/gracia/carrero-de-les-carolines_gracia.jpg", "/img/gracia/carrero-de-les-carolines_2_gracia.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3paret.png",
-      "/simbols/4públic.png",
-      "/simbols/5peatonal.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3paret.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5peatonal.svg"
     ],
 
     text: ["Et sents còmode treballant a aquest carrer?",
@@ -267,11 +267,11 @@ const infoCarrers = {
     lon: 2.1544306190168947,
     fotos: ["/img/gracia/passatge-de-josep-de-la-muntanya_gracia.jpg", "/img/gracia/passatge-de-josep-de-la-muntanya_2_gracia.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3paret.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3paret.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ]
   },
   "C/ de Sant Cugat del Vallès": {
@@ -279,11 +279,11 @@ const infoCarrers = {
     lon: 2.1535206226931103,
     fotos: ["/img/gracia/carrer-de-sant-cugat-del-valles_gracia.jpg", "/img/gracia/carrer-de-sant-cugat-del-valles_2_gracia.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3muntanya.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3muntanya.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Què feu aquí?",
@@ -299,11 +299,11 @@ const infoCarrers = {
     lon: 2.1635498425987008,
     fotos: ["/img/gracia/carrer-de-terrassa_gracia.jpg", "null"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5peatonal.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5peatonal.svg"
     ]
   },
   "C/ de Logroño": {
@@ -311,11 +311,11 @@ const infoCarrers = {
     lon: 2.1570647898075523,
     fotos: ["/img/horta/carrer-de-logroño_horta.jpg", "/img/horta/carrer-de-logroño_2_horta.jpg"],
     simbols: [
-      "/simbols/1ele.png",
-      "/simbols/2mes15.png",
-      "/simbols/3valla.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1ele.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3valla.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Es muy transitada esta zona?",
@@ -330,11 +330,11 @@ const infoCarrers = {
     lon: 2.1557424633772713,
     fotos: ["/img/horta/carrer-de-la-font-baliard_horta.jpg", "/img/horta/carrer-de-la-font-baliard_2_horta.jpg"],
     simbols: [
-      "/simbols/1obtús.png",
-      "/simbols/2mes15.png",
-      "/simbols/3muntanya.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1obtús.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3muntanya.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Passes per aquest carreró?",
@@ -346,11 +346,11 @@ const infoCarrers = {
     lon: 2.161210328689008,
     fotos: ["/img/horta/carrer-dels-pirineus_horta.jpg", "/img/horta/carrer-dels-pirineus_2_horta.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3paret.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3paret.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ]
   },
   "C/ de la Rectoria": {
@@ -358,11 +358,11 @@ const infoCarrers = {
     lon: 2.159914709864333,
     fotos: ["/img/horta/carrer-de-la-rectoria_horta.jpg", "/img/horta/carrer-de-la-rectoria_2_horta.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3plaça.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3plaça.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Vivís aquí, en este callejón/plaza sin salida? Cómo os sentís?",
@@ -374,11 +374,11 @@ const infoCarrers = {
     lon: 2.157228248553096,
     fotos: ["/img/horta/carrer-dalighieri_horta.jpg", "/img/horta/carrer-dalighieri_2_horta.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ]
   },
   "Riera de Marcel·lí": {
@@ -386,11 +386,11 @@ const infoCarrers = {
     lon: 2.1529423440069113,
     fotos: ["/img/horta/riera-de-marcel.li_horta.jpg", "/img/horta/riera-de-marcel.li_2_horta.jpg"],
     simbols: [
-      "/simbols/1obtús.png",
-      "/simbols/2mes15.png",
-      "/simbols/3muntanya.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1obtús.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3muntanya.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ]
   },
   "C/ d’Hug de Rocabertí": {
@@ -398,11 +398,11 @@ const infoCarrers = {
     lon: 2.133311956261469,
     fotos: ["/img/les_corts/carrer-d'hug-rocaberdi_les-corts.jpg", "/img/les_corts/carrer-d'hug-rocaberdi_2_les-corts.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["T’agrada viure aquí?",
@@ -414,11 +414,11 @@ const infoCarrers = {
     lon: 2.117987611974052,
     fotos: ["/img/les_corts/passatge-de-sant-ramon-nonat_les-corts.jpg", "/img/les_corts/passatge-de-sant-ramon-nonat_2_les-corts.jpg","/img/les_corts/passatge-de-sant-ramon-nonat_3_les-corts.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2menys15.png",
-      "/simbols/3paret.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2menys15.svg",
+      "/simbols/3paret.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Què és la cosa més còmode i incòmode de viure aqui?",
@@ -430,11 +430,11 @@ const infoCarrers = {
     lon: 2.116056310801696,
     fotos: ["/img/les_corts/passatge-de-vient-martin_les-corts.jpg", "null"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Com imagines que és viure aquí?",
@@ -446,11 +446,11 @@ const infoCarrers = {
     lon: 2.104924199147839,
     fotos: ["/img/les_corts/carrer-aiguallonga_les-corts.jpg", "/img/les_corts/carrer-aiguallonga_2_les-corts.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3muntanya.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3muntanya.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Vostè viu a un cul de sac?",
@@ -464,11 +464,11 @@ const infoCarrers = {
     lon: 2.104418884444168,
     fotos: ["/img/les_corts/passatge-de-puig-aguilar_les-corts.jpg", "/img/les_corts/passatge-de-puig-aguilar_2_les-corts.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2menys15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5peatonal.png"
+      "/simbols/1linea.svg",
+      "/simbols/2menys15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5peatonal.svg"
     ]
   },
   "Pl. del Coll de Finestrelles": {
@@ -476,11 +476,11 @@ const infoCarrers = {
     lon: 2.1040843997175958,
     fotos: ["/img/les_corts/plaça-del-coll-de-finestrelles_les-corts.jpg", "/img/les_corts/plaça-del-coll-de-finestrelles_2_les-corts.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2menys15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2menys15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Saps què és un cul de sac?",
@@ -495,11 +495,11 @@ const infoCarrers = {
     lon: 2.104199517229367,
     fotos: ["/img/les_corts/carrer-costa-de-sant-bartolomeu-de-la-quadra_les-corts.jpg", "/img/les_corts/carrer-costa-de-sant-bartolomeu-de-la-quadra_2_les-corts.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2menys15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5peatonal.png"
+      "/simbols/1linea.svg",
+      "/simbols/2menys15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5peatonal.svg"
     ],
 
     text: ["Això és un cul de sac?",
@@ -513,11 +513,11 @@ const infoCarrers = {
     lon: 2.182384290968574,
     fotos: ["/img/nou_barris/carrer-de-llerona_nou-barris.jpg", "/img/nou_barris/carrer-de-llerona_2_nou-barris.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2menys15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2menys15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Ves muchos callejones sin salida en esta zona?",
@@ -529,11 +529,11 @@ const infoCarrers = {
     lon: 2.182241610281811,
     fotos: ["/img/nou_barris/carrer-de-palau-solita_nou-barris.jpg", "null"],
     simbols: [
-      "/simbols/1obtús.png",
-      "/simbols/2menys15.png",
-      "/simbols/3valla.png",
-      "/simbols/4públic.png",
-      "/simbols/5peatonal.png"
+      "/simbols/1obtús.svg",
+      "/simbols/2menys15.svg",
+      "/simbols/3valla.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5peatonal.svg"
     ]
   },
   "C/ de Ripollet": {
@@ -541,11 +541,11 @@ const infoCarrers = {
     lon: 2.182980139263495,
     fotos: ["/img/nou_barris/carrer-de-ripollet_nou-barris.jpg", "/img/nou_barris/carrer-de-ripollet_2_nou-barris.jpg"],
     simbols: [
-      "/simbols/1ele.png",
-      "/simbols/2mes15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1ele.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ]
   },
   "C/ del Port de la Selva": {
@@ -553,11 +553,11 @@ const infoCarrers = {
     lon: 2.1789719081231955,
     fotos: ["/img/nou_barris/carrer-del-port-de-la-selva_nou-barris.jpg", "/img/nou_barris/carrer-del-port-de-la-selva_2_nou-barris.jpg"],
     simbols: [
-      "/simbols/1ele.png",
-      "/simbols/2mes15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1ele.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Es un almacen de fruta? Es público o privado?",
@@ -571,11 +571,11 @@ const infoCarrers = {
     lon: 2.189590832442194,
     fotos: ["/img/sant_andreu/Carrer-del-verdet-1.jpg", "/img/sant_andreu/Carrer-del-verdet-2.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3paret.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3paret.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Quanta gent transita aquest carrer?",
@@ -587,11 +587,11 @@ const infoCarrers = {
     lon: 2.1877591976670163,
     fotos: ["/img/sant_andreu/Carrer-de-tremp-1.jpg", "/img/sant_andreu/Carrer-de-tremp-2.jpg","/img/sant_andreu/Carrer-de-tremp-3.jpg"],
     simbols: [
-      "/simbols/1ele.png",
-      "/simbols/2menys15.png",
-      "/simbols/3paret.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1ele.svg",
+      "/simbols/2menys15.svg",
+      "/simbols/3paret.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["El veí que té gossos algun cop us ha donat problemes?",
@@ -608,11 +608,11 @@ const infoCarrers = {
     lon: 2.185560476891055,
     fotos: ["/img/sant_andreu/Carrer-den-Xandri-1.jpg", "/img/sant_andreu/Carrer-den-Xandri-2.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Has entrat algun cop a aquest carrer?",
@@ -626,11 +626,11 @@ const infoCarrers = {
     lon: 2.188796995245255,
     fotos: ["/img/sant_andreu/Passatge-Baliarda-1.jpg", "/img/sant_andreu/Passatge-Baliarda-2.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2menys15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2menys15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ]
   },
   "C/ Cerdà": {
@@ -638,11 +638,11 @@ const infoCarrers = {
     lon: 2.188819434514976,
     fotos: ["/img/sant_andreu/Carrer-cerda-1.jpg", "/img/sant_andreu/Carrer-cerda-2.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5peatonal.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5peatonal.svg"
     ],
 
     text: ["Hi ha entrat alguna vegada a aquest carrer?",
@@ -654,11 +654,11 @@ const infoCarrers = {
     lon: 2.188819434514976,
     fotos: ["/img/sant_andreu/Carrer-gordi-1.jpg", "/img/sant_andreu/Carrer-gordi-2.jpg", "/img/sant_andreu/Carrer-gordi-3.jpg"],
     simbols: [
-      "/simbols/1ele.png",
-      "/simbols/2mes15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1ele.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Utilitzes aquest carreró?",
@@ -670,11 +670,11 @@ const infoCarrers = {
     lon: 2.1880854347440897,
     fotos: ["/img/sant_andreu/Carrer-de-parellada-1.jpg", "/img/sant_andreu/Carrer-de-parellada-2.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3paret.png",
-      "/simbols/4públic.png",
-      "/simbols/5peatonal.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3paret.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5peatonal.svg"
     ],
 
     text: ["Què hi fas en aquest carrer?",
@@ -686,11 +686,11 @@ const infoCarrers = {
     lon: 2.1880854347440897,
     fotos: ["/img/sant_andreu/Torrent-de-parellada-1.jpg", "/img/sant_andreu/Torrent-de-parellada-2.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3paret.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3paret.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Passes per aquest carrer?",
@@ -702,11 +702,11 @@ const infoCarrers = {
     lon: 2.18633448074808,
     fotos: ["/img/sant_andreu/ptge-dirlanda-1.jpg", "/img/sant_andreu/ptge-dirlanda-2.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Sempre aparca aquí?",
@@ -718,11 +718,11 @@ const infoCarrers = {
     lon: 2.190764445532401,
     fotos: ["/img/sant_andreu/Carrer-dels-afores-1.jpg", "/img/sant_andreu/Carrer-dels-afores-2.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2menys15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2menys15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Què t’agradaria que hi hagués a aquest carrer?",
@@ -734,11 +734,11 @@ const infoCarrers = {
     lon: 2.2036520656846474,
     fotos: ["/img/sant_marti/carrer-de-gran-via_sant-marti.jpg", "/img/sant_marti/carrer-de-gran-via_2_sant-marti.jpg"],
     simbols: [
-      "/simbols/1ele.png",
-      "/simbols/2mes15.png",
-      "/simbols/3muntanya.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1ele.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3muntanya.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Qui passa per aquí?",
@@ -750,11 +750,11 @@ const infoCarrers = {
     lon:  2.202984087801306,
     fotos: ["/img/sant_marti/carrer-del-candem_sant-marti.jpg", "null"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3muntanya.png",
-      "/simbols/4privat.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3muntanya.svg",
+      "/simbols/4privat.svg",
+      "/simbols/5ambdues.svg"
     ]
   },
   "C/ de Jaume Brossa": {
@@ -762,11 +762,11 @@ const infoCarrers = {
     lon: 2.19905496121926,
     fotos: ["/img/sant_marti/carrer-de-jaume-brossa_2_sant-marti.jpg", "/img/sant_marti/carrer-de-jaume-brossa_sant-marti.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3paret.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3paret.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ]
   },
   "Ptge. de Malet": {
@@ -774,11 +774,11 @@ const infoCarrers = {
     lon: 2.188309264743962,
     fotos: ["/img/sant_marti/passatge-de-malet_sant-marti.jpg", "/img/sant_marti/passatge-de-malet_2_sant-marti.jpg", "/img/sant_marti/passatge-de-malet_3_sant-marti.jpg"],
     simbols: [
-      "/simbols/1ele.png",
-      "/simbols/2menys15.png",
-      "/simbols/3porta.png",
-      "/simbols/4privat.png",
-      "/simbols/5peatonal.png"
+      "/simbols/1ele.svg",
+      "/simbols/2menys15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4privat.svg",
+      "/simbols/5peatonal.svg"
     ]
   },
   "C/ de l'Arc de Sant Sever": {
@@ -786,11 +786,11 @@ const infoCarrers = {
     lon: 2.18587008308247,
     fotos: ["/img/sant_marti/carrer-de-larc-de-sant-server_sant-marti.jpg", "/img/sant_marti/carrer-de-larc-de-sant-server_2_sant-marti.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2menys15.png",
-      "/simbols/3paret.png",
-      "/simbols/4públic.png",
-      "/simbols/5peatonal.png"
+      "/simbols/1linea.svg",
+      "/simbols/2menys15.svg",
+      "/simbols/3paret.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5peatonal.svg"
     ],
 
     text: ["Et del barri?",
@@ -804,11 +804,11 @@ const infoCarrers = {
     lon: 2.1875936226282415,
     fotos: ["/img/sant_marti/passatge-del-pinyol_sant-marti.jpg", "/img/sant_marti/passatge-del-pinyol_2_sant-marti.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2menys15.png",
-      "/simbols/3paret.png",
-      "/simbols/4privat.png",
-      "/simbols/5peatonal.png"
+      "/simbols/1linea.svg",
+      "/simbols/2menys15.svg",
+      "/simbols/3paret.svg",
+      "/simbols/4privat.svg",
+      "/simbols/5peatonal.svg"
     ]
   },
   "C/ Meridional": {
@@ -816,11 +816,11 @@ const infoCarrers = {
     lon: 2.1870322448574115,
     fotos: ["/img/sant_marti/carrer-meridional_sant-marti.jpg", "/img/sant_marti/carrer-meridional_2_sant-marti.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2menys15.png",
-      "/simbols/3paret.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2menys15.svg",
+      "/simbols/3paret.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Què feu aquí?",
@@ -833,11 +833,11 @@ const infoCarrers = {
     lon: 2.1474415955493393,
     fotos: ["/img/sants_montjuic/carrer-de-sant-ferriol_sants_montjuic.jpg", "/img/sants_montjuic/carrer-de-sant-ferriol_2_sants_montjuic.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3paret.png",
-      "/simbols/4públic.png",
-      "/simbols/5peatonal.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3paret.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5peatonal.svg"
     ]
   },
   "C/ del Gaià": {
@@ -845,11 +845,11 @@ const infoCarrers = {
     lon: 2.1415116069624425,
     fotos: ["/img/sants_montjuic/carrer-de-gaia_sants_montjuic.jpg", "/img/sants_montjuic/carrer-de-gaia_2_sants_montjuic.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2menys15.png",
-      "/simbols/3plaça.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2menys15.svg",
+      "/simbols/3plaça.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Perquè transita aquest cul de sac?",
@@ -861,11 +861,11 @@ const infoCarrers = {
     lon: 2.1482761109055675,
     fotos: ["/img/sants_montjuic/carrer-de-gabriel-miro_sants_montjuic.jpg", "/img/sants_montjuic/carrer-de-gabriel-miro_2_sants_montjuic.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3paret.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3paret.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Freqüenta molta gent el carrer?",
@@ -877,11 +877,11 @@ const infoCarrers = {
     lon: 2.1613011152732984,
     fotos: ["/img/sants_montjuic/passatge-de-julia_sants_montjuic.jpg", "/img/sants_montjuic/passatge-de-julia_2_sants_montjuic.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3paret.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3paret.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Què t’agrada menys de viure en aquest carrer?",
@@ -893,11 +893,11 @@ const infoCarrers = {
     lon: 2.1604464997175565,
     fotos: ["/img/sants_montjuic/carrer-de-cariteo_sants_montjuic.jpg", "/img/sants_montjuic/carrer-de-cariteo_2_sants_montjuic.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3muntanya.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3muntanya.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Què se sent viure en un cul de sac?",
@@ -909,11 +909,11 @@ const infoCarrers = {
     lon: 2.1594698970000112,
     fotos: ["/img/sants_montjuic/carrer-de-la-concordia_sants_montjuic.jpg", "/img/sants_montjuic/carrer-de-la-concordia_2_sants_montjuic.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3paret.png",
-      "/simbols/4públic.png",
-      "/simbols/5peatonal.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3paret.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5peatonal.svg"
     ],
 
     text: ["Perquè ve aquí?",
@@ -925,11 +925,11 @@ const infoCarrers = {
     lon: 2.1377665013663845,
     fotos: ["/img/sants_montjuic/carrer-de-maria-victoria_sants_montjuic.jpg", "/img/sants_montjuic/carrer-de-maria-victoria_2_sants_montjuic.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2menys15.png",
-      "/simbols/3paret.png",
-      "/simbols/4públic.png",
-      "/simbols/5peatonal.png"
+      "/simbols/1linea.svg",
+      "/simbols/2menys15.svg",
+      "/simbols/3paret.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5peatonal.svg"
     ],
 
     text: ["Li agrada viure en un cul de sac?",
@@ -941,11 +941,11 @@ const infoCarrers = {
     lon: 2.1346379065407217,
     fotos: ["/img/sants_montjuic/carrer-de-pomar_sants_montjuic.jpg", "/img/sants_montjuic/carrer-de-pomar_2_sants_montjuic.jpg"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2menys15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5peatonal.png"
+      "/simbols/1linea.svg",
+      "/simbols/2menys15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5peatonal.svg"
     ],
 
     text: ["Freqüentes aquest espai? Hi passa força gent?",
@@ -957,11 +957,11 @@ const infoCarrers = {
     lon: 2.1335985029724776,
     fotos: ["/img/sants_montjuic/carrer-de-demostens_sants_montjuic.jpg", "/img/sants_montjuic/carrer-de-demostens_2_sants_montjuic.jpg", "/img/sants_montjuic/carrer-de-demostens_3_sants_montjuic.jpg"],
     simbols: [
-      "/simbols/1ele.png",
-      "/simbols/2mes15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1ele.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["És tranquil aquest carrer?",
@@ -973,11 +973,11 @@ const infoCarrers = {
     lon: 2.1374172879565547,
     fotos: ["/img/sants_montjuic/carrer-de-lopez-catalan_sants_montjuic.jpg", "/img/sants_montjuic/carrer-de-lopez-catalan_2_sants_montjuic.jpg"],
     simbols: [
-      "/simbols/1obtús.png",
-      "/simbols/2mes15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1obtús.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ],
 
     text: ["Per què ve al cul de sac?",
@@ -989,11 +989,11 @@ const infoCarrers = {
     lon: 2.1340033531724725,
     fotos: ["/img/sarria_sant_gervasi/carrer-dels-dominics_sarria_sant-gervasi.jpg", "/img/sarria_sant_gervasi/carrer-dels-dominics_2_sarria_sant-gervasi.jpg"],
     simbols: [
-      "/simbols/1obtús.png",
-      "/simbols/2mes15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1obtús.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ]
   },
   "C/ de les Canàries": {
@@ -1001,11 +1001,11 @@ const infoCarrers = {
     lon: 2.1247430963679292,
     fotos: ["/img/sarria_sant_gervasi/carrer-de-canaries_sarria_sant-gervasi.jpg", "/img/sarria_sant_gervasi/carrer-de-canaries_2_sarria_sant-gervasi.jpg"],
     simbols: [
-      "/simbols/1ele.png",
-      "/simbols/2mes15.png",
-      "/simbols/3paret.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1ele.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3paret.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ]
   },
   "C/ de Margenat": {
@@ -1013,11 +1013,11 @@ const infoCarrers = {
     lon: 2.123442258686652,
     fotos: ["/img/sarria_sant_gervasi/carrer-margenat_sarria_sant-gervasi.jpg", "null"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2menys15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2menys15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ]
   },
   "C/ de l’Arquitecte Mas": {
@@ -1025,11 +1025,11 @@ const infoCarrers = {
     lon: 2.1209996214326345,
     fotos: ["/img/sarria_sant_gervasi/carrer-de-larquitecta_sarria_sant-gervasi.jpg", "null"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2menys15.png",
-      "/simbols/3paret.png",
-      "/simbols/4públic.png",
-      "/simbols/5peatonal.png"
+      "/simbols/1linea.svg",
+      "/simbols/2menys15.svg",
+      "/simbols/3paret.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5peatonal.svg"
     ]
   },
   "C/ Pau Alcover": {
@@ -1037,11 +1037,11 @@ const infoCarrers = {
     lon: 2.128642166103607,
     fotos: ["/img/sarria_sant_gervasi/carrer-de-pau-alcover_sarria_sant-gervasi.jpg", "null"],
     simbols: [
-      "/simbols/1linea.png",
-      "/simbols/2mes15.png",
-      "/simbols/3porta.png",
-      "/simbols/4públic.png",
-      "/simbols/5ambdues.png"
+      "/simbols/1linea.svg",
+      "/simbols/2mes15.svg",
+      "/simbols/3porta.svg",
+      "/simbols/4públic.svg",
+      "/simbols/5ambdues.svg"
     ]
   },
 };
