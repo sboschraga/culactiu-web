@@ -79,18 +79,25 @@ function DetallCarrer() {
             ))}
           </div>
 
-          {/* Nou text descriptiu DINÀMIC */}
-          <div className="text-descriptiu">
-            {carrer.text ? (
-              // Si el carrer té text, el pintem paràgraf a paràgraf
-              carrer.text.map((paragraf, i) => (
-                <p key={i}>{paragraf}</p>
-              ))
-            ) : (
-              // Si no té text definit, pintem un text per defecte o res
-              <p>Informació detallada no disponible actualment.</p>
-            )}
-          </div>
+          {/* Text descriptiu: NOMÉS ES MOSTRA SI N'HI HA */}
+          {carrer.text && (
+            <div className="text-descriptiu">
+              {carrer.text.map((paragraf, index) => {
+                const esPregunta = paragraf.includes("?");
+                return (
+                  <p 
+                    key={index} 
+                    style={{ 
+                      fontWeight: esPregunta ? 'bold' : 'normal',
+                      marginBottom: esPregunta ? '5px' : '20px'
+                    }}
+                  >
+                    {paragraf}
+                  </p>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
 

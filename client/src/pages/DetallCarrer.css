@@ -126,41 +126,73 @@
   margin: 0;
 }
 
-/* --- MODAL (FOTO AMPLIADA) --- */
+/* --- MODAL (FOTO AMPLIADA) - CORREGIT --- */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(255, 255, 255, 0.95); /* Fons blanc o negre, com vulguis */
+  background-color: rgba(0, 0, 0, 0.85); /* Fons fosc translúcid */
   display: flex;
+  flex-direction: column; /* Posem columna perquè el text quedi a sota naturalment */
   align-items: center;
   justify-content: center;
   z-index: 9999;
   cursor: zoom-out;
   padding: 20px;
+  box-sizing: border-box; /* Important perquè el padding no sumi mida */
+}
+
+/* --- MODAL (FOTO AMPLIADA) - MÉS GRAN --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  cursor: zoom-out;
+  
+  /* ABANS: 20px -> ARA: 10px (Reduïm marge per donar més espai a la foto) */
+  padding: 10px; 
+  box-sizing: border-box;
 }
 
 .modal-content {
-  height: 90vh;
-  max-width: 90vw;
+  /* Donem més espai al contenidor (gairebé tota l'alçada) */
+  max-height: 95vh; 
+  max-width: 95vw;
+  
+  display: flex;
+  flex-direction: column; /* Manté el text a sota */
+  align-items: center;
+  justify-content: center;
+  
   position: relative;
+  box-shadow: none;
+  background: transparent;
 }
 
 .modal-content img {
   width: auto;
-  height: 100%;
+  max-width: 100%;
+  
+  /* ABANS: 75vh -> ARA: 85vh (La foto ocupa el 85% de l'alçada de la pantalla) */
+  max-height: 85vh; 
+  
   object-fit: contain;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  display: block;
 }
 
 .tancar-text {
-  position: absolute;
-  bottom: -30px;
-  width: 100%;
+  margin-top: 10px; /* Reduïm una mica l'espai entre foto i text */
   text-align: center;
-  color: #666;
+  color: #fff;
   font-size: 14px;
 }
 

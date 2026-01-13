@@ -93,7 +93,7 @@ const infoCarrers = {
     text: ["Com és que vens aquí a seure una estona?",
           "Estic esperant a que la meva amiga surti del taller, i doncs aquí s’està molt bé.",
           "Vens sovint?",
-          "Si."
+          "Sí."
         ],
 
   },
@@ -143,7 +143,13 @@ const infoCarrers = {
       "/simbols/3porta.png",
       "/simbols/4privat.png",
       "/simbols/5peatonal.png"
-    ]
+    ],
+
+    text: ["El passatge és exclusiu del museu?",
+          "Sí.",
+          "Osigui que s’obra les hores que el museu obra?",
+          "Sí."
+        ],
   },
   "Ptge. de l’Oli": {
     lat: 41.38486990940606,
@@ -155,7 +161,12 @@ const infoCarrers = {
       "/simbols/3porta.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Hola perdona, viu a aquí?",
+          "Em podries explicar una mica com és aquest carrer?",
+          "Hi passa bastanta gent i té vidilla, però q sempre està ple de cotxes."
+        ],
   },
   "C/ de la Volta de la Perdiu": {
     lat: 41.386606008492606,
@@ -191,7 +202,13 @@ const infoCarrers = {
       "/simbols/3porta.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Es muy transitada esta zona?",
+          "No no, sólo hay vecinos o alguien que va a hacer una vuelta en la montaña, pero poco más.",
+          "Y es muy tranquilo entonces?",
+          "Sí sí, lo único que es difícil encontrar sitios como estos porqué todo está muy grillado y no hay nada."
+        ],
   },
   "Ptge. del Putxet": {
     lat: 41.404059059346295,
@@ -239,7 +256,11 @@ const infoCarrers = {
       "/simbols/3paret.png",
       "/simbols/4públic.png",
       "/simbols/5peatonal.png"
-    ]
+    ],
+
+    text: ["Et sents còmode treballant a aquest carrer?",
+          "És molt tranquil, sí. No passa ningú.",
+        ],
   },
   "Ptge. de Sant Josep de la Muntanya": {
     lat: 41.411051638905015,
@@ -263,7 +284,15 @@ const infoCarrers = {
       "/simbols/3muntanya.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Què feu aquí?",
+          "Esperant la meva filla que surt del cole.",
+          "És habitual hi hagi pares esperant?",
+          "Sí, nornamlment ens trobem aquí quan arribem més d’hora.",
+          "Penseu en que esteu a un carreró sense sortida?",
+          "Bueno, algun cop m’ha pasat pel cap però no hi penso massa tampoc.",
+        ],
   },
   "C/ de Terrassa": {
     lat: 41.40011834244361,
@@ -287,7 +316,14 @@ const infoCarrers = {
       "/simbols/3valla.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Es muy transitada esta zona?",
+          "Treballadors.",
+          "No no, sólo hay vecinos o alguien que va a hacer una vuelta en la montaña, pero poco más.",
+          "Y es muy tranquilo entonces?",
+          "Sí sí, lo único que es difícil encontrar sitios como estos porqué todo está muy grillado y no hay nada."
+        ],
   },
   "C/ de la Font Baliarda": {
     lat: 41.441346727669846,
@@ -299,7 +335,11 @@ const infoCarrers = {
       "/simbols/3muntanya.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Passes per aquest carreró?",
+          "Quan passejo la gossa. Si hi vol entrar toca fer cas."
+        ],
   },
   "C/ dels Pirineus": {
     lat: 41.43844935629942,
@@ -323,7 +363,11 @@ const infoCarrers = {
       "/simbols/3plaça.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Vivís aquí, en este callejón/plaza sin salida? Cómo os sentís?",
+          "Sí. Es tranquilo. Nos conocemos todos de toda la vida, los coles, nuestros hijos, los perros... Horta es cómo un pueblo. No hay muchos comercios y por eso es tranquilo.(Lo del callejón les ha dado un poco igual, la plaza del callejon representa el pueblo)"
+        ],
   },
   "C/ d'Alighieri": {
     lat: 41.427633157559505, 
@@ -359,7 +403,11 @@ const infoCarrers = {
       "/simbols/3porta.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["T’agrada viure aquí?",
+          "Molt, és tranquil, com si fos un carrer per a tu. Hi estem molt bé."
+        ],
   },
   "Ptge. de Sant Ramon Nonat": {
     lat: 41.376321048721394,
@@ -371,7 +419,11 @@ const infoCarrers = {
       "/simbols/3paret.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Què és la cosa més còmode i incòmode de viure aqui?",
+          "Còmode, el silenci, la privacitat, nadie moltesta. Incòmode, res."
+        ],
   },
   "Ptge. de Vicent Martín": {
     lat: 41.37748096888126,
@@ -383,7 +435,11 @@ const infoCarrers = {
       "/simbols/3porta.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Com imagines que és viure aquí?",
+          "Hombre, yo imagino que si la casa está bien pues además tienes un plus de tranquilidad, menos ruido. Pero yo esta calle la veo un poco triste, no me gusta."
+        ],
   },
   "C/ d’Aiguallonga": {
     lat: 41.38873763161186,
@@ -395,7 +451,13 @@ const infoCarrers = {
       "/simbols/3muntanya.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Vostè viu a un cul de sac?",
+          "No.",
+          "Què n’opina d’aquest en concret? L’hi agradaria viure-hi?",
+          "Qualsevol carrer d’aquí dalt és un bon lloc per viure, no hi ha gens de soroll. Això si, està lluny, has d’agafar el cotxe i fa pujada!"
+        ],
   },
   "Ptge. de Puig Aguilar": {
     lat: 41.388716371644335,
@@ -419,7 +481,14 @@ const infoCarrers = {
       "/simbols/3porta.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Saps què és un cul de sac?",
+          "No.",
+          "(Se l’hi explica.)",
+          "T’agradaria viure-hi?",
+          "No, prefereixo un carrer normal."
+        ],
   },
   "C/ Costa de Sant Bartomeu de la Quadra": {
     lat: 41.38942377376603,
@@ -431,7 +500,13 @@ const infoCarrers = {
       "/simbols/3porta.png",
       "/simbols/4públic.png",
       "/simbols/5peatonal.png"
-    ]
+    ],
+
+    text: ["Això és un cul de sac?",
+          "Sí! És un carrer.",
+          "Té desaventatges viure en un carrer així?",
+          "Les pujades i baixades, pero valen la pena, estem molt tranquils. No hi passa gent, només veïns."
+        ],
   },
   "C/ de Llerona": {
     lat: 41.45683948880206, 
@@ -443,7 +518,11 @@ const infoCarrers = {
       "/simbols/3porta.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Ves muchos callejones sin salida en esta zona?",
+          "La verdad es que aquí solo hay este callejón, lo otro es una calle única que sube."
+        ],
   },
   "C/ de Palau-Solità": {
     lat: 41.45842468671127,
@@ -479,7 +558,13 @@ const infoCarrers = {
       "/simbols/3porta.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Es un almacen de fruta? Es público o privado?",
+          "Es el mercado, y es privado para los coches. Todo el parquing que había antes se ha convertido en el nuevo mercado. De éste mercado viejo pasaremos al nuevo.",
+          "Y que pasará con éste?",
+          "Lo derrumbarán o será un parquing. Hay unas vallas para que la gente no aparque dentro, porqué el camión tiene que entrar por la mañana. Ya se han llevado algunos coches."
+        ],
   },
   "C/ del Verdet": {
     lat: 41.43847228336899,
@@ -491,7 +576,11 @@ const infoCarrers = {
       "/simbols/3paret.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Quanta gent transita aquest carrer?",
+          "Jo per aquí no entro ni surto de treballar, només l’ultilitzem per anar al magatzem i de vegades algun treballador hi aparca."
+        ],
   },
   "C/ de Tremp": {
     lat: 41.43869276227528,
@@ -503,7 +592,16 @@ const infoCarrers = {
       "/simbols/3paret.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["El veí que té gossos algun cop us ha donat problemes?",
+          "No, normalmente los saca por la noche.",
+          "Com és viure en aquest carrer?",
+          "Muy tranquilo.",
+          "Totes aquestes plantes les cuides tu?",
+          "No, las cuida la señora del bajo."
+
+        ],
   },
   "C/ d'en Xandri": {
     lat: 41.43830655157453,
@@ -515,7 +613,13 @@ const infoCarrers = {
       "/simbols/3porta.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Has entrat algun cop a aquest carrer?",
+          "Sí.",
+          "Per què?",
+          "Perquè hi tinc un amic."
+        ],
   },
   "Ptge. Baliarda": {
     lat: 41.436544364374875,
@@ -539,7 +643,11 @@ const infoCarrers = {
       "/simbols/3porta.png",
       "/simbols/4públic.png",
       "/simbols/5peatonal.png"
-    ]
+    ],
+
+    text: ["Hi ha entrat alguna vegada a aquest carrer?",
+          "No."
+        ],
   },
   "C/ de Gordi": {
     lat: 41.43565547293505,
@@ -551,7 +659,11 @@ const infoCarrers = {
       "/simbols/3porta.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Utilitzes aquest carreró?",
+          "Sí, l’utilitzem com a terrassa pel bar."
+        ],
   },
   "C/ de Parellada": {
     lat: 41.43220110347789,
@@ -563,7 +675,11 @@ const infoCarrers = {
       "/simbols/3paret.png",
       "/simbols/4públic.png",
       "/simbols/5peatonal.png"
-    ]
+    ],
+
+    text: ["Què hi fas en aquest carrer?",
+          "Passejar el gos."
+        ],
   },
   "Torrent de Parellada": {
     lat: 41.43220110347789,
@@ -575,7 +691,11 @@ const infoCarrers = {
       "/simbols/3paret.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Passes per aquest carrer?",
+          "Si, a passejar el gos, sempre hi venim."
+        ],
   },
   "Ptge. d'Irlanda": {
     lat: 41.43150959397617,
@@ -587,7 +707,11 @@ const infoCarrers = {
       "/simbols/3porta.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Sempre aparca aquí?",
+          "Sí, podem aparcar-hi la furgoneta."
+        ],
   },
   "C/ dels Afores": {
     lat: 41.429528606195724,
@@ -599,7 +723,11 @@ const infoCarrers = {
       "/simbols/3porta.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Què t’agradaria que hi hagués a aquest carrer?",
+          "Més arbres."
+        ],
   },
   "Gran Via Catalana": {
     lat: 41.4297796166403,
@@ -611,7 +739,11 @@ const infoCarrers = {
       "/simbols/3muntanya.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Qui passa per aquí?",
+          "Treballadors."
+        ],
   },
   "C/ del Cànem": {
     lat: 41.43120892263455,
@@ -659,7 +791,13 @@ const infoCarrers = {
       "/simbols/3paret.png",
       "/simbols/4públic.png",
       "/simbols/5peatonal.png"
-    ]
+    ],
+
+    text: ["Et del barri?",
+          "Sí.",
+          "Has entrat mai en aquest carrer?",
+          "No."
+        ],
   },
     "Ptge. de Pinyol": {
     lat: 41.413665707177785, 
@@ -683,7 +821,12 @@ const infoCarrers = {
       "/simbols/3paret.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Què feu aquí?",
+          "Es tranquil per la nit el carrer?",
+          "Sí"
+        ],
   },
   "C/ de Sant Ferriol": {
     lat: 41.37266533174366,
@@ -707,7 +850,11 @@ const infoCarrers = {
       "/simbols/3plaça.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Perquè transita aquest cul de sac?",
+          "Em va bé per aparcar."
+        ],
   },
   "C/ de Gabriel Miró": {
     lat: 41.353049599071994,
@@ -719,7 +866,11 @@ const infoCarrers = {
       "/simbols/3paret.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Freqüenta molta gent el carrer?",
+          "No, veig algun veí quan arriba a treballar i quan marxa cap a casa o quan venen proveïdors al taller."
+        ],
   },
   "Ptge. de Julià": {
     lat: 41.37014223182839,
@@ -731,7 +882,11 @@ const infoCarrers = {
       "/simbols/3paret.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Què t’agrada menys de viure en aquest carrer?",
+          "La gent se sol perdre i utilitzen el carrer per girar. Es mol estret i estan molta estona maniobrant."
+        ],
   },
   "C/ de Cariteo": {
     lat: 41.37043362987127,
@@ -743,7 +898,11 @@ const infoCarrers = {
       "/simbols/3muntanya.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Què se sent viure en un cul de sac?",
+          "M’agrada perquè coneixo als meus veïns."
+        ],
   },
   "C/ de la Concòrdia": {
     lat: 41.37263698791773,
@@ -755,7 +914,11 @@ const infoCarrers = {
       "/simbols/3paret.png",
       "/simbols/4públic.png",
       "/simbols/5peatonal.png"
-    ]
+    ],
+
+    text: ["Perquè ve aquí?",
+          "Perqué és un lloc tranquil i hi ha poca gent, trec el gos a passejar i el deixo lliure."
+        ],
   },
   "C/ de Maria Victòria": {
     lat: 41.37296802453955,
@@ -767,7 +930,11 @@ const infoCarrers = {
       "/simbols/3paret.png",
       "/simbols/4públic.png",
       "/simbols/5peatonal.png"
-    ]
+    ],
+
+    text: ["Li agrada viure en un cul de sac?",
+          "Sí, és tranquil i no hi passen mases cotxes."
+        ],
   },
   "C/ de Pomar": {
     lat: 41.372234227430475,
@@ -779,7 +946,11 @@ const infoCarrers = {
       "/simbols/3porta.png",
       "/simbols/4públic.png",
       "/simbols/5peatonal.png"
-    ]
+    ],
+
+    text: ["Freqüentes aquest espai? Hi passa força gent?",
+          "A vegades per treure el gos. A part dels veïns no hi ha massa gent."
+        ],
   },
   "C/ de Demòstenes": {
     lat: 41.376259785732664,
@@ -791,7 +962,11 @@ const infoCarrers = {
       "/simbols/3porta.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["És tranquil aquest carrer?",
+          "Depén de l’hora del dia hi ha veïns, com ara, que posen la radio o la tele molt forta i ressona bastant."
+        ],
   },
   "C/ de López Catalan": {
     lat: 41.3759601350936,
@@ -803,7 +978,11 @@ const infoCarrers = {
       "/simbols/3porta.png",
       "/simbols/4públic.png",
       "/simbols/5ambdues.png"
-    ]
+    ],
+
+    text: ["Per què ve al cul de sac?",
+          "Hi aparco la moto cada dia."
+        ],
   },
   "C/ dels Dominics": {
     lat: 41.40963557844661,
