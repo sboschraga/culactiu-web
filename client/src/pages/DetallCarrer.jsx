@@ -34,7 +34,7 @@ function DetallCarrer() {
     return (
       <div style={{ padding: "20px", textAlign: "center" }}>
         <h2>Carrer no trobat: {nomCarrer}</h2>
-        <Link to="/cataleg">Tornar al catàleg</Link>
+        <Link to="/llista-cataleg">Tornar al catàleg</Link>
       </div>
     );
   }
@@ -42,7 +42,7 @@ function DetallCarrer() {
   return (
     <div className="detall-container">
       <div className="back-link-container">
-        <Link to="/cataleg" className="back-link">
+        <Link to="/llista-cataleg" className="back-link">
           ← tornar al catàleg
         </Link>
       </div>

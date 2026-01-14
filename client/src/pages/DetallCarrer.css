@@ -5,7 +5,7 @@
   padding: 20px 40px;
   max-width: 1200px;
   margin: 0 auto;
-  font-family: 'Arial', sans-serif; /* O la font que facis servir: 'Courier Prime', monospace, etc. */
+  font-family: inherit;
   box-sizing: border-box;
 }
 

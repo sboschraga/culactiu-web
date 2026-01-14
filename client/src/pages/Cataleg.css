@@ -4,7 +4,7 @@
   padding: 20px 40px;
   max-width: 1200px;
   margin: 0 auto;
-  font-family: 'Arial', sans-serif;
+  font-family: inherit;
 }
 
 /* --- 1. FILTRES (A DALT) --- */

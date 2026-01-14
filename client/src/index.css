@@ -1,20 +1,17 @@
 /* client/src/index.css */
 body {
   margin: 0;
-  /* Font per al text normal: Chivo Mono Light (pes 300) */
-  font-family: 'Chivo Mono', monospace;
-  font-weight: 300;
+  /* La font principal serà Chivo Mono. Si falla, usarà monospace */
+  font-family: 'Chivo Mono', monospace; 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f4f4f4; /* Un gris molt claret de fons, com al disseny */
+  background-color: #f4f4f4f4;
 }
 
-/* Font per als títols: Azeret Mono Regular (pes 400) */
+/* Regla específica per als títols -> Azeret Mono */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Azeret Mono', monospace;
-  font-weight: 400;
-  text-transform: uppercase; /* Els títols del disseny estan en majúscules */
-  margin-bottom: 1rem;
+  font-weight: 400; /* O el pes que vulguis per defecte */
 }
 
 /* Estil per la barra de navegació (perquè quedi neta com al disseny) */

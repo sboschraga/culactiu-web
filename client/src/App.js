@@ -1,5 +1,4 @@
 import React from "react"; 
-// 1. HEM TRET 'useState' i 'useNavigate' PERQUÈ NO ES FEIEN SERVIR
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 
 import Home from "./pages/Home";
@@ -9,57 +8,39 @@ import Denegat from "./pages/Denegat";
 import Accions from "./pages/Accions";
 import DetallCarrer from "./pages/DetallCarrer";
 import AfegirCarrer from "./pages/AfegirCarrer"; 
+// AFEGIM LA IMPORTACIÓ DE LA NOVA PÀGINA:
+import DetallAccio from "./pages/DetallAccio"; 
 
 function Layout() {
-  // 2. HEM TRET LA LÍNIA 'const navigate = ...'
-
-  // NECESSITEM SABER A QUINA PÀGINA ESTEM PER FER LA BARRA TRANSPARENT
   const location = useLocation();
   const esMenuCataleg = location.pathname === "/cataleg";
 
-  // DEFINIM L'ESTIL DE LA BARRA SEGONS LA PÀGINA
   const navStyle = {
     display: 'flex', 
     justifyContent: 'space-between', 
     padding: '20px', 
     alignItems: 'center',
-    
-    // Si estem al menú, la barra "flota" sobre la foto (absolute).
-    // Si estem a qualsevol altra pàgina, es comporta normal (relative).
     position: esMenuCataleg ? 'absolute' : 'relative',
     top: 0,
     left: 0,
     width: '100%',
-    zIndex: 100, // Per assegurar que queda per sobre de la foto
+    zIndex: 100, 
     background: 'transparent', 
     boxSizing: 'border-box'
   };
 
   return (
     <>
-      {/* --- BARRA DE NAVEGACIÓ AMB ESTIL DINÀMIC --- */}
       <nav style={navStyle}>
-        
         <div className="logo">
            <Link to="/" style={{ textDecoration: 'none', color: 'black', fontWeight: 'bold', fontSize: '1.8rem' }}>
                 CULACTIU
            </Link>
         </div>
-
         <div>
-          <Link 
-            to="/cataleg" 
-            style={{ 
-              textDecoration: 'none', 
-              color: 'black', 
-              marginRight: '20px', 
-              fontFamily: 'inherit',
-              cursor: 'pointer'
-            }}
-          >
+          <Link to="/cataleg" style={{ textDecoration: 'none', color: 'black', marginRight: '20px', fontFamily: 'inherit', cursor: 'pointer' }}>
             catàleg
           </Link>
-
           <Link to="/accions" style={{ textDecoration: 'none', color: 'black' }}>
             accions
           </Link>
@@ -72,7 +53,13 @@ function Layout() {
         <Route path="/cataleg" element={<MenuCataleg />} />
         <Route path="/llista-cataleg" element={<Cataleg />} />
         <Route path="/denegat" element={<Denegat />} />
+        
+        {/* Aquesta és la llista general d'accions */}
         <Route path="/accions" element={<Accions />} />
+        
+        {/* Aquesta és la pàgina de detall individual (nova) */}
+        <Route path="/accio/:id" element={<DetallAccio />} />
+
         <Route path="/carrer/:nom" element={<DetallCarrer />} />
         <Route path="/afegir-carrer" element={<AfegirCarrer />} />
       </Routes>
