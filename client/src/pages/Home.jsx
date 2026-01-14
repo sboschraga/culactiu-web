@@ -164,10 +164,9 @@ function Home() {
 
               <p style={paragraphStyle}>
 
-                Som un col·lectiu dedicat als culs de sac, entesos com a espais de pausa urbana i no productivitat. Reflexionem sobre la ciutat, els seus ritmes i l'espai comú. 
-                {'\n\n'} 
-                Us convidem a replicar les nostres accions o a crear-ne de noves, tot reivindicant que aquests espais existeixen i són essencials i mereixen ser preservats.
-
+              Som un col·lectiu dedicat als culs de sac, entesos com a espais de pausa urbana i no productivitat. Reflexionem sobre la ciutat, els seus ritmes i l'espai construït compartit.
+              {'\n\n'} 
+              Us convidem a replicar les nostres accions o a crear-ne de noves, tot reivindicant que aquests espais existeixen i són essencials per seguir tenint esperança en l’espai urbà.
               </p>
 
             </div>
@@ -205,47 +204,7 @@ function Home() {
               <h2>QUÈ FEM?</h2>
 
               <p style={paragraphStyle}>
-
-                Cul Actiu posa els seus cossos contra el terra,
-
-                cossos que activen una conversa directa amb l’espai públic
-
-                i exerceixen una sensació més gran de pertinença.
-
-                {'\n\n'}
-
-                El cos Cul Actiu qüestiona les dinàmiques de la ciutat,
-
-                una ciutat contaminada per ritmes ràpids,
-
-                desigualtat, productivitat i sistemes binaris.
-
-                {'\n\n'}
-
-                Els cossos cul actiu tracen visible la fina línia
-
-                entre allò públic i allò privat
-
-                i hi juguem els seus límits.
-
-                {'\n\n'}
-
-                Cul Actiu activa una materialitat diferent
-
-                de la rígida presentada,
-
-                perquè els ciutadans puguin ocupar sense justificar,
-
-                ocupar sense dominar.
-
-                {'\n\n'}
-
-                Els cossos Cul actiu no conviden
-
-                ni a la productivitat ni a l'abandó.
-
-                I són errors, que no s'han de corregir.
-
+                La nostra proposta com a col·lectiu es basa en la participació del cos en aquests espais, hem dissenyat cinc accions on, amb el cos com a protagonista. 
               </p>
 
             </div>
