@@ -46,33 +46,27 @@ function MenuCataleg() {
       (position) => {
         const { latitude, longitude } = position.coords;
 
-        // --- ZONA PERMESA ---
-        const latMin = 41.0;
-        const latMax = 41.8;
-        const lonMin = 1.9;
-        const lonMax = 2.4;
+        // 1. Busquem quin és el carrer més proper de la llista i a quina distància està
+        let carrerMesProper = "";
+        let distanciaMinima = Infinity;
 
-        const dinsZona =
-          latitude >= latMin &&
-          latitude <= latMax &&
-          longitude >= lonMin &&
-          longitude <= lonMax;
+        Object.entries(infoCarrers).forEach(([nom, dades]) => {
+          const dist = getDistanceFromLatLonInKm(latitude, longitude, dades.lat, dades.lon);
+          if (dist < distanciaMinima) {
+            distanciaMinima = dist;
+            carrerMesProper = nom;
+          }
+        });
 
-        if (dinsZona) {
+        // 2. RESTRICCIÓ PER DISTÀNCIA (Exemple: 50 metres)
+        // 0.05 km són 50 metres. Si estàs a més d'això, NO entres.
+        const radiPermes = 0.05; 
+
+        if (distanciaMinima <= radiPermes) {
+          // Estàs a prop d'un cul-de-sac, accés permès
           navigate("/llista-cataleg");
         } else {
-          // Calcular carrer més proper
-          let carrerMesProper = "";
-          let distanciaMinima = Infinity;
-
-          Object.entries(infoCarrers).forEach(([nom, dades]) => {
-            const dist = getDistanceFromLatLonInKm(latitude, longitude, dades.lat, dades.lon);
-            if (dist < distanciaMinima) {
-              distanciaMinima = dist;
-              carrerMesProper = nom;
-            }
-          });
-
+          // Estàs lluny, accés denegat
           navigate("/denegat", {
             state: {
               nomCarrer: carrerMesProper,
