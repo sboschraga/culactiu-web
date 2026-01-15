@@ -1,59 +1,7 @@
 // src/data/infoCarrers.js
 
 const infoCarrers = {
-  "La Rambla": {
-    amagat: true,
-    lat: 41.380775,
-    lon: 2.173661,
-    fotos: ["null", "null"],
-    simbols: [
-      "simbol1",
-      "simbol2",
-      "simbol3",
-      "simbol4",
-      "simbol5"
-    ]
-  },
-  "Plaça Urquinaona": {
-    amagat: true,
-    lat: 41.388480,
-    lon: 2.174390,
-    fotos: ["null", "null"],
-    simbols: [
-      "simbol1",
-      "simbol2",
-      "simbol3",
-      "simbol4",
-      "simbol5"
-    ]
-  },
-  "Carrer Moianès": {
-    amagat: true,
-    lat: 41.6141373,
-    lon: 2.2893226,
-    fotos: ["null", "null"],
-    simbols: [
-      "simbol1",
-      "simbol2",
-      "simbol3",
-      "simbol4",
-      "simbol5"
-    ]
-  },
-  "Plaça de les Olles": {
-    amagat: true,
-    lat: 41.6084448,
-    lon: 2.2872299,
-    fotos: ["null", "null"],
-    simbols: [
-      "simbol1",
-      "simbol2",
-      "simbol3",
-      "simbol4",
-      "simbol5"
-    ]
-  },
-  "C/ de l'Àngel": { 
+    "C/ de l'Àngel": { 
     lat: 41.401815717512264,
     lon: 2.1538305943850613,
     fotos: ["/img/gracia/carrer-de-langel_gracia.jpg", "/img/gracia/carrer-de-langel_2_gracia.jpg"],
