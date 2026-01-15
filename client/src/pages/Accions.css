@@ -1,145 +1,171 @@
-/* src/pages/Accions.css */
-
+/* --- BASE --- */
 .accions-container {
   position: relative;
   width: 100%;
-  height: calc(100vh - 100px); 
-  overflow: hidden; 
-  background-color: #f4f4f4f4; 
-  font-family: inherit; 
+  min-height: calc(100vh - 100px); 
+  background-color: #f4f4f4; 
+  font-family: inherit;
+  overflow-x: hidden; 
 }
 
-/* --- BLOCS LATERALS (Igual que abans) --- */
+/* --- ORDINADOR (MANTENIM EL TEU DISSENY) --- */
 .bloc-text-fix {
   position: absolute;
-  top: 5%;      
-  left: 4%;      
-  width: 18%;    
-  font-size: 1rem;
-  line-height: 1.5;
-  text-align: left;
+  top: 5%; left: 4%; width: 18%;
+  font-size: 0.9rem; line-height: 1.5;
   z-index: 10;
 }
-.bloc-text-fix p { margin-bottom: 15px; }
 
 .bloc-filtres-fix {
   position: absolute;
-  top: 3%;
-  right: 4%;     
-  width: auto; 
-  display: flex;
-  justify-content: flex-start; 
-  gap: 40px; 
+  top: 3%; right: 4%;
+  display: flex; gap: 40px;
   z-index: 10;
 }
 
 .grup-filtre h4 {
-  font-weight: bold;
-  margin-bottom: 5px; 
-  font-size: 1.1rem;
-  text-transform: uppercase;
+  font-weight: bold; margin-bottom: 10px;
+  font-size: 1rem; text-transform: uppercase;
 }
 .grup-filtre ul { list-style: none; padding: 0; }
 .grup-filtre li {
-  cursor: pointer;
-  margin-bottom: 5px;
-  color: #555;
-  font-size: 1rem;
-  transition: color 0.2s;
+  cursor: pointer; margin-bottom: 5px;
+  font-size: 0.9rem; color: #666;
 }
-.grup-filtre li:hover, .grup-filtre li.actiu {
-  color: #000;
-  font-weight: bold;
-}
-
-/* --- ZONA CENTRAL: FOTO + TEXT (CANVI IMPORTANT) --- */
+.grup-filtre li.actiu { color: #000; font-weight: bold; text-decoration: underline; }
 
 .targeta-accio {
   position: absolute;
-  background-color: transparent; 
-  width: 13vw;  
-  min-width: 150px; 
-  max-width: 220px;
-  height: auto; 
-
-  display: flex;
-  flex-direction: column;
-  
-  /* CANVI 1: Alineem els elements (foto i text) a l'inici (esquerra) del contenidor flexible */
-  align-items: flex-start; 
-  justify-content: flex-start;
-
+  width: 13vw; min-width: 160px;
   cursor: pointer;
-  transition: transform 0.3s;
-  box-shadow: none;
+  transition: transform 0.3s ease;
 }
 
-.targeta-accio:hover {
-  transform: scale(1.05);
-  z-index: 20;
-}
-
-/* CANVI: NOU ESTIL PER A LA IMATGE */
 .imatge-accio-full {
-  width: 100%;
-  /* Assegurem que la foto sigui quadrada */
-  aspect-ratio: 1 / 1; 
+  width: 100%; aspect-ratio: 1 / 1;
   object-fit: cover;
-  display: block;
-  /* Posem l'ombra només a la foto */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15); 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-/* CANVI: NOU ESTIL PER AL PEU DE FOTO */
 .peu-foto {
-  margin-top: 10px;
-  font-size: 0.85rem;
-  
-  /* CANVI 2: Alineem el text a l'esquerra */
-  text-align: left;    
-  
-  color: #000;           
-  width: 100%;
-  font-weight: normal;
+  margin-top: 8px; font-size: 0.8rem;
+  text-align: left; text-transform: uppercase;
 }
 
-/* (Pots esborrar la classe .contingut-targeta h3) */
-
-/* --- COORDENADES EXACTES (Igual que abans) --- */
-.posicio-0 { top: 10%; left: 28%; }
+/* COORDENADES ORDINADOR */
+.posicio-0 { top: 12%; left: 28%; }
 .posicio-1 { top: 18%; left: 56%; }
 .posicio-2 { top: 50%; left: 40%; }
 .posicio-3 { top: 61%; left: 20%; }
 .posicio-4 { top: 61%; left: 65%; }
 
-.missatge-buit {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  color: #888;
-}
+/* =============================================
+   ADAPTACIÓ MÒBIL (Alineació real a l'esquerra)
+   ============================================= */
 
-/* --- MÒBIL (Igual que abans) --- */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .accions-container {
     height: auto;
-    overflow: visible;
-    flex-direction: column;
+    overflow-y: auto;
+    padding: 40px 0;
     display: flex;
-    padding: 20px;
+    flex-direction: column;
+    align-items: center; /* Centra el bloc invisible de contingut */
   }
-  .bloc-text-fix, .bloc-filtres-fix {
-    position: relative;
-    top: auto; left: auto; right: auto;
+
+  /* BLOC TEXT INICIAL */
+  .bloc-text-fix {
+    position: static;
+    width: 85%; /* Marge simètric del 85% */
+    text-align: left;
+    margin-bottom: 40px;
+    font-size: 1rem;
+    padding: 0;
+  }
+
+  /* CONTENIDOR FILTRES */
+  .bloc-filtres-fix {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea els grups a l'esquerra del contenidor */
+    width: 85%; /* Ocupa el mateix que el text per alinear-se */
+    gap: 40px;
+    margin-bottom: 60px;
+    padding: 0;
+  }
+
+  .grup-filtre {
+    width: 100%; /* Força que el grup ocupi tot l'ample de l'esquerra */
+    text-align: left;
+  }
+
+  .grup-filtre h4 {
+    display: block;
     width: 100%;
-    margin-bottom: 30px;
+    text-align: left; /* Títol forçat a l'esquerra */
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    font-weight: bold;
   }
+
+  .grup-filtre ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Tags alineats a l'inici (esquerra) */
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .grup-filtre li {
+    background: #fff;
+    border: 1px solid #000;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    list-style: none;
+  }
+
+  .grup-filtre li.actiu {
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* BOTÓ NETEJAR FILTRES */
+  .netejar-filtres-accions {
+    margin-top: 10px;
+    padding: 0;
+    text-align: left;
+    font-size: 0.85rem;
+    width: auto;
+  }
+
+  /* LLISTA DE FOTOS */
+  .llista-accions-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+  }
+
   .targeta-accio {
-    position: relative;
-    top: auto !important; left: auto !important;
-    margin: 20px auto;
-    /* Assegurem que al mòbil també es vegi bé */
-    width: 80%;
-    max-width: 300px;
+    position: static !important;
+    width: 85%;
+    max-width: 350px;
+    margin: 0 auto;
+    transform: none !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Assegura que el peu estigui a l'esquerra de la foto */
+  }
+
+  .peu-foto {
+    text-align: left;
+    width: 100%;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    text-transform: uppercase;
   }
 }
