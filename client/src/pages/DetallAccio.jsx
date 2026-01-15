@@ -7,9 +7,19 @@ const infoAccions = [
     id: 1, 
     titol: "neteja", 
     galeria: [
-      { type: "img", src: "/img/accions/neteja.jpg" },
-      // Exemple de més fotos per provar l'animació (si no en tens, es veurà només 1)
-      { type: "img", src: "/img/accions/neteja/neteja1.jpeg" }, 
+      // --- EXEMPLE: Canvia "CODI_VIDEO" per la ID del teu vídeo de YouTube ---
+      // Si la URL és youtube.com/watch?v=dQw4w9WgXcQ -> La ID és dQw4w9WgXcQ
+      { type: "youtube", src: "POSA_AQUI_LA_ID_DEL_VIDEO" },
+      
+      // Les fotos es queden igual
+      { type: "img", src: "/img/accions/neteja/neteja2.png" }, 
+      { type: "img", src: "/img/accions/neteja/neteja3.png" },
+      { type: "img", src: "/img/accions/neteja/neteja4.png" },
+      { type: "img", src: "/img/accions/neteja/neteja5.png" },
+      { type: "img", src: "/img/accions/neteja/neteja6.png" },
+      { type: "img", src: "/img/accions/neteja/neteja7.png" },
+      { type: "img", src: "/img/accions/neteja/neteja8.png" },
+      { type: "img", src: "/img/accions/neteja/neteja9.png" },
     ],
     participants: "2 - 8",
     temps: "30 minuts",
@@ -24,7 +34,16 @@ Acte 5: Marxar satisfet amb la feina feta, llençant a la brossa tota la brutíc
   { 
     id: 2, 
     titol: "esport", 
-    galeria: [{ type: "img", src: "/img/accions/esport.jpg" }],
+    galeria: [
+        { type: "youtube", src: "POSA_AQUI_LA_ID_DEL_VIDEO" },
+        { type: "img", src: "/img/accions/esport/esport1.png" },
+        { type: "img", src: "/img/accions/esport/esport2.png" },
+        { type: "img", src: "/img/accions/esport/esport3.png" },
+        { type: "img", src: "/img/accions/esport/esport4.png" },
+        { type: "img", src: "/img/accions/esport/esport5.png" },
+        { type: "img", src: "/img/accions/esport/esport6.png" },
+        { type: "img", src: "/img/accions/esport/esport7.png" },
+    ],
     participants: "2 - 8",
     temps: "30 minuts",
     materials: "Calçat còmode, Aigua per mantenir-se hidratat.",
@@ -39,7 +58,15 @@ Acte 6: Comiat al públic.`,
   { 
     id: 3, 
     titol: "muralla", 
-    galeria: [{ type: "img", src: "/img/accions/muralla.jpg" }],
+    galeria: [
+        { type: "youtube", src: "POSA_AQUI_LA_ID_DEL_VIDEO" },
+        { type: "img", src: "/img/accions/muralla/muralla1.png" },
+        { type: "img", src: "/img/accions/muralla/muralla2.png" },
+        { type: "img", src: "/img/accions/muralla/muralla3.png" },
+        { type: "img", src: "/img/accions/muralla/muralla4.png" },
+        { type: "img", src: "/img/accions/muralla/muralla5.png" },
+        { type: "img", src: "/img/accions/muralla/muralla6.png" },
+    ],
     participants: "3 - 8",
     temps: "30 minuts",
     materials: "Cap indumentària necessària.",
@@ -52,7 +79,13 @@ Acte 4: Comiat al públic.`,
   { 
     id: 4, 
     titol: "fletxes", 
-    galeria: [{ type: "img", src: "/img/accions/fletxes.jpg" }],
+    galeria: [
+        { type: "youtube", src: "POSA_AQUI_LA_ID_DEL_VIDEO" },
+        { type: "img", src: "/img/accions/fletxes/fletxes1.png" },
+        { type: "img", src: "/img/accions/fletxes/fletxes2.png" },
+        { type: "img", src: "/img/accions/fletxes/fletxes3.png" },
+        { type: "img", src: "/img/accions/fletxes/fletxes4.png" },
+    ],
     participants: "2 - 8",
     temps: "30 minuts",
     materials: "Cintes adhesives de colors, Tisores.",
@@ -66,7 +99,12 @@ Acte 5: Retirada de les fletxes, cal deixar l’espai tant net o mes que quan l�
   { 
     id: 5, 
     titol: "cassolada", 
-    galeria: [{ type: "img", src: "/img/accions/cassolada.jpg" }],
+    galeria: [
+        { type: "youtube", src: "https://youtu.be/1CUwVlWqoSg" },
+        { type: "img", src: "/img/accions/cassolada/cassolada1.png" },
+        { type: "img", src: "/img/accions/cassolada/cassolada2.png" },
+        { type: "img", src: "/img/accions/cassolada/cassolada3.png" },
+    ],
     participants: "4 - 8",
     temps: "15 minuts",
     materials: "Estris de cuina, Olles, Tapes, Paelles, Cullerots, Coberts.",
@@ -110,17 +148,16 @@ function DetallAccio() {
   const rowStyle = { marginBottom: "20px", borderBottom: "1px solid #eee", paddingBottom: "15px" };
   const valueStyle = { display: "block", lineHeight: "1.4", color: "#555" };
   
-  // --- CANVI AQUÍ: ESTIL DEL BOTÓ RECTANGULAR ---
+  // Estils Botó rectangular
   const btoGaleriaStyle = {
     position: "absolute",
     top: "50%",
     transform: "translateY(-50%)",
-    background: "rgba(255, 255, 255, 0.9)", // Una mica més opac
+    background: "rgba(255, 255, 255, 0.9)", 
     border: "none",
-    borderRadius: "0px", // Un petit radi perquè no sigui punxegut del tot (posa 0 si vols rectangle pur)
-    // Hem tret width i height fixes
-    padding: "10px 5px", // Això dóna la forma rectangular
-    fontSize: "2rem", // Fletxa més gran
+    borderRadius: "0px", 
+    padding: "10px 5px", 
+    fontSize: "2rem", 
     cursor: "pointer",
     zIndex: 10,
     userSelect: "none",
@@ -152,6 +189,34 @@ function DetallAccio() {
     });
   };
 
+  // --- NOVA FUNCIÓ PER MOSTRAR YOUTUBE O FOTO ---
+  const renderContingutGaleria = (element) => {
+    if (element.type === "youtube") {
+      return (
+        <iframe 
+          width="100%" 
+          height="100%" 
+          src={`https://www.youtube.com/embed/${element.src}`} 
+          title="YouTube video player" 
+          frameBorder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowFullScreen
+          style={{ display: "block", objectFit: "cover" }}
+        ></iframe>
+      );
+    } 
+    // Si és una imatge
+    else {
+      return (
+        <img 
+          src={element.src} 
+          alt="Galeria" 
+          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} 
+        />
+      );
+    }
+  };
+
   return (
     <div style={{ padding: "40px 20px", maxWidth: "1000px", margin: "0 auto", fontFamily: "inherit" }}>
       
@@ -180,10 +245,9 @@ function DetallAccio() {
           overflow: "hidden" 
       }}>
         
-        {/* BOTONS FLETXES RECTANGULARS */}
+        {/* BOTONS FLETXES */}
         {accio.galeria.length > 1 && (
           <>
-            {/* Ajustem una mica la posició 'left' i 'right' */}
             <button onClick={anterior} style={{ ...btoGaleriaStyle, left: "10px" }}>‹</button>
             <button onClick={seguent} style={{ ...btoGaleriaStyle, right: "10px" }}>›</button>
           </>
@@ -200,19 +264,8 @@ function DetallAccio() {
           
           {accio.galeria.map((element, idx) => (
             <div key={idx} style={{ width: "100%", height: "100%", flexShrink: 0 }}>
-              {element.type === "video" ? (
-                <video 
-                  src={element.src} 
-                  controls 
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }} 
-                />
-              ) : (
-                <img 
-                  src={element.src} 
-                  alt={`Galeria ${idx}`} 
-                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} 
-                />
-              )}
+               {/* CRIDEM A LA FUNCIÓ PER PINTAR VIDEO O FOTO */}
+               {renderContingutGaleria(element)}
             </div>
           ))}
 
@@ -231,26 +284,19 @@ function DetallAccio() {
         
         {/* COLUMNA ESQUERRA */}
         <div style={{ flex: "1", minWidth: "280px", fontSize: "0.95rem" }}>
-            
-            <h3 style={headerStyle}>
-              Fitxa Tècnica
-            </h3>
-            
+            <h3 style={headerStyle}>Fitxa Tècnica</h3>
             <div style={rowStyle}>
               <span style={labelStyle}>Participants:</span>
               <span style={valueStyle}>{accio.participants}</span>
             </div>
-            
             <div style={rowStyle}>
               <span style={labelStyle}>Temps:</span>
               <span style={valueStyle}>{accio.temps}</span>
             </div>
-            
             <div style={rowStyle}>
               <span style={labelStyle}>Materials:</span>
               <span style={valueStyle}>{accio.materials}</span>
             </div>
-
             <div style={{ marginTop: "30px" }}>
                <h3 style={{ textTransform: "uppercase", fontSize: "1rem", marginBottom: "10px" }}>Filtres:</h3>
                <div style={{ lineHeight: "1.8", color: "#666" }}>
@@ -261,18 +307,12 @@ function DetallAccio() {
                  ))}
                </div>
             </div>
-
         </div>
 
         {/* COLUMNA DRETA */}
         <div style={{ flex: "2", minWidth: "300px" }}>
-          <h3 style={headerStyle}>
-            Descripció
-          </h3>
-          
-          <div>
-            {renderDescripcio(accio.descripcio)}
-          </div>
+          <h3 style={headerStyle}>Descripció</h3>
+          <div>{renderDescripcio(accio.descripcio)}</div>
         </div>
 
       </div>

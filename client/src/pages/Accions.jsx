@@ -2,19 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; 
 import "./Accions.css";
 
-// --- DADES ACTUALITZADES SEGONS LA TAULA ---
-// Hem normalitzat els noms perquè coincideixin amb els filtres:
-// "matèric" -> "Matèria"
-// "sutil" -> "Subtil"
-// "reflexiu" -> "Inactiu Reflexiu"
-// "per a veïnes" -> "X veïnes"
-// "per altres" -> "X altres"
 
 const infoAccions = [
   { 
     id: 1, 
     titol: "neteja", 
-    img: "/img/accions/neteja.jpg", 
+    img: "/img/accions/neteja.jpg",
     tags: [
       "Públic", "Privat", "X veïnes", "X altres", 
       "Interactiu", "Col·lectiu", "Humà + Objecte", 
