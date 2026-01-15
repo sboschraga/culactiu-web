@@ -1,20 +1,21 @@
+/* =============================================
+   ESTILS GENERALS (ESCRIPTORI)
+   ============================================= */
+
 /* Contenidor principal AMB IMATGE DE FONS */
 .menu-split-container {
   display: flex;
   width: 100%;
-  
-  /* CANVI AQUÍ: */
   /* 100vh és tota la pantalla. Li restem uns 90px de la barra de menú. */
-  /* Pots ajustar el '90px' si veus que et sobra o falta espai. */
   height: calc(113vh - 90px); 
   
-  /* Assegura't que tens això perquè la imatge s'adapti bé al nou tamany */
+  /* Ajustos de la imatge de fons */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-/* Cada meitat ocupa el 50% */
+/* Cada meitat ocupa el 50% en horitzontal */
 .meitat-menu {
   flex: 1;
   display: flex;
@@ -23,20 +24,15 @@
   align-items: center;
   padding: 40px;
   box-sizing: border-box;
-  
-  /* Opcional: Si vols que el fons s'enfosqueixi una mica per llegir millor: */
-  /* background-color: rgba(255, 255, 255, 0.3); */
 }
 
 /* BOTONS */
 .boto-titol {
-  /* CANVI: Fons blanc perquè ressalti sobre la foto */
   background: white; 
-  
   border: 1px solid black; 
   padding: 15px 30px;
   font-size: 1.2rem;
-  font-weight: normal; /* Sense negreta */
+  font-weight: normal; 
   text-transform: uppercase;
   color: black;
   cursor: pointer;
@@ -56,7 +52,7 @@
   transform: scale(1.05); /* Petit efecte zoom */
 }
 
-/* Enllaç tipus bloc */
+/* Enllaç tipus bloc per al botó d'Afegir */
 .link-boto {
   text-decoration: none;
   display: flex;
@@ -64,16 +60,44 @@
   align-items: center;
 }
 
-/* RESPONSIVE */
+
+/* =============================================
+   ADAPTACIÓ MÒBIL (PANTALLES < 768px)
+   ============================================= */
+
 @media (max-width: 768px) {
   .menu-split-container {
     flex-direction: column;
-    height: auto;
-    /* Al mòbil potser vols que la imatge es vegi diferent o treure-la */
-    min-height: 80vh; 
+    /* Ajustem l'alçada per donar més aire */
+    height: calc(100vh - 80px); 
+    min-height: 650px; 
+    background-size: cover;
+    background-attachment: scroll;
   }
   
   .meitat-menu {
-    padding: 60px 20px; 
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Centra el botó verticalment dins la seva meitat */
+    align-items: center;     /* Centra el botó horitzontalment */
+    padding: 0 40px;         /* Més padding lateral perquè el botó no toqui les vores */
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  /* Baixem una mica el primer botó per separar-lo del logo */
+  .meitat-menu.esquerra {
+    padding-top: 40px; 
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  /* Ajustos dels botons */
+  .boto-titol {
+    width: 100%;      /* Ara el tamany real el controla el padding del pare (.meitat-menu) */
+    max-width: 300px; /* Evita que en mòbils amples el botó es faci gegant */
+    min-width: unset; 
+    font-size: 0.95rem;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   }
 }

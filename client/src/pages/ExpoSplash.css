@@ -58,3 +58,24 @@
 .boto-splash:hover {
   cursor: url('../assets/cursors/ma.png') 10 0, pointer !important;
 }
+
+/* --- ADAPTACIÓ PER A MÒBIL --- */
+@media (max-width: 768px) {
+  .splash-logo {
+    font-size: 2.5rem; /* Logo més petit perquè no talli */
+    margin-bottom: 30px;
+  }
+
+  .splash-buttons {
+    flex-direction: column; /* Els botons es posen un sota l'altre */
+    gap: 20px;
+    padding: 0 20px; /* Marge lateral perquè no toquin les parets */
+  }
+
+  .boto-splash {
+    min-width: unset; /* Eliminem l'amplada fixa de 320px */
+    width: 100%;     /* Que ocupin tota l'amplada disponible */
+    padding: 20px 30px; /* Reduïm una mica el padding interior */
+    font-size: 1.1rem;
+  }
+}
