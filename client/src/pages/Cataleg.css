@@ -7,7 +7,6 @@
   font-family: 'Arial', sans-serif;
 }
 
-/* Nou contenidor per al botó de tornar i el toggle de mòbil */
 .cataleg-header-accions {
   display: flex;
   justify-content: space-between;
@@ -30,7 +29,6 @@
   margin-bottom: 20px;
   padding: 10px 10px 10px 0; 
   border-radius: 8px;
-  transition: none; 
 }
 
 .titol-grup {
@@ -64,7 +62,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 1; 
   transition: transform 0.2s;
   margin-bottom: 5px;
 }
@@ -105,11 +102,6 @@
   align-items: center;
   gap: 20px; 
   margin-bottom: 40px; 
-  padding-left: 0;
-}
-
-.buscador-container {
-  text-align: left;
 }
 
 .input-cercador {
@@ -120,14 +112,7 @@
   border-bottom: 1px solid #000; 
   font-size: 0.9rem; 
   outline: none;
-  font-family: inherit;
   background: transparent;
-}
-
-.input-cercador::placeholder {
-  color: #999;
-  font-style: italic;
-  font-size: 0.85rem;
 }
 
 .netejar-filtres {
@@ -137,10 +122,6 @@
   cursor: pointer;
   color: #666;
   font-size: 0.85rem;
-  padding: 0;
-}
-.netejar-filtres:hover {
-  color: black;
 }
 
 .contenidor-llista {
@@ -155,34 +136,19 @@
   font-size: 0.85rem; 
   margin-bottom: 8px; 
   break-inside: avoid; 
-  page-break-inside: avoid;
-  font-weight: normal;
-}
-
-.item-llista:hover {
-  text-decoration: underline;
-  color: #555;
 }
 
 .boto-tornar {
   text-decoration: none;
   color: black;
-  font-weight: normal;
   font-size: 0.8rem;
   text-transform: uppercase;
-  transition: opacity 0.3s;
-  display: inline-block;
 }
 
-.boto-tornar:hover {
-  text-decoration: underline;
-  opacity: 0.7;
-}
-
-/* --- ESTILS NOUS PER AL MÒBIL (SENSE TOCAR ORDINADOR) --- */
+/* --- ESTILS PER AL MÒBIL --- */
 
 .boto-mobil-toggle {
-  display: none; /* Amagat a PC */
+  display: none;
 }
 
 @media (max-width: 768px) {
@@ -191,22 +157,19 @@
   }
 
   .boto-mobil-toggle {
-    display: block; /* Visible a mòbil */
+    display: block;
     background: #f4f4f4;
     border: 1px solid black;
     padding: 8px 12px;
     font-size: 0.7rem;
-    font-family: inherit;
     text-transform: uppercase;
-    cursor: pointer;
   }
 
-  /* Amaguem la secció de filtres per defecte al mòbil */
   .filtres-section {
     display: none;
   }
 
-  /* Es mostra només quan té la classe 'obert-mobil' (clicant el botó) */
+  /* Millora d'alineació a l'esquerra pel menú de filtres */
   .filtres-section.obert-mobil {
     display: flex;
     flex-direction: column;
@@ -215,40 +178,50 @@
     padding: 20px;
     border: 1px solid #eee;
     margin-bottom: 20px;
+    align-items: flex-start; /* Alinea el contingut del menú a l'esquerra */
   }
 
   .grup-filtre {
     width: 100%;
-    align-items: center;
-    border-bottom: 1px solid #f4f4f4;
+    align-items: flex-start; /* Alinea títols a l'esquerra */
+    border-bottom: 1px solid #ddd;
     padding-bottom: 15px;
+    padding-right: 0;
   }
 
   .icones-grup {
-    justify-content: center;
+    justify-content: flex-start; /* Alinea icones a l'esquerra */
     flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .wrapper-filtre {
+    align-items: flex-start; /* Alinea llegenda a l'esquerra de la icona */
+    width: auto;
+    min-width: 50px;
   }
 
   .legenda-simbol {
-    opacity: 1; /* Sempre visible al mòbil */
+    opacity: 1;
+    text-align: left; /* Text a l'esquerra */
+    font-size: 0.65rem;
   }
 
   .contenidor-llista {
-    column-count: 2; /* 2 columnes al mòbil per no fer scroll infinit */
+    column-count: 2;
     column-gap: 20px;
   }
 
   .item-llista {
     font-size: 0.9rem;
-    padding: 5px 0;
   }
 
   .zona-intermedia {
     margin-bottom: 20px;
+    justify-content: flex-start;
   }
 }
 
-/* Adaptació per a pantalles mitjanes (tablets) */
 @media (max-width: 900px) and (min-width: 769px) {
   .contenidor-llista {
     column-count: 3;

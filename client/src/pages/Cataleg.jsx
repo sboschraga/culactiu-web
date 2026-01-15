@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import infoCarrers from "../data/infoCarrers";
 import "./Cataleg.css";
 
-// 1. DEFINICIÓ DE LES DADES (Això faltava al fitxer i causava l'error)
 const GRUPS_SIMBOLS = {
   "Forma": [
     { src: "/simbols/1linea.svg", nom: "Rectilini" },
@@ -35,9 +34,8 @@ function Cataleg() {
   const [filtresActius, setFiltresActius] = useState([]);
   const [textCerca, setTextCerca] = useState("");
   const [carrersFiltrats, setCarrersFiltrats] = useState([]);
-  const [menuObert, setMenuObert] = useState(false); // Estat pel desplegable mòbil
+  const [menuObert, setMenuObert] = useState(false);
 
-  // 2. DEFINICIÓ DE LA FUNCIÓ (Això també faltava)
   const toggleFiltre = (simbolSrc, categoria) => {
     const simbolsDelGrup = GRUPS_SIMBOLS[categoria].map(s => s.src);
     let nousFiltres = filtresActius.filter(s => !simbolsDelGrup.includes(s));
@@ -64,13 +62,11 @@ function Cataleg() {
 
   return (
     <div className="cataleg-container">
-      
       <div className="cataleg-header-accions">
         <Link to="/cataleg" className="boto-tornar">
           ← TORNAR
         </Link>
 
-        {/* Botó que només es veu al mòbil */}
         <button 
           className="boto-mobil-toggle" 
           onClick={() => setMenuObert(!menuObert)}
@@ -79,7 +75,6 @@ function Cataleg() {
         </button>
       </div>
 
-      {/* Secció de filtres amb classe condicional per al mòbil */}
       <div className={`filtres-section ${menuObert ? "obert-mobil" : ""}`}>
         {Object.entries(GRUPS_SIMBOLS).map(([categoria, simbols]) => (
           <div key={categoria} className="grup-filtre">
