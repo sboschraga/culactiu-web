@@ -68,36 +68,44 @@
 @media (max-width: 768px) {
   .menu-split-container {
     flex-direction: column;
-    /* Ajustem l'alçada per donar més aire */
+    /* Forcem l'alçada exacta del visor per evitar scroll */
     height: calc(100vh - 80px); 
-    min-height: 650px; 
+    width: 100%;
+    
+    /* BLOQUEIG DE SCROLL */
+    overflow: hidden; 
+    position: fixed; /* Evita que la pantalla reboti en moure el dit */
+    
     background-size: cover;
-    background-attachment: scroll;
+    background-position: center;
   }
   
   .meitat-menu {
     flex: 1;
     display: flex;
-    justify-content: center; /* Centra el botó verticalment dins la seva meitat */
-    align-items: center;     /* Centra el botó horitzontalment */
-    padding: 0 40px;         /* Més padding lateral perquè el botó no toqui les vores */
+    justify-content: center; 
+    align-items: center;     
+    /* Padding generós per "empènyer" els botons cap al centre */
+    padding: 0 40px;         
     box-sizing: border-box;
-    width: 100%;
+    width: 100vw; /* Asegura que no surti dels marges laterals */
   }
 
-  /* Baixem una mica el primer botó per separar-lo del logo */
+  /* Baixem una mica el primer bloc per no tocar el nav */
   .meitat-menu.esquerra {
-    padding-top: 40px; 
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding-top: 20px; 
   }
 
-  /* Ajustos dels botons */
+  /* BOTONS MÉS PETITS I CENTRATS */
   .boto-titol {
-    width: 100%;      /* Ara el tamany real el controla el padding del pare (.meitat-menu) */
-    max-width: 300px; /* Evita que en mòbils amples el botó es faci gegant */
+    width: 100%;      
+    max-width: 280px; /* Una mica més estret per seguretat */
     min-width: unset; 
-    font-size: 0.95rem;
-    padding: 20px;
+    font-size: 0.9rem;
+    padding: 16px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    
+    /* Evitem que el text salti de línia de forma estranya */
+    white-space: nowrap; 
   }
 }
