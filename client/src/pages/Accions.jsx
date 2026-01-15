@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; 
 import "./Accions.css";
 
-
 const infoAccions = [
   { 
     id: 1, 
@@ -70,9 +69,6 @@ const FILTRES_QUE = [
 function Accions() {
   const navigate = useNavigate();
   const [filtresActius, setFiltresActius] = useState([]);
-  
-  // Aquest estat serveix per calcular quins són visibles, 
-  // encara que al render final fem servir infoAccions.map amb un check
   const [accionsVisibles, setAccionsVisibles] = useState(infoAccions);
 
   const toggleFiltre = (tag) => {
@@ -87,7 +83,6 @@ function Accions() {
     if (filtresActius.length === 0) {
       setAccionsVisibles(infoAccions);
     } else {
-      // Filtrem: L'acció ha de tenir TOTS els tags seleccionats
       const resultat = infoAccions.filter(accio => 
         filtresActius.every(filtre => accio.tags.includes(filtre))
       );
@@ -104,12 +99,30 @@ function Accions() {
       
       {/* 1. TEXT FIX ESQUERRA */}
       <div className="bloc-text-fix">
-        <p>L’objectiu d’aquestes accions és qüestionar-se els espais no productius de la ciutat, els culs de sac.</p>
+        <p>L’objectiu d’aquestes accions és qüestionar-se els espais no productius de la ciutat, els culs-de-sac.</p>
         <p>Són espais públics, però qui els habita, qui els transita, de quina manera ho fan? La reflexió genera un projecte participatiu en constant evolució, que s’expandeix per tot el món junt amb el CULACTIU.</p>
       </div>
 
-      {/* 2. FILTRES FIXOS DRETA */}
+      {/* 2. FILTRES FIXOS DRETA (ORDRE CANVIAT: QUÈ -> COM) */}
       <div className="bloc-filtres-fix">
+        
+        {/* GRUP QUÈ QÜESTIONEM (ARA PRIMER) */}
+        <div className="grup-filtre">
+          <h4>QUÈ QÜESTIONEM?</h4>
+          <ul>
+            {FILTRES_QUE.map(tag => (
+              <li 
+                key={tag} 
+                className={filtresActius.includes(tag) ? "actiu" : ""} 
+                onClick={() => toggleFiltre(tag)}
+              >
+                {tag}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* GRUP COM (ARA SEGON / A LA DRETA) */}
         <div className="grup-filtre">
           <h4>COM?</h4>
           <ul>
@@ -124,28 +137,12 @@ function Accions() {
             ))}
           </ul>
         </div>
-        <div className="grup-filtre">
-          <h4>QUÈ?</h4>
-          <ul>
-            {FILTRES_QUE.map(tag => (
-              <li 
-                key={tag} 
-                className={filtresActius.includes(tag) ? "actiu" : ""} 
-                onClick={() => toggleFiltre(tag)}
-              >
-                {tag}
-              </li>
-            ))}
-          </ul>
-        </div>
+
       </div>
 
       {/* 3. FOTOS (LLISTA D'ACCIONS) */}
       {infoAccions.map((accio, index) => {
-        // Comprovem si és visible segons els filtres actuals
         const esVisible = accionsVisibles.some(a => a.id === accio.id);
-        
-        // Si no compleix els filtres, no es renderitza
         if (!esVisible) return null;
 
         return (
@@ -159,7 +156,6 @@ function Accions() {
               alt={accio.titol} 
               className="imatge-accio-full" 
             />
-            
             <p className="peu-foto">
               {accio.titol}
             </p>

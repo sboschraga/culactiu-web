@@ -208,7 +208,7 @@ function MenuCataleg() {
 
         <Link to="/afegir-carrer" className="boto-titol link-boto">
 
-          AFEGIR CUL DE SAC
+          AFEGIR CUL-DE-SAC
 
         </Link>
 

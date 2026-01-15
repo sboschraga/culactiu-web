@@ -1,53 +1,48 @@
-/* src/pages/DetallCarrer.css - VERSIÓ FINAL NETEJA */
-
-/* --- CONTENIDOR PRINCIPAL --- */
 .detall-container {
   padding: 20px 40px;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
-  font-family: inherit;
-  box-sizing: border-box;
 }
 
-/* --- ENLLAÇ TORNAR --- */
+/* Punt 1: Espai entre tornar i fotos (Augmentat) */
 .back-link-container {
-  margin-bottom: 20px;
+  margin-bottom: 20px; 
 }
-.back-link {
-  text-decoration: none;
+
+.back-link-btn {
+  background: none;
+  border: none;
+  padding: 0;
   color: #666;
-  font-size: 14px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  cursor: url('../assets/cursors/ma.png') 10 0, pointer !important;
 }
-.back-link:hover {
-  text-decoration: underline;
+
+/* Punt 2.2: Subratllat al passar per sobre */
+.back-link-btn:hover {
+  text-decoration: underline !important;
   color: black;
 }
 
-/* --- SECCIÓ SUPERIOR (TOT EL BLOC: FOTOS + SÍMBOLS + TEXT) --- */
 .top-section {
-  display: flex; /* Això posa les FOTOS a l'esquerra i els SÍMBOLS/TEXT a la dreta */
-  gap: 40px;     /* Separació gran entre el bloc de fotos i el bloc de la dreta */
+  display: flex;
+  gap: 30px;
   align-items: flex-start;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
-/* --- BLOC DE FOTOS (ESQUERRA) --- */
+/* Punt 4: Fotos a 260px */
 .fotos-group {
-  display: flex;        /* MÀGIA: Posa les fotos una al costat de l'altra */
-  gap: 20px;            /* Espai entre foto i foto */
-  flex-wrap: wrap;      /* Si no hi caben, baixen */
+  display: flex;
+  gap: 15px;
+  flex-shrink: 0;
 }
 
 .foto-box {
-  width: 260px;         /* Amplada de cada foto */
-  aspect-ratio: 3 / 4;  /* Format vertical de la foto */
-  background-color: #f9f9f9;
-  border: 1px solid #eee;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 260px; 
+  aspect-ratio: 3 / 4;
   overflow: hidden;
-  border-radius: 4px;
   cursor: zoom-in;
 }
 
@@ -55,36 +50,30 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.2s, opacity 0.2s;
-}
-.foto-box img:hover {
-  transform: scale(1.03);
-  opacity: 0.9;
 }
 
-/* --- BLOC DRET (SÍMBOLS + TEXT DESCRIPTIU) --- */
+/* Punt 6: Més espai símbols vs text */
 .simbols-i-text {
-  display: flex;    /* Posa els símbols i el text de costat */
-  gap: 25px;        /* Espai entre la columna de símbols i el text */
-  flex: 1;          /* Ocupa la resta d'espai disponible */
+  display: flex;
+  gap: 70px; 
+  flex: 1;
 }
 
-/* Columna de símbols (Vertical) */
 .simbols-vertical {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Separació vertical entre símbols */
-  flex-shrink: 0; /* Evita que la columna s'aixafi si hi ha poc espai */
+  gap: 15px;
+  flex-shrink: 0;
+}
+
+/* Punt 5: Símbols sense canvi de ratolí */
+.no-pointer, .no-pointer img, .no-pointer span {
+  cursor: url('../assets/cursors/fletxa.png') 0 0, auto !important;
 }
 
 .simbol-box {
-  width: 50px;
-  height: 50px;
-  padding: 5px;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 40px;
+  height: 40px;
 }
 
 .simbol-img {
@@ -93,139 +82,76 @@
   object-fit: contain;
 }
 
-/* Text descriptiu (al costat dels símbols) */
 .text-descriptiu {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #333;
-  margin-top: -5px; /* Petit ajust visual per alinear amb el primer símbol */
+  font-size: 0.95rem;
+  line-height: 1.4;
+  max-width: 320px;
+  /* Prova amb un valor entre -3px i -5px per alinear-ho amb el símbol */
+  margin-top: -15px; 
 }
 
-.text-descriptiu p {
-  margin-bottom: 15px; /* Espai entre paràgrafs */
-}
-
-/* --- SECCIÓ INFERIOR (TÍTOL CARRER I UBICACIÓ) --- */
+/* Punt 2 (segona llista): Format de línia, títol i districte */
 .info-text-section {
-  margin-top: 20px;
-  border-top: 1px solid #eee; /* Opcional: línia separadora */
-  padding-top: 20px;
+  margin-top: 30px;
+  border-top: 1px solid black;
+  padding-top: 15px;
+}
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
 }
 
 .nom-carrer {
-  font-size: 24px;
+  font-size: 1.8rem;
   text-transform: uppercase;
-  margin: 0 0 10px 0;
   font-weight: bold;
+  margin: 0;
   letter-spacing: 1px;
 }
 
 .ubicacio {
-  font-size: 18px;
+  font-size: 1.1rem;
   color: #666;
-  margin: 0;
+  margin: 5px 0 0 0;
 }
 
-/* --- MODAL (FOTO AMPLIADA) - CORREGIT --- */
+/* Botó Veure l'acció */
+.boto-veure-accio-destacat {
+  display: inline-block;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Punt 3: Modal fons fosc translúcid */
 .modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.85); /* Fons fosc translúcid */
+  top: 0; left: 0; 
+  width: 100vw; height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9); 
   display: flex;
-  flex-direction: column; /* Posem columna perquè el text quedi a sota naturalment */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 9999;
   cursor: zoom-out;
-  padding: 20px;
-  box-sizing: border-box; /* Important perquè el padding no sumi mida */
-}
-
-/* --- MODAL (FOTO AMPLIADA) - MÉS GRAN --- */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  cursor: zoom-out;
-  
-  /* ABANS: 20px -> ARA: 10px (Reduïm marge per donar més espai a la foto) */
-  padding: 10px; 
-  box-sizing: border-box;
-}
-
-.modal-content {
-  /* Donem més espai al contenidor (gairebé tota l'alçada) */
-  max-height: 95vh; 
-  max-width: 95vw;
-  
-  display: flex;
-  flex-direction: column; /* Manté el text a sota */
-  align-items: center;
-  justify-content: center;
-  
-  position: relative;
-  box-shadow: none;
-  background: transparent;
 }
 
 .modal-content img {
-  width: auto;
-  max-width: 100%;
-  
-  /* ABANS: 75vh -> ARA: 85vh (La foto ocupa el 85% de l'alçada de la pantalla) */
-  max-height: 85vh; 
-  
+  max-height: 85vh;
+  max-width: 90vw;
   object-fit: contain;
-  display: block;
 }
 
 .tancar-text {
-  margin-top: 10px; /* Reduïm una mica l'espai entre foto i text */
-  text-align: center;
-  color: #fff;
-  font-size: 14px;
-}
-
-/* --- RESPONSIVE (MÒBIL) --- */
-@media (max-width: 900px) {
-  /* Quan la pantalla és petita, ho posem tot en columna */
-  .top-section {
-    flex-direction: column;
-    gap: 30px;
-  }
-  
-  /* Al mòbil, potser volem les fotos més petites o que ocupin tot l'ample */
-  .fotos-group {
-    width: 100%;
-    justify-content: center; /* Centrem les fotos */
-  }
-  
-  .foto-box {
-    width: 45%; /* Dues fotos per fila al mòbil */
-  }
-
-  /* El bloc de símbols i text també s'adapta */
-  .simbols-i-text {
-    width: 100%;
-  }
-}
-
-@media (max-width: 600px) {
-  .foto-box {
-    width: 100%; /* Una sola foto gran al mòbil petit */
-  }
-  
-  .simbols-i-text {
-    flex-direction: row; /* Mantem símbols al costat del text */
-  }
+  color: white;
+  margin-top: 20px;
+  font-size: 0.8rem;
 }

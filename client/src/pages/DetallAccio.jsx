@@ -1,4 +1,4 @@
-import React, { useState } from "react"; 
+import React, { useState, useEffect } from "react"; 
 import { useParams, Link } from "react-router-dom";
 
 // --- DADES ---
@@ -7,11 +7,7 @@ const infoAccions = [
     id: 1, 
     titol: "neteja", 
     galeria: [
-      // --- EXEMPLE: Canvia "CODI_VIDEO" per la ID del teu vídeo de YouTube ---
-      // Si la URL és youtube.com/watch?v=dQw4w9WgXcQ -> La ID és dQw4w9WgXcQ
-      { type: "youtube", src: "POSA_AQUI_LA_ID_DEL_VIDEO" },
-      
-      // Les fotos es queden igual
+      { type: "youtube", src: "PHkGPsp8tEI" },
       { type: "img", src: "/img/accions/neteja/neteja2.png" }, 
       { type: "img", src: "/img/accions/neteja/neteja3.png" },
       { type: "img", src: "/img/accions/neteja/neteja4.png" },
@@ -24,7 +20,7 @@ const infoAccions = [
     participants: "2 - 8",
     temps: "30 minuts",
     materials: "Escombra, Pala, Draps, Fregalls, Sabó, Fregona, Guants, Mascaretes, Cubell, Productes de neteja, Caça-fantasmes de neteja, Aspirador",
-    descripcio: `Acte 1: Localització d’un cul cul-de-sac adequat, brut.
+    descripcio: `Acte 1: Localització d’un cul-de-sac adequat, brut.
 Acte 2: Entrada al cul-de-sac, els integrants duen l’equipament i el material necessari.
 Acte 3: Inspecció visual de l’espai.
 Acte 4: Anem per feina! Comencem a netejar el carrer: escombrar i fregar el terra, treure la pols de les portes i portals, retirar els adhesius de canonades, fregar els grafits, extirpar els excrements de la fauna de Barcelona… Seguir minuts, hores o dies com faci falta, fins a deixar el cul-de-sac impol·lut, brillant, lluent, en definitiva millor de com l’has trobat.
@@ -35,7 +31,7 @@ Acte 5: Marxar satisfet amb la feina feta, llençant a la brossa tota la brutíc
     id: 2, 
     titol: "esport", 
     galeria: [
-        { type: "youtube", src: "POSA_AQUI_LA_ID_DEL_VIDEO" },
+        { type: "youtube", src: "LP3hWTcalcA" },
         { type: "img", src: "/img/accions/esport/esport1.png" },
         { type: "img", src: "/img/accions/esport/esport2.png" },
         { type: "img", src: "/img/accions/esport/esport3.png" },
@@ -59,7 +55,7 @@ Acte 6: Comiat al públic.`,
     id: 3, 
     titol: "muralla", 
     galeria: [
-        { type: "youtube", src: "POSA_AQUI_LA_ID_DEL_VIDEO" },
+        { type: "youtube", src: "nK4Mr5eC80Q" },
         { type: "img", src: "/img/accions/muralla/muralla1.png" },
         { type: "img", src: "/img/accions/muralla/muralla2.png" },
         { type: "img", src: "/img/accions/muralla/muralla3.png" },
@@ -80,7 +76,7 @@ Acte 4: Comiat al públic.`,
     id: 4, 
     titol: "fletxes", 
     galeria: [
-        { type: "youtube", src: "POSA_AQUI_LA_ID_DEL_VIDEO" },
+        { type: "youtube", src: "gKMmGlVtLpA" },
         { type: "img", src: "/img/accions/fletxes/fletxes1.png" },
         { type: "img", src: "/img/accions/fletxes/fletxes2.png" },
         { type: "img", src: "/img/accions/fletxes/fletxes3.png" },
@@ -100,7 +96,7 @@ Acte 5: Retirada de les fletxes, cal deixar l’espai tant net o mes que quan l�
     id: 5, 
     titol: "cassolada", 
     galeria: [
-        { type: "youtube", src: "https://youtu.be/1CUwVlWqoSg" },
+        { type: "youtube", src: "1CUwVlWqoSg" }, 
         { type: "img", src: "/img/accions/cassolada/cassolada1.png" },
         { type: "img", src: "/img/accions/cassolada/cassolada2.png" },
         { type: "img", src: "/img/accions/cassolada/cassolada3.png" },
@@ -119,20 +115,43 @@ Acte 4: Comiat al públic.`,
 function DetallAccio() {
   const { id } = useParams(); 
   const [indexGaleria, setIndexGaleria] = useState(0);
+  const [fullScreen, setFullScreen] = useState(false); 
 
   const accio = infoAccions.find(a => a.titol === id);
 
-  if (!accio) {
-    return <div style={{ padding: 40, fontFamily: "inherit" }}>Acció no trobada</div>;
-  }
-
-  const seguent = () => {
-    setIndexGaleria((prev) => (prev === accio.galeria.length - 1 ? 0 : prev + 1));
+  // --- NAVEGACIÓ ---
+  const seguent = (e) => {
+    if(e) e.stopPropagation(); 
+    if (accio) {
+      setIndexGaleria((prev) => (prev === accio.galeria.length - 1 ? 0 : prev + 1));
+    }
   };
 
-  const anterior = () => {
-    setIndexGaleria((prev) => (prev === 0 ? accio.galeria.length - 1 : prev - 1));
+  const anterior = (e) => {
+    if(e) e.stopPropagation();
+    if (accio) {
+      setIndexGaleria((prev) => (prev === 0 ? accio.galeria.length - 1 : prev - 1));
+    }
   };
+
+  // --- CONTROL DEL TECLAT ---
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!fullScreen) return;
+      if (e.key === "Escape") setFullScreen(false);
+      if (e.key === "ArrowRight") seguent();
+      if (e.key === "ArrowLeft") anterior();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+    
+    // Aquesta línia de sota (el comentari) elimina el warning de dependències:
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fullScreen]); 
+
+
+  // --- SI NO TROBEM L'ACCIÓ (MOUREM AIXÒ AL FINAL) ---
+  // (Abans estava aquí i donava error. Ara ho gestionem més avall)
 
   // --- ESTILS ---
   const headerStyle = { 
@@ -143,12 +162,10 @@ function DetallAccio() {
     paddingBottom: "10px",
     marginTop: 0 
   };
-
   const labelStyle = { fontWeight: "bold", display: "block", marginBottom: "5px", color: "#333" };
   const rowStyle = { marginBottom: "20px", borderBottom: "1px solid #eee", paddingBottom: "15px" };
   const valueStyle = { display: "block", lineHeight: "1.4", color: "#555" };
   
-  // Estils Botó rectangular
   const btoGaleriaStyle = {
     position: "absolute",
     top: "50%",
@@ -168,6 +185,21 @@ function DetallAccio() {
     color: "#333"
   };
 
+  const btnExpandirStyle = {
+    position: "absolute",
+    bottom: "10px",
+    right: "10px",
+    background: "rgba(0, 0, 0, 0.6)", 
+    color: "white",
+    border: "none",
+    borderRadius: "4px",
+    padding: "5px 10px", 
+    fontSize: "1.2rem", 
+    cursor: "pointer",
+    zIndex: 20,
+  };
+
+  // --- RENDERS AUXILIARS ---
   const renderDescripcio = (text) => {
     return text.split('\n').map((linea, index) => {
       if (linea.trim().startsWith("Acte")) {
@@ -189,63 +221,91 @@ function DetallAccio() {
     });
   };
 
-  // --- NOVA FUNCIÓ PER MOSTRAR YOUTUBE O FOTO ---
-  const renderContingutGaleria = (element) => {
+  const renderContingutGaleria = (element, isModal = false) => {
+    const imgStyle = isModal 
+      ? { width: "100%", height: "100%", objectFit: "contain", display: "block" } 
+      : { width: "100%", height: "100%", objectFit: "cover", display: "block", cursor: "pointer" };
+
+    const iframeStyle = { width: "100%", height: "100%", display: "block" };
+
     if (element.type === "youtube") {
       return (
         <iframe 
-          width="100%" 
-          height="100%" 
           src={`https://www.youtube.com/embed/${element.src}`} 
           title="YouTube video player" 
           frameBorder="0" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
           allowFullScreen
-          style={{ display: "block", objectFit: "cover" }}
+          style={iframeStyle}
         ></iframe>
       );
     } 
-    // Si és una imatge
     else {
       return (
         <img 
           src={element.src} 
           alt="Galeria" 
-          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} 
+          style={imgStyle} 
+          onClick={!isModal ? () => setFullScreen(true) : undefined}
         />
       );
     }
   };
 
+  // --- ARA SÍ: COMPROVACIÓ FINAL ---
+  // Si no hi ha acció, retornem error, però JA HEM EXECUTAT ELS HOOKS, així que React no es queixa.
+  if (!accio) {
+    return <div style={{ padding: 40, fontFamily: "inherit" }}>Acció no trobada</div>;
+  }
+
   return (
     <div style={{ padding: "40px 20px", maxWidth: "1000px", margin: "0 auto", fontFamily: "inherit" }}>
       
+      {/* --- MODAL PANTALLA COMPLETA --- */}
+      {fullScreen && (
+        <div 
+          onClick={() => setFullScreen(false)} 
+          style={{
+            position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh",
+            backgroundColor: "rgba(0,0,0,0.95)", zIndex: 9999,
+            display: "flex", alignItems: "center", justifyContent: "center"
+          }}
+        >
+          <button 
+            onClick={() => setFullScreen(false)}
+            style={{ position: "absolute", top: "20px", right: "20px", background: "transparent", border: "none", color: "white", fontSize: "3rem", cursor: "pointer", zIndex: 10001 }}
+          >
+            ×
+          </button>
+
+          {accio.galeria.length > 1 && (
+            <>
+              <button onClick={anterior} style={{ ...btoGaleriaStyle, left: "20px", background: "transparent", color: "white", fontSize: "4rem" }}>‹</button>
+              <button onClick={seguent} style={{ ...btoGaleriaStyle, right: "20px", background: "transparent", color: "white", fontSize: "4rem" }}>›</button>
+            </>
+          )}
+
+          <div 
+             onClick={(e) => e.stopPropagation()} 
+             style={{ width: "90%", height: "90%", display: "flex", justifyContent: "center", alignItems: "center" }}
+          >
+            {renderContingutGaleria(accio.galeria[indexGaleria], true)}
+          </div>
+        </div>
+      )}
+
+      {/* --- PÀGINA NORMAL --- */}
       <Link to="/accions" style={{ textDecoration: "none", color: "#666", marginBottom: "5px", display: "inline-block", fontSize: "0.9rem" }}>
         ← Tornar
       </Link>
 
-      <h1 style={{ 
-          textTransform: "uppercase", 
-          fontSize: "2.5rem", 
-          marginTop: "0px", 
-          marginBottom: "30px", 
-          borderBottom: "3px solid black", 
-          paddingBottom: "10px" 
-      }}>
+      <h1 style={{ textTransform: "uppercase", fontSize: "2.5rem", marginTop: "0px", marginBottom: "30px", borderBottom: "3px solid black", paddingBottom: "10px" }}>
         {accio.titol}
       </h1>
       
-      {/* ESTRUCTURA ANIMACIÓ LLISCAMENT */}
-      <div style={{ 
-          position: "relative", 
-          marginBottom: "50px", 
-          width: "100%", 
-          height: "500px", 
-          backgroundColor: "#f0f0f0",
-          overflow: "hidden" 
-      }}>
+      {/* GALERIA INLINE */}
+      <div style={{ position: "relative", marginBottom: "50px", width: "100%", height: "500px", backgroundColor: "#f0f0f0", overflow: "hidden" }}>
         
-        {/* BOTONS FLETXES */}
         {accio.galeria.length > 1 && (
           <>
             <button onClick={anterior} style={{ ...btoGaleriaStyle, left: "10px" }}>‹</button>
@@ -253,27 +313,27 @@ function DetallAccio() {
           </>
         )}
 
-        {/* TRACK SLIDER */}
+        <button onClick={() => setFullScreen(true)} style={btnExpandirStyle} title="Pantalla completa">
+          ⤢
+        </button>
+
+        {/* Track Slider */}
         <div style={{
           display: "flex",
           height: "100%",
-          width: `${accio.galeria.length * 100}%`, 
-          transform: `translateX(-${indexGaleria * (100 / accio.galeria.length)}%)`, 
+          width: "100%", 
+          transform: `translateX(-${indexGaleria * 100}%)`, 
           transition: "transform 0.5s ease-in-out" 
         }}>
-          
           {accio.galeria.map((element, idx) => (
-            <div key={idx} style={{ width: "100%", height: "100%", flexShrink: 0 }}>
-               {/* CRIDEM A LA FUNCIÓ PER PINTAR VIDEO O FOTO */}
-               {renderContingutGaleria(element)}
+            <div key={idx} style={{ minWidth: "100%", width: "100%", height: "100%", flexShrink: 0 }}>
+               {renderContingutGaleria(element, false)}
             </div>
           ))}
-
         </div>
         
-        {/* INDICADOR */}
         {accio.galeria.length > 1 && (
-          <div style={{ position: "absolute", bottom: "10px", right: "20px", background: "rgba(0,0,0,0.5)", color: "white", padding: "5px 10px", borderRadius: "4px", fontSize: "0.8rem", pointerEvents: "none" }}>
+          <div style={{ position: "absolute", bottom: "10px", left: "20px", background: "rgba(0,0,0,0.5)", color: "white", padding: "5px 10px", borderRadius: "4px", fontSize: "0.8rem", pointerEvents: "none" }}>
             {indexGaleria + 1} / {accio.galeria.length}
           </div>
         )}
@@ -281,40 +341,24 @@ function DetallAccio() {
       </div>
 
       <div style={{ display: "flex", gap: "60px", flexWrap: "wrap", alignItems: "flex-start" }}>
-        
-        {/* COLUMNA ESQUERRA */}
         <div style={{ flex: "1", minWidth: "280px", fontSize: "0.95rem" }}>
             <h3 style={headerStyle}>Fitxa Tècnica</h3>
-            <div style={rowStyle}>
-              <span style={labelStyle}>Participants:</span>
-              <span style={valueStyle}>{accio.participants}</span>
-            </div>
-            <div style={rowStyle}>
-              <span style={labelStyle}>Temps:</span>
-              <span style={valueStyle}>{accio.temps}</span>
-            </div>
-            <div style={rowStyle}>
-              <span style={labelStyle}>Materials:</span>
-              <span style={valueStyle}>{accio.materials}</span>
-            </div>
+            <div style={rowStyle}><span style={labelStyle}>Participants:</span><span style={valueStyle}>{accio.participants}</span></div>
+            <div style={rowStyle}><span style={labelStyle}>Temps:</span><span style={valueStyle}>{accio.temps}</span></div>
+            <div style={rowStyle}><span style={labelStyle}>Materials:</span><span style={valueStyle}>{accio.materials}</span></div>
             <div style={{ marginTop: "30px" }}>
                <h3 style={{ textTransform: "uppercase", fontSize: "1rem", marginBottom: "10px" }}>Filtres:</h3>
                <div style={{ lineHeight: "1.8", color: "#666" }}>
                  {accio.tags.map((tag, index) => (
-                   <span key={index} style={{ marginRight: "10px", display: "inline-block", color: "#444", fontWeight: "500" }}>
-                     #{tag}
-                   </span>
+                   <span key={index} style={{ marginRight: "10px", display: "inline-block", color: "#444", fontWeight: "500" }}>#{tag}</span>
                  ))}
                </div>
             </div>
         </div>
-
-        {/* COLUMNA DRETA */}
         <div style={{ flex: "2", minWidth: "300px" }}>
           <h3 style={headerStyle}>Descripció</h3>
           <div>{renderDescripcio(accio.descripcio)}</div>
         </div>
-
       </div>
     </div>
   );

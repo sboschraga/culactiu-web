@@ -36,32 +36,3 @@
     transform: rotate(360deg);
   }
 }
-/* 1. Importem les fonts de Google (per si no les tens ja) */
-@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;700&family=Chivo+Mono:wght@400;700&display=swap');
-
-/* 2. Regles Globals */
-body {
-  margin: 0;
-  padding: 0;
-  /* Per defecte, tot el text serà Chivo Mono */
-  font-family: 'Chivo Mono', monospace;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* 3. Títols (h1, h2, h3) sempre amb Azeret Mono */
-h1, h2, h3 {
-  font-family: 'Azeret Mono', monospace;
-  text-transform: uppercase; /* Opcional: si vols que els títols siguin sempre majúscules */
-  font-weight: 400; /* O el pes que vulguis */
-}
-
-/* 4. Botons i Enllaços */
-button, a {
-  font-family: 'Chivo Mono', monospace;
-  text-transform: uppercase; /* Opcional: botons en majúscules */
-}
-
-/* 5. Assegurar que els inputs o missatges també ho agafen */
-p, span, div {
-  font-family: 'Chivo Mono', monospace;
-}

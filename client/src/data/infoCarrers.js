@@ -453,7 +453,7 @@ const infoCarrers = {
       "/simbols/5ambdues.svg"
     ],
 
-    text: ["Vostè viu a un cul de sac?",
+    text: ["Vostè viu a un cul-de-sac?",
           "No.",
           "Què n’opina d’aquest en concret? L’hi agradaria viure-hi?",
           "Qualsevol carrer d’aquí dalt és un bon lloc per viure, no hi ha gens de soroll. Això si, està lluny, has d’agafar el cotxe i fa pujada!"
@@ -483,7 +483,7 @@ const infoCarrers = {
       "/simbols/5ambdues.svg"
     ],
 
-    text: ["Saps què és un cul de sac?",
+    text: ["Saps què és un cul-de-sac?",
           "No.",
           "(Se l’hi explica.)",
           "T’agradaria viure-hi?",
@@ -502,7 +502,7 @@ const infoCarrers = {
       "/simbols/5peatonal.svg"
     ],
 
-    text: ["Això és un cul de sac?",
+    text: ["Això és un cul-de-sac?",
           "Sí! És un carrer.",
           "Té desaventatges viure en un carrer així?",
           "Les pujades i baixades, pero valen la pena, estem molt tranquils. No hi passa gent, només veïns."
@@ -852,7 +852,7 @@ const infoCarrers = {
       "/simbols/5ambdues.svg"
     ],
 
-    text: ["Perquè transita aquest cul de sac?",
+    text: ["Perquè transita aquest cul-de-sac?",
           "Em va bé per aparcar."
         ],
   },
@@ -900,7 +900,7 @@ const infoCarrers = {
       "/simbols/5ambdues.svg"
     ],
 
-    text: ["Què se sent viure en un cul de sac?",
+    text: ["Què se sent viure en un cul-de-sac?",
           "M’agrada perquè coneixo als meus veïns."
         ],
   },
@@ -932,7 +932,7 @@ const infoCarrers = {
       "/simbols/5peatonal.svg"
     ],
 
-    text: ["Li agrada viure en un cul de sac?",
+    text: ["Li agrada viure en un cul-de-sac?",
           "Sí, és tranquil i no hi passen mases cotxes."
         ],
   },
@@ -980,7 +980,7 @@ const infoCarrers = {
       "/simbols/5ambdues.svg"
     ],
 
-    text: ["Per què ve al cul de sac?",
+    text: ["Per què ve al cul-de-sac?",
           "Hi aparco la moto cada dia."
         ],
   },

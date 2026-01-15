@@ -1,15 +1,28 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import infoCarrers from "../data/infoCarrers";
 import "./DetallCarrer.css";
 
 function DetallCarrer() {
   const { nom } = useParams();
-  const nomCarrer = decodeURIComponent(nom);
+  const navigate = useNavigate(); 
+  const nomCarrer = decodeURIComponent(nom).trim(); 
   const carrer = infoCarrers[nomCarrer];
 
   const [fotoAmpliada, setFotoAmpliada] = useState(null);
   const [adrecaText, setAdrecaText] = useState("Calculant ubicació...");
+
+  const enllacosAccions = {
+    "C/ DE GORDI": "/accio/muralla",
+    "C/ D'EN GORDI": "/accio/muralla",
+    "C/ DE LES CAROLINES": "/accio/fletxes",
+    "C/ DEL TONELL": "/accio/neteja",
+    "C/ DE RERA SANT JUST": "/accio/cassolada",
+    "C/ DE MARIA VICTÒRIA": "/accio/esport"
+  };
+
+  const nomNet = nomCarrer.toUpperCase();
+  const pathAccio = enllacosAccions[nomNet];
 
   useEffect(() => {
     if (carrer) {
@@ -20,100 +33,74 @@ function DetallCarrer() {
             const barri = data.address.suburb || data.address.neighbourhood || data.address.city_district || "";
             const ciutat = data.address.city || data.address.town || "Barcelona";
             setAdrecaText(barri ? `${barri}, ${ciutat}` : ciutat);
-          } else {
-            setAdrecaText("Barcelona");
-          }
+          } else { setAdrecaText("Barcelona"); }
         })
-        .catch(() => {
-          setAdrecaText("Barcelona");
-        });
+        .catch(() => setAdrecaText("Barcelona"));
     }
-  }, [carrer]);
+  }, [carrer, nomCarrer]);
 
-  if (!carrer) {
-    return (
-      <div style={{ padding: "20px", textAlign: "center" }}>
-        <h2>Carrer no trobat: {nomCarrer}</h2>
-        <Link to="/llista-cataleg">Tornar al catàleg</Link>
-      </div>
-    );
-  }
+  if (!carrer) return null;
 
   return (
     <div className="detall-container">
       <div className="back-link-container">
-        <Link to="/llista-cataleg" className="back-link">
-          ← tornar al catàleg
-        </Link>
+        {/* Punt 2: Text "tornar" i Punt 7: Navegació historial */}
+        <button onClick={() => navigate(-1)} className="back-link-btn">
+          ← tornar
+        </button>
       </div>
 
       <div className="top-section">
-        {/* GRUP DE FOTOS (Esquerra) */}
+        {/* Punt 4: Fotos a 260px */}
         <div className="fotos-group">
-          {carrer.fotos.map((src, index) => {
-            if (src === "null" || src === null || !src) return null;
-            return (
-              <div 
-                key={index} 
-                className="foto-box" 
-                onClick={() => setFotoAmpliada(src)}
-              >
-                <img src={src} alt={`Foto ${index + 1} de ${nomCarrer}`} />
+          {carrer.fotos.map((src, index) => (
+            src && src !== "null" && (
+              <div key={index} className="foto-box" onClick={() => setFotoAmpliada(src)}>
+                <img src={src} alt="foto carrer" />
               </div>
-            );
-          })}
+            )
+          ))}
         </div>
 
-        {/* NOU BLOC: SÍMBOLS + TEXT (Dreta) */}
         <div className="simbols-i-text">
-          {/* Columna de símbols */}
-          <div className="simbols-vertical">
+          {/* Punt 5: Símbols sense mà */}
+          <div className="simbols-vertical no-pointer">
             {carrer.simbols.map((simbol, index) => (
               <div key={index} className="simbol-box">
-                {simbol.startsWith("/") ? (
-                  <img src={simbol} alt="simbol" className="simbol-img" />
-                ) : (
-                  <span>{simbol}</span>
-                )}
+                {simbol.startsWith("/") ? <img src={simbol} className="simbol-img" alt="icona" /> : <span>{simbol}</span>}
               </div>
             ))}
           </div>
-
-          {/* Text descriptiu: NOMÉS ES MOSTRA SI N'HI HA */}
-          {carrer.text && (
-            <div className="text-descriptiu">
-              {carrer.text.map((paragraf, index) => {
-                const esPregunta = paragraf.includes("?");
-                return (
-                  <p 
-                    key={index} 
-                    style={{ 
-                      fontWeight: esPregunta ? 'bold' : 'normal',
-                      marginBottom: esPregunta ? '5px' : '20px'
-                    }}
-                  >
-                    {paragraf}
-                  </p>
-                );
-              })}
-            </div>
-          )}
+          
+          <div className="text-descriptiu">
+            {carrer.text && carrer.text.map((p, i) => (
+              <p key={i} style={{ fontWeight: p.includes("?") ? 'bold' : 'normal', marginBottom: p.includes("?") ? '5px' : '25px' }}>{p}</p>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* INFO CARRER (A sota) */}
+      {/* Punt 2 (segona llista): Format Títol i Districte segons captura */}
       <div className="info-text-section">
-        <h1 className="nom-carrer">{nomCarrer}</h1>
-        <p className="ubicacio" style={{ textTransform: "capitalize" }}>
-          {adrecaText}
-        </p>
+        <div className="header-flex">
+           <div className="title-block">
+              <h1 className="nom-carrer">{nomCarrer}</h1>
+              <p className="ubicacio">{adrecaText}</p>
+           </div>
+           {/* Punt 5 (segona llista): Botó veure l'acció */}
+           {pathAccio && (
+             <Link to={pathAccio} className="boto-veure-accio-destacat">
+               VEURE L'ACCIÓ
+             </Link>
+           )}
+        </div>
       </div>
 
-      {/* MODAL FOTO */}
+      {/* Punt 3: Modal fons fosc */}
       {fotoAmpliada && (
         <div className="modal-overlay" onClick={() => setFotoAmpliada(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <img src={fotoAmpliada} alt="Ampliada" />
+            <img src={fotoAmpliada} alt="ampliada" />
             <div className="tancar-text">Prem fora per tancar</div>
           </div>
         </div>

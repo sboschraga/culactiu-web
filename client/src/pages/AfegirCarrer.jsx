@@ -96,7 +96,7 @@ function AfegirCarrer() {
         </Link>
       </div>
 
-      <h1 className="titol-form">AFEGIR NOU CUL DE SAC</h1>
+      <h1 className="titol-form">AFEGIR NOU CUL-DE-SAC</h1>
       
       <form onSubmit={handleSubmit} className="formulari">
         <div className="camp">
