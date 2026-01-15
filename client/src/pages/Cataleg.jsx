@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import infoCarrers from "../data/infoCarrers";
 import "./Cataleg.css";
 
+// 1. DEFINICIÓ DE LES DADES (Això faltava al fitxer i causava l'error)
 const GRUPS_SIMBOLS = {
   "Forma": [
     { src: "/simbols/1linea.svg", nom: "Rectilini" },
@@ -34,8 +35,9 @@ function Cataleg() {
   const [filtresActius, setFiltresActius] = useState([]);
   const [textCerca, setTextCerca] = useState("");
   const [carrersFiltrats, setCarrersFiltrats] = useState([]);
-  const [menuObert, setMenuObert] = useState(false);
+  const [menuObert, setMenuObert] = useState(false); // Estat pel desplegable mòbil
 
+  // 2. DEFINICIÓ DE LA FUNCIÓ (Això també faltava)
   const toggleFiltre = (simbolSrc, categoria) => {
     const simbolsDelGrup = GRUPS_SIMBOLS[categoria].map(s => s.src);
     let nousFiltres = filtresActius.filter(s => !simbolsDelGrup.includes(s));
@@ -63,22 +65,22 @@ function Cataleg() {
   return (
     <div className="cataleg-container">
       
-      <div className="zona-superior-nav">
-        <Link to="/cataleg" className="boto-tornar">← TORNAR</Link>
-        
-        {/* BOTÓ ICONA MENÚ (Només visible en mòbil via CSS) */}
-        <button className="boto-icona-filtres" onClick={() => setMenuObert(true)}>
-          FILTRAR ☰
+      <div className="cataleg-header-accions">
+        <Link to="/cataleg" className="boto-tornar">
+          ← TORNAR
+        </Link>
+
+        {/* Botó que només es veu al mòbil */}
+        <button 
+          className="boto-mobil-toggle" 
+          onClick={() => setMenuObert(!menuObert)}
+        >
+          {menuObert ? "TANCAR FILTRES ✕" : "FILTRAR PER SÍMBOLS ☰"}
         </button>
       </div>
 
-      {/* 1. SECCIÓ DE FILTRES (Ara amb classe condicional) */}
-      <div className={`filtres-section ${menuObert ? "obert" : ""}`}>
-        <div className="header-filtres-mobil">
-          <h3>Filtres</h3>
-          <button className="tancar-menu" onClick={() => setMenuObert(false)}>✕</button>
-        </div>
-
+      {/* Secció de filtres amb classe condicional per al mòbil */}
+      <div className={`filtres-section ${menuObert ? "obert-mobil" : ""}`}>
         {Object.entries(GRUPS_SIMBOLS).map(([categoria, simbols]) => (
           <div key={categoria} className="grup-filtre">
             <h4 className="titol-grup">{categoria}</h4>
@@ -93,32 +95,34 @@ function Cataleg() {
                     >
                       <img src={obj.src} alt={obj.nom} />
                     </button>
-                    <span className="legenda-simbol">{obj.nom}</span>
+                    <span className="legenda-simbol">
+                      {obj.nom}
+                    </span>
                   </div>
                 );
               })}
             </div>
           </div>
         ))}
-        
-        {/* Botó per tancar al final al mòbil */}
-        <button className="boto-aplicar-mobil" onClick={() => setMenuObert(false)}>
-          APLICAR
-        </button>
       </div>
 
-      {/* 2. BUSCADOR I LLISTA (Igual que abans) */}
       <div className="zona-intermedia">
-        <input 
-          type="text" 
-          placeholder="Buscar carrer..." 
-          value={textCerca}
-          onChange={(e) => setTextCerca(e.target.value)}
-          className="input-cercador"
-        />
+        <div className="buscador-container">
+          <input 
+            type="text" 
+            placeholder="Buscar carrer..." 
+            value={textCerca}
+            onChange={(e) => setTextCerca(e.target.value)}
+            className="input-cercador"
+          />
+        </div>
+
         {(filtresActius.length > 0 || textCerca) && (
-          <button className="netejar-filtres" onClick={() => { setFiltresActius([]); setTextCerca(""); }}>
-            Netejar
+          <button 
+            className="netejar-filtres" 
+            onClick={() => { setFiltresActius([]); setTextCerca(""); setMenuObert(false); }}
+          >
+            Netejar tot
           </button>
         )}
       </div>
@@ -130,9 +134,6 @@ function Cataleg() {
           </Link>
         ))}
       </div>
-      
-      {/* Overlay per tancar el menú clicant fora */}
-      {menuObert && <div className="overlay-menu" onClick={() => setMenuObert(false)}></div>}
     </div>
   );
 }

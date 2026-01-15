@@ -1,3 +1,4 @@
+/* --- ESTILS ORIGINALS D'ORDINADOR --- */
 .form-container {
   max-width: 800px;
   margin: 40px auto;
@@ -25,7 +26,6 @@
   gap: 15px;
 }
 
-/* CANVI: Negreta als títols dels camps */
 .camp label {
   font-weight: bold; 
   text-transform: uppercase;
@@ -33,7 +33,6 @@
   letter-spacing: 1px;
 }
 
-/* Inputs */
 input[type="text"], textarea {
   padding: 15px;
   border: none;
@@ -42,6 +41,7 @@ input[type="text"], textarea {
   font-size: 1rem;
   background-color: transparent;
 }
+
 input[type="text"]:focus, textarea:focus {
   outline: none;
   border-bottom: 2px solid black;
@@ -52,6 +52,7 @@ input[type="text"]:focus, textarea:focus {
   display: flex;
   gap: 20px;
 }
+
 .input-foto {
   flex: 1;
   border: 1px solid #ddd;
@@ -59,7 +60,7 @@ input[type="text"]:focus, textarea:focus {
   text-align: center;
 }
 
-/* --- ESTIL SÍMBOLS (IGUAL QUE CATÀLEG) --- */
+/* SÍMBOLS */
 .graella-simbols-cataleg {
   display: flex;
   flex-wrap: wrap;
@@ -95,23 +96,21 @@ input[type="text"]:focus, textarea:focus {
   cursor: pointer;
 }
 
-/* CANVI: Mides i efectes clavats al catàleg */
 .botó-filtre-form {
   background: transparent;
   border: 1px solid transparent;
   padding: 2px;
-  width: 40px;   /* Mida fixa */
-  height: 40px;  /* Mida fixa */
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 1; 
   transition: transform 0.2s;
   margin-bottom: 5px;
 }
 
 .botó-filtre-form:hover {
-  transform: scale(1.15); /* Efecte zoom igual que catàleg */
+  transform: scale(1.15);
 }
 
 .botó-filtre-form img {
@@ -120,24 +119,19 @@ input[type="text"]:focus, textarea:focus {
   object-fit: contain;
 }
 
-/* Quan està seleccionat es posa negre */
 .botó-filtre-form.actiu {
   background-color: black;
   border-radius: 4px;
 }
-.botó-filtre-form.actiu img {
-  filter: invert(1);
-}
+.botó-filtre-form.actiu img { filter: invert(1); }
 
 .legenda-simbol-form {
   font-size: 0.7rem;
   color: #666;
   text-align: center;
   line-height: 1.1;
-  opacity: 1; 
 }
 
-/* BOTÓ ENVIAR */
 .boto-enviar {
   background-color: black;
   color: white;
@@ -156,31 +150,74 @@ input[type="text"]:focus, textarea:focus {
   color: black;
 }
 
-@media (max-width: 600px) {
-  .inputs-fotos {
-    flex-direction: column;
-  }
-}
-/* Afegeix això al final del fitxer CSS */
-
-/* src/pages/AfegirCarrer.css */
-
 .boto-tornar {
   text-decoration: none;
   color: black;
-  
-  /* CANVI: Sense negreta i més petit */
   font-weight: normal; 
   font-size: 0.8rem; 
-  
   text-transform: uppercase;
-  transition: opacity 0.3s;
-  
-  /* Opcional: per assegurar que queda alineat a l'esquerra */
   display: inline-block;
 }
 
-.boto-tornar:hover {
-  text-decoration: underline;
-  opacity: 0.7;
+/* =============================================
+   ADAPTACIÓ MÒBIL (SENSE TOCAR L'ORDINADOR)
+   ============================================= */
+
+@media (max-width: 768px) {
+  .form-container {
+    padding: 15px;
+    margin: 20px auto;
+  }
+
+  .titol-form {
+    font-size: 1.4rem; /* Més petit per no trencar-se al mòbil */
+    margin-bottom: 30px;
+  }
+
+  /* Fotos en columna */
+  .inputs-fotos {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .input-foto {
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+
+  /* Reorganitzem els símbols perquè no facin la pàgina infinita */
+  .graella-simbols-cataleg {
+    gap: 20px;
+    justify-content: space-between;
+  }
+
+  .grup-seleccio {
+    width: 100%; /* Cada categoria ocupa una línia al mòbil */
+    margin-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 15px;
+  }
+
+  .icones-seleccio {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); /* Reixeta automàtica */
+    width: 100%;
+  }
+
+  .titol-categoria-form {
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+  }
+
+  /* Botó enviar a tota l'amplada i amb lletra clara */
+  .boto-enviar {
+    padding: 18px;
+    font-size: 1rem;
+    position: sticky; /* Opcional: el fem flotar una mica */
+    bottom: 0;
+  }
+
+  input[type="text"], textarea {
+    font-size: 16px; /* Evita que l'iPhone faci zoom automàtic en clicar l'input */
+  }
 }

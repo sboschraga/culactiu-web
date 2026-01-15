@@ -2,14 +2,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 70vh;
+  /* Pugem el min-height perquè ocupi més espai vertical i les fotos flotin millor */
+  min-height: calc(100vh - 100px); 
   padding: 40px;
 }
 
 .home-content-container {
   display: flex;
-  gap: 200px; /* Espai original d'escriptori */
-  align-items: flex-start;
+  gap: 200px; 
+  /* CANVI CLAU: 'center' en lloc de 'flex-start' per centrar verticalment */
+  align-items: center; 
 }
 
 .home-column {
@@ -44,20 +46,24 @@
   white-space: pre-line;
 }
 
-/* --- ADAPTACIÓ MÒBIL (Això NO afecta l'ordinador) --- */
+/* --- ADAPTACIÓ MÒBIL --- */
 @media (max-width: 1024px) {
   .home-content-container {
-    gap: 50px; /* Reduïm espai en pantalles mitjanes/tablets */
+    gap: 50px;
   }
 }
 
 @media (max-width: 768px) {
   .home-main-container {
     padding: 20px;
+    /* Al mòbil ja no forcem el centrat vertical tan rígid per permetre el scroll */
+    min-height: auto; 
+    align-items: flex-start; 
+    padding-top: 40px;
   }
 
   .home-content-container {
-    flex-direction: column; /* Apilem en vertical */
+    flex-direction: column; 
     gap: 40px;
     align-items: center;
   }
@@ -69,7 +75,7 @@
   }
 
   .home-text-block {
-    text-align: center; /* Centrat al mòbil */
+    text-align: center;
   }
 
   .home-image {

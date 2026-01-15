@@ -1,13 +1,20 @@
-/* src/pages/Cataleg.css */
+/* --- ESTILS ORIGINALS D'ORDINADOR (NO TOCAR) --- */
 
 .cataleg-container {
   padding: 20px 40px;
   max-width: 1200px;
   margin: 0 auto;
-  font-family: inherit;
+  font-family: 'Arial', sans-serif;
 }
 
-/* --- 1. FILTRES (A DALT) --- */
+/* Nou contenidor per al botó de tornar i el toggle de mòbil */
+.cataleg-header-accions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 .filtres-section {
   display: flex;
   flex-wrap: wrap;
@@ -23,6 +30,7 @@
   margin-bottom: 20px;
   padding: 10px 10px 10px 0; 
   border-radius: 8px;
+  transition: none; 
 }
 
 .titol-grup {
@@ -56,6 +64,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 1; 
   transition: transform 0.2s;
   margin-bottom: 5px;
 }
@@ -78,7 +87,6 @@
   filter: invert(1);
 }
 
-/* Llegenda */
 .legenda-simbol {
   font-size: 0.7rem;
   color: #666;
@@ -92,27 +100,49 @@
   opacity: 1;
 }
 
-/* --- 2. ZONA INTERMÈDIA (Cercador + Netejar) --- */
 .zona-intermedia {
   display: flex;
   align-items: center;
   gap: 20px; 
   margin-bottom: 40px; 
+  padding-left: 0;
+}
+
+.buscador-container {
+  text-align: left;
 }
 
 .input-cercador {
-  padding: 8px 0;
+  padding: 5px 0;
   width: 100%;
   max-width: 200px; 
   border: none;
   border-bottom: 1px solid #000; 
-  font-size: 0.95rem; 
+  font-size: 0.9rem; 
   outline: none;
   font-family: inherit;
   background: transparent;
 }
 
-/* --- 3. LLISTA --- */
+.input-cercador::placeholder {
+  color: #999;
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+.netejar-filtres {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+  color: #666;
+  font-size: 0.85rem;
+  padding: 0;
+}
+.netejar-filtres:hover {
+  color: black;
+}
+
 .contenidor-llista {
   column-count: 4; 
   column-gap: 40px; 
@@ -125,78 +155,102 @@
   font-size: 0.85rem; 
   margin-bottom: 8px; 
   break-inside: avoid; 
+  page-break-inside: avoid;
+  font-weight: normal;
 }
 
-/* --- BOTÓ TORNAR --- */
+.item-llista:hover {
+  text-decoration: underline;
+  color: #555;
+}
+
 .boto-tornar {
   text-decoration: none;
   color: black;
+  font-weight: normal;
   font-size: 0.8rem;
   text-transform: uppercase;
+  transition: opacity 0.3s;
   display: inline-block;
 }
 
-/* =============================================
-   ADAPTACIÓ MÒBIL (PANTALLES < 768px)
-   ============================================= */
+.boto-tornar:hover {
+  text-decoration: underline;
+  opacity: 0.7;
+}
+
+/* --- ESTILS NOUS PER AL MÒBIL (SENSE TOCAR ORDINADOR) --- */
+
+.boto-mobil-toggle {
+  display: none; /* Amagat a PC */
+}
 
 @media (max-width: 768px) {
   .cataleg-container {
-    padding: 20px 20px; /* Reduïm marges laterals */
+    padding: 20px;
   }
 
-  /* Fem que els grups de filtres no ocupin tota la línia */
+  .boto-mobil-toggle {
+    display: block; /* Visible a mòbil */
+    background: #f4f4f4;
+    border: 1px solid black;
+    padding: 8px 12px;
+    font-size: 0.7rem;
+    font-family: inherit;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  /* Amaguem la secció de filtres per defecte al mòbil */
   .filtres-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 categories per fila */
-    gap: 10px;
+    display: none;
+  }
+
+  /* Es mostra només quan té la classe 'obert-mobil' (clicant el botó) */
+  .filtres-section.obert-mobil {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #f4f4f4;
+    padding: 20px;
+    border: 1px solid #eee;
+    margin-bottom: 20px;
   }
 
   .grup-filtre {
-    min-width: unset;
-    margin-bottom: 10px;
-  }
-
-  .titol-grup {
-    font-size: 0.8rem;
-    margin-bottom: 8px;
+    width: 100%;
+    align-items: center;
+    border-bottom: 1px solid #f4f4f4;
+    padding-bottom: 15px;
   }
 
   .icones-grup {
-    gap: 8px;
-    flex-wrap: wrap; /* Permetem que les icones baixin si no caben */
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
-  .botó-filtre {
-    width: 35px;
-    height: 35px;
-  }
-
-  /* Al mòbil la llegenda ha de ser sempre visible */
   .legenda-simbol {
-    opacity: 1;
-    font-size: 0.6rem;
+    opacity: 1; /* Sempre visible al mòbil */
   }
 
-  /* Cercador ocupa més amplada */
-  .zona-intermedia {
-    flex-direction: row; /* Mantinguem-ho en fila si hi ha espai */
-    justify-content: space-between;
-    margin-bottom: 30px;
-  }
-
-  .input-cercador {
-    max-width: 150px;
-  }
-
-  /* LLISTA DE CARRERS: 2 columnes al mòbil per no fer scroll infinit */
   .contenidor-llista {
-    column-count: 2; 
+    column-count: 2; /* 2 columnes al mòbil per no fer scroll infinit */
     column-gap: 20px;
   }
 
   .item-llista {
-    font-size: 0.8rem;
-    margin-bottom: 12px; /* Més espai per clicar millor amb el dit */
+    font-size: 0.9rem;
+    padding: 5px 0;
+  }
+
+  .zona-intermedia {
+    margin-bottom: 20px;
+  }
+}
+
+/* Adaptació per a pantalles mitjanes (tablets) */
+@media (max-width: 900px) and (min-width: 769px) {
+  .contenidor-llista {
+    column-count: 3;
   }
 }
