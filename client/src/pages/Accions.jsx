@@ -69,10 +69,6 @@ function Accions() {
             ))}
           </ul>
         </div>
-        
-        {filtresActius.length > 0 && (
-          <button className="netejar-filtres-accions" onClick={() => setFiltresActius([])}>Netejar filtres</button>
-        )}
       </div>
 
       {/* 3. FOTOS (CONTENIDOR PER A MÒBIL) */}
