@@ -1,0 +1,60 @@
+.splash-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f4f4;
+  font-family: 'Azeret Mono', monospace;
+}
+
+.splash-content {
+  text-align: center;
+}
+
+.splash-logo {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 50px;
+  letter-spacing: -2px;
+}
+
+.splash-buttons {
+  display: flex;
+  gap: 30px;
+}
+
+/* ESTIL BASE UNIFICAT PER ALS DOS BOTONS */
+.boto-splash {
+  padding: 30px 50px;
+  font-size: 1.2rem;
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid black;
+  transition: all 0.3s ease; /* Transició suau */
+  background-color: white;
+  color: black;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+.boto-splash span {
+  font-size: 0.9rem;
+  font-weight: normal;
+  margin-top: 5px;
+}
+
+/* INTERACCIÓ HOVER IGUAL PER ALS DOS */
+.boto-splash:hover {
+  background-color: black !important;
+  color: white !important;
+}
+
+/* Mantenim el cursor personalitzat si el tens configurat globalment */
+.boto-splash:hover {
+  cursor: url('../assets/cursors/ma.png') 10 0, pointer !important;
+}
