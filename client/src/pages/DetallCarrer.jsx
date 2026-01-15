@@ -11,6 +11,7 @@ function DetallCarrer() {
 
   const [fotoAmpliada, setFotoAmpliada] = useState(null);
   const [adrecaText, setAdrecaText] = useState("Calculant ubicació...");
+  const [indexFotoMobil, setIndexFotoMobil] = useState(0);
 
   const enllacosAccions = {
     "C/ DE GORDI": "/accio/muralla",
@@ -25,84 +26,88 @@ function DetallCarrer() {
   const pathAccio = enllacosAccions[nomNet];
 
   useEffect(() => {
-    if (carrer) {
-      fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${carrer.lat}&lon=${carrer.lon}`)
-        .then((res) => res.json())
-        .then((data) => {
-          if (data && data.address) {
-            const barri = data.address.suburb || data.address.neighbourhood || data.address.city_district || "";
-            const ciutat = data.address.city || data.address.town || "Barcelona";
-            setAdrecaText(barri ? `${barri}, ${ciutat}` : ciutat);
-          } else { setAdrecaText("Barcelona"); }
-        })
-        .catch(() => setAdrecaText("Barcelona"));
+    if (carrer && carrer.lat && carrer.lon) {
+      fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${carrer.lat}&lon=${carrer.lon}`, {
+        headers: { 'User-Agent': 'CulActiu-Web-App' }
+      })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && data.address) {
+          const barri = data.address.suburb || data.address.neighbourhood || data.address.city_district || "";
+          const ciutat = data.address.city || data.address.town || "Barcelona";
+          setAdrecaText(barri ? `${barri}, ${ciutat}` : ciutat);
+        }
+      })
+      .catch(() => setAdrecaText(carrer.barri || "Barcelona"));
     }
-  }, [carrer, nomCarrer]);
+  }, [carrer]);
 
   if (!carrer) return null;
+
+  const seguentFoto = () => {
+    setIndexFotoMobil((prev) => (prev + 1) % carrer.fotos.length);
+  };
 
   return (
     <div className="detall-container">
       <div className="back-link-container">
-        {/* Punt 2: Text "tornar" i Punt 7: Navegació historial */}
-        <button onClick={() => navigate(-1)} className="back-link-btn">
-          ← tornar
-        </button>
+        <button onClick={() => navigate(-1)} className="back-link-btn">← tornar</button>
       </div>
 
-      <div className="top-section">
-        {/* Punt 4: Fotos a 260px */}
-        <div className="fotos-group">
-          {carrer.fotos.map((src, index) => (
-            src && src !== "null" && (
-              <div key={index} className="foto-box" onClick={() => setFotoAmpliada(src)}>
-                <img src={src} alt="foto carrer" />
-              </div>
-            )
-          ))}
-        </div>
-
-        <div className="simbols-i-text">
-          {/* Punt 5: Símbols sense mà */}
-          <div className="simbols-vertical no-pointer">
-            {carrer.simbols.map((simbol, index) => (
-              <div key={index} className="simbol-box">
-                {simbol.startsWith("/") ? <img src={simbol} className="simbol-img" alt="icona" /> : <span>{simbol}</span>}
-              </div>
-            ))}
+      <div className="main-grid-layout">
+        
+        {/* BLOC 1: VISUAL (Fotos PC / Galeria Mòbil) */}
+        <div className="area-visual">
+          <div className="galeria-mobil" onClick={seguentFoto}>
+            <img src={carrer.fotos[indexFotoMobil]} alt="foto galeria" />
+            <div className="indicador-fotos">{indexFotoMobil + 1} / {carrer.fotos.length}</div>
           </div>
-          
-          <div className="text-descriptiu">
-            {carrer.text && carrer.text.map((p, i) => (
-              <p key={i} style={{ fontWeight: p.includes("?") ? 'bold' : 'normal', marginBottom: p.includes("?") ? '5px' : '25px' }}>{p}</p>
+
+          <div className="fotos-group-pc">
+            {carrer.fotos.map((src, index) => (
+              src && src !== "null" && (
+                <div key={index} className="foto-box-pc" onClick={() => setFotoAmpliada(src)}>
+                  <img src={src} alt="foto carrer" />
+                </div>
+              )
             ))}
           </div>
         </div>
-      </div>
 
-      {/* Punt 2 (segona llista): Format Títol i Districte segons captura */}
-      <div className="info-text-section">
-        <div className="header-flex">
-           <div className="title-block">
+        {/* BLOC 2: INFO NOM (A PC va a sota, a Mòbil va aquí com a peu de foto) */}
+        <div className="area-info-nom">
+          <div className="header-flex">
+            <div className="title-block">
               <h1 className="nom-carrer">{nomCarrer}</h1>
               <p className="ubicacio">{adrecaText}</p>
-           </div>
-           {/* Punt 5 (segona llista): Botó veure l'acció */}
-           {pathAccio && (
-             <Link to={pathAccio} className="boto-veure-accio-destacat">
-               VEURE L'ACCIÓ
-             </Link>
-           )}
+            </div>
+            {pathAccio && (
+              <Link to={pathAccio} className="boto-veure-accio-destacat">VEURE L'ACCIÓ</Link>
+            )}
+          </div>
         </div>
+
+        {/* BLOC 3: TEXT I SÍMBOLS (A la dreta a PC) */}
+        <div className="area-detalls">
+          <div className="simbols-vertical">
+            {carrer.simbols.map((simbol, index) => (
+              <div key={index} className="simbol-box">
+                <img src={simbol} className="simbol-img" alt="icona" />
+              </div>
+            ))}
+          </div>
+          <div className="text-descriptiu">
+            {carrer.text && carrer.text.map((p, i) => (
+              <p key={i} className={p.includes("?") ? "paragraf-pregunta" : "paragraf-normal"}>{p}</p>
+            ))}
+          </div>
+        </div>
+
       </div>
 
-      {/* Punt 3: Modal fons fosc */}
       {fotoAmpliada && (
         <div className="modal-overlay" onClick={() => setFotoAmpliada(null)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <img src={fotoAmpliada} alt="ampliada" />
-            <div className="tancar-text">Prem fora per tancar</div>
-          </div>
+          <div className="modal-content"><img src={fotoAmpliada} alt="ampliada" /></div>
         </div>
       )}
     </div>
