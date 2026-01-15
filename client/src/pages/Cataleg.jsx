@@ -34,6 +34,7 @@ function Cataleg() {
   const [filtresActius, setFiltresActius] = useState([]);
   const [textCerca, setTextCerca] = useState("");
   const [carrersFiltrats, setCarrersFiltrats] = useState([]);
+  const [menuObert, setMenuObert] = useState(false);
 
   const toggleFiltre = (simbolSrc, categoria) => {
     const simbolsDelGrup = GRUPS_SIMBOLS[categoria].map(s => s.src);
@@ -62,15 +63,22 @@ function Cataleg() {
   return (
     <div className="cataleg-container">
       
-      {/* --- NOU BOTÓ TORNAR --- */}
-      <div style={{ marginBottom: "20px" }}>
-        <Link to="/cataleg" className="boto-tornar">
-          ← TORNAR
-        </Link>
+      <div className="zona-superior-nav">
+        <Link to="/cataleg" className="boto-tornar">← TORNAR</Link>
+        
+        {/* BOTÓ ICONA MENÚ (Només visible en mòbil via CSS) */}
+        <button className="boto-icona-filtres" onClick={() => setMenuObert(true)}>
+          FILTRAR ☰
+        </button>
       </div>
 
-      {/* 1. PRIMER ELS SÍMBOLS (FILTRES) */}
-      <div className="filtres-section">
+      {/* 1. SECCIÓ DE FILTRES (Ara amb classe condicional) */}
+      <div className={`filtres-section ${menuObert ? "obert" : ""}`}>
+        <div className="header-filtres-mobil">
+          <h3>Filtres</h3>
+          <button className="tancar-menu" onClick={() => setMenuObert(false)}>✕</button>
+        </div>
+
         {Object.entries(GRUPS_SIMBOLS).map(([categoria, simbols]) => (
           <div key={categoria} className="grup-filtre">
             <h4 className="titol-grup">{categoria}</h4>
@@ -85,40 +93,36 @@ function Cataleg() {
                     >
                       <img src={obj.src} alt={obj.nom} />
                     </button>
-                    <span className="legenda-simbol">
-                      {obj.nom}
-                    </span>
+                    <span className="legenda-simbol">{obj.nom}</span>
                   </div>
                 );
               })}
             </div>
           </div>
         ))}
+        
+        {/* Botó per tancar al final al mòbil */}
+        <button className="boto-aplicar-mobil" onClick={() => setMenuObert(false)}>
+          APLICAR
+        </button>
       </div>
 
-      {/* 2. DESPRÉS EL CERCADOR (Més petit) I BOTÓ NETEJAR */}
+      {/* 2. BUSCADOR I LLISTA (Igual que abans) */}
       <div className="zona-intermedia">
-        <div className="buscador-container">
-          <input 
-            type="text" 
-            placeholder="Buscar carrer..." 
-            value={textCerca}
-            onChange={(e) => setTextCerca(e.target.value)}
-            className="input-cercador"
-          />
-        </div>
-
+        <input 
+          type="text" 
+          placeholder="Buscar carrer..." 
+          value={textCerca}
+          onChange={(e) => setTextCerca(e.target.value)}
+          className="input-cercador"
+        />
         {(filtresActius.length > 0 || textCerca) && (
-          <button 
-            className="netejar-filtres" 
-            onClick={() => { setFiltresActius([]); setTextCerca(""); }}
-          >
-            Netejar tot
+          <button className="netejar-filtres" onClick={() => { setFiltresActius([]); setTextCerca(""); }}>
+            Netejar
           </button>
         )}
       </div>
 
-      {/* 3. FINALMENT LA LLISTA DE CARRERS */}
       <div className="contenidor-llista">
         {carrersFiltrats.map(([nom, dades]) => (
           <Link key={nom} to={`/carrer/${encodeURIComponent(nom)}`} className="item-llista">
@@ -126,15 +130,9 @@ function Cataleg() {
           </Link>
         ))}
       </div>
-
-      {carrersFiltrats.length === 0 && (
-        <div className="no-resultats">
-          <p>No s'ha trobat cap carrer.</p>
-          <button onClick={() => { setFiltresActius([]); setTextCerca(""); }}>
-            Veure tots
-          </button>
-        </div>
-      )}
+      
+      {/* Overlay per tancar el menú clicant fora */}
+      {menuObert && <div className="overlay-menu" onClick={() => setMenuObert(false)}></div>}
     </div>
   );
 }

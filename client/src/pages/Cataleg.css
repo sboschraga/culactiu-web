@@ -23,11 +23,6 @@
   margin-bottom: 20px;
   padding: 10px 10px 10px 0; 
   border-radius: 8px;
-  transition: none; 
-}
-
-.grup-filtre:hover {
-  background-color: transparent;
 }
 
 .titol-grup {
@@ -61,7 +56,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 1; 
   transition: transform 0.2s;
   margin-bottom: 5px;
 }
@@ -104,42 +98,18 @@
   align-items: center;
   gap: 20px; 
   margin-bottom: 40px; 
-  padding-left: 0;
-}
-
-.buscador-container {
-  text-align: left;
 }
 
 .input-cercador {
-  padding: 5px 0;
+  padding: 8px 0;
   width: 100%;
   max-width: 200px; 
   border: none;
   border-bottom: 1px solid #000; 
-  font-size: 0.9rem; 
+  font-size: 0.95rem; 
   outline: none;
   font-family: inherit;
   background: transparent;
-}
-
-.input-cercador::placeholder {
-  color: #999;
-  font-style: italic;
-  font-size: 0.85rem;
-}
-
-.netejar-filtres {
-  background: none;
-  border: none;
-  text-decoration: underline;
-  cursor: pointer;
-  color: #666;
-  font-size: 0.85rem;
-  padding: 0;
-}
-.netejar-filtres:hover {
-  color: black;
 }
 
 /* --- 3. LLISTA --- */
@@ -155,58 +125,78 @@
   font-size: 0.85rem; 
   margin-bottom: 8px; 
   break-inside: avoid; 
-  page-break-inside: avoid;
-  font-weight: normal;
 }
 
-.item-llista:hover {
-  text-decoration: underline;
-  color: #555;
-}
-
-.no-resultats {
-  text-align: center;
-  margin-top: 50px;
-}
-
-/* --- AFEGIT BOTÓ TORNAR --- */
+/* --- BOTÓ TORNAR --- */
 .boto-tornar {
   text-decoration: none;
   color: black;
-  font-weight: normal; /* Sense negreta */
-  font-size: 0.8rem;   /* Més petit */
+  font-size: 0.8rem;
   text-transform: uppercase;
-  transition: opacity 0.3s;
   display: inline-block;
 }
 
-.boto-tornar:hover {
-  text-decoration: underline;
-  opacity: 0.7;
-}
+/* =============================================
+   ADAPTACIÓ MÒBIL (PANTALLES < 768px)
+   ============================================= */
 
-/* --- RESPONSIVE --- */
-@media (max-width: 900px) {
-  .contenidor-llista {
-    column-count: 3;
+@media (max-width: 768px) {
+  .cataleg-container {
+    padding: 20px 20px; /* Reduïm marges laterals */
   }
-}
-@media (max-width: 600px) {
+
+  /* Fem que els grups de filtres no ocupin tota la línia */
   .filtres-section {
-    flex-direction: column;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 categories per fila */
+    gap: 10px;
   }
+
   .grup-filtre {
-    padding: 0;
+    min-width: unset;
+    margin-bottom: 10px;
   }
-  .contenidor-llista {
-    column-count: 1; 
+
+  .titol-grup {
+    font-size: 0.8rem;
+    margin-bottom: 8px;
   }
-  .zona-intermedia {
-    flex-direction: column;
-    align-items: flex-start;
+
+  .icones-grup {
+    gap: 8px;
+    flex-wrap: wrap; /* Permetem que les icones baixin si no caben */
   }
+
+  .botó-filtre {
+    width: 35px;
+    height: 35px;
+  }
+
+  /* Al mòbil la llegenda ha de ser sempre visible */
   .legenda-simbol {
-    opacity: 1; 
+    opacity: 1;
+    font-size: 0.6rem;
+  }
+
+  /* Cercador ocupa més amplada */
+  .zona-intermedia {
+    flex-direction: row; /* Mantinguem-ho en fila si hi ha espai */
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+
+  .input-cercador {
+    max-width: 150px;
+  }
+
+  /* LLISTA DE CARRERS: 2 columnes al mòbil per no fer scroll infinit */
+  .contenidor-llista {
+    column-count: 2; 
+    column-gap: 20px;
+  }
+
+  .item-llista {
+    font-size: 0.8rem;
+    margin-bottom: 12px; /* Més espai per clicar millor amb el dit */
   }
 }
