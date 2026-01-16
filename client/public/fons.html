@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html lang="ca">
+
+<head>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+
+  <style>
+
+    body { margin: 0; padding: 0; overflow: hidden; background: #f5f3eb; }
+
+    canvas { display: block; }
+
+  </style>
+
+</head>
+
+<body>
+
+  <script>
+
+    let imatgesOriginals = [];
+
+    let imatgesProcessades = [];
+
+    let puntsDeDesti = [];
+
+    let particules = [];
+
+    let indexActual = 0;
+
+    let capaVisual, pinzellDifuminat;
+
+
+
+    // --- CONFIGURACIÓ AJUSTADA (Radi reduït) ---
+
+    let velocitatViatge = 8;
+
+    let midaPunt = 2.5;
+
+    let densitatEscaneig = 2;
+
+    let radiInteraccio = 1; // Goma més petita i precisa
+
+
+
+    let tempsViatge = 120, tempsAparicio = 60, tempsSolid = 150, tempsDesaparicio = 60;
+
+    let tempsTotal = tempsViatge + tempsAparicio + tempsSolid + tempsDesaparicio;
+
+    let comptador = 0;
+
+
+
+    function preload() {
+
+      for (let i = 1; i <= 5; i++) {
+
+        imatgesOriginals.push(loadImage(`img/referents/referent${i}.png`));
+
+      }
+
+    }
+
+
+
+    function processarImatgeCover(img) {
+
+      let escala = max(width / img.width, height / img.height);
+
+      let nw = img.width * escala;
+
+      let nh = img.height * escala;
+
+      let pg = createGraphics(width, height);
+
+      pg.imageMode(CENTER);
+
+      pg.image(img, width/2, height/2, nw, nh);
+
+      let finalImg = createImage(width, height);
+
+      finalImg.copy(pg, 0, 0, width, height, 0, 0, width, height);
+
+      finalImg.loadPixels();
+
+      pg.remove();
+
+      return finalImg;
+
+    }
+
+
+
+    function setup() {
+
+      createCanvas(windowWidth, windowHeight);
+
+      pixelDensity(1);
+
+      capaVisual = createGraphics(width, height);
+
+      capaVisual.pixelDensity(1);
+
+
+
+      for (let img of imatgesOriginals) {
+
+        imatgesProcessades.push(processarImatgeCover(img));
+
+      }
+
+
+
+      // Pinzell difuminat ajustat al nou radi
+
+      let mida = radiInteraccio * 6; // Una mica de marge per al difuminat
+
+      pinzellDifuminat = createGraphics(mida, mida);
+
+      let ctx = pinzellDifuminat.drawingContext;
+
+      let gradient = ctx.createRadialGradient(mida/2, mida/2, 0, mida/2, mida/2, mida/2);
+
+      gradient.addColorStop(0, 'rgba(0, 0, 0, 1)');
+
+      gradient.addColorStop(0.3, 'rgba(0, 0, 0, 0.8)');
+
+      gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+      ctx.fillStyle = gradient;
+
+      ctx.fillRect(0, 0, mida, mida);
+
+
+
+      calcularPunts(0);
+
+    }
+
+
+
+    function draw() {
+
+      background(245, 243, 235);
+
+      let estemEnViatge = (comptador < tempsViatge) || (comptador > tempsTotal - tempsDesaparicio);
+
+
+
+      for (let i = 0; i < puntsDeDesti.length; i++) {
+
+        if (particules[i]) {
+
+          particules[i].moure(puntsDeDesti[i], estemEnViatge);
+
+          particules[i].dibuixar();
+
+        }
+
+      }
+
+
+
+      let opacitat = 0;
+
+      if (comptador >= tempsViatge && comptador < tempsViatge + tempsAparicio)
+
+        opacitat = map(comptador - tempsViatge, 0, tempsAparicio, 0, 255);
+
+      else if (comptador >= tempsViatge + tempsAparicio && comptador < tempsTotal - tempsDesaparicio)
+
+        opacitat = 255;
+
+      else if (comptador >= tempsTotal - tempsDesaparicio)
+
+        opacitat = map(comptador - (tempsTotal - tempsDesaparicio), 0, tempsDesaparicio, 255, 0);
+
+
+
+      if (opacitat > 0) {
+
+        capaVisual.clear();
+
+        capaVisual.tint(255, opacitat);
+
+        capaVisual.image(imatgesProcessades[indexActual], 0, 0);
+
+        capaVisual.drawingContext.globalCompositeOperation = 'destination-out';
+
+        capaVisual.image(pinzellDifuminat, mouseX - pinzellDifuminat.width/2, mouseY - pinzellDifuminat.height/2);
+
+        capaVisual.drawingContext.globalCompositeOperation = 'source-over';
+
+        blendMode(MULTIPLY);
+
+        image(capaVisual, 0, 0);
+
+        blendMode(BLEND);
+
+      }
+
+
+
+      comptador++;
+
+      if (comptador > tempsTotal) {
+
+        comptador = 0;
+
+        indexActual = (indexActual + 1) % imatgesProcessades.length;
+
+        calcularPunts(indexActual);
+
+      }
+
+    }
+
+
+
+    function calcularPunts(index) {
+
+      puntsDeDesti = [];
+
+      let img = imatgesProcessades[index];
+
+      if (!img) return;
+
+      for (let y = 0; y < height; y += densitatEscaneig) {
+
+        for (let x = 0; x < width; x += densitatEscaneig) {
+
+          let idx = (x + y * width) * 4;
+
+          if (img.pixels[idx] < 150) puntsDeDesti.push(createVector(x, y));
+
+        }
+
+      }
+
+      puntsDeDesti = shuffle(puntsDeDesti);
+
+      while (particules.length < puntsDeDesti.length) particules.push(new Particula());
+
+      if (particules.length > puntsDeDesti.length) particules.splice(puntsDeDesti.length);
+
+    }
+
+
+
+    class Particula {
+
+      constructor() {
+
+        this.pos = createVector(random(width), random(height));
+
+        this.vel = createVector(0, 0);
+
+        this.acc = createVector(0, 0);
+
+      }
+
+      moure(target, actiu) {
+
+        let mouse = createVector(mouseX, mouseY);
+
+        let dMouse = this.pos.dist(mouse);
+
+        let dTarget = this.pos.dist(target);
+
+
+
+        if (!actiu && dMouse > 60 && dTarget < 1) {
+
+          this.pos.set(target.x, target.y);
+
+          this.vel.mult(0);
+
+          return;
+
+        }
+
+
+
+        let desitjat = p5.Vector.sub(target, this.pos);
+
+        let dist = desitjat.mag();
+
+        desitjat.setMag(dist < 100 ? map(dist, 0, 100, 0, velocitatViatge) : velocitatViatge);
+
+        let steer = p5.Vector.sub(desitjat, this.vel);
+
+        this.acc.add(steer.limit(0.8));
+
+
+
+        // --- REPULSIÓ REDUÏDA ---
+
+        let radiFuga = 15;
+
+        if (dMouse < radiFuga) {
+
+          let rep = p5.Vector.sub(this.pos, mouse);
+
+          rep.setMag(map(dMouse, 0, radiFuga, 10, 0));
+
+          this.acc.add(rep);
+
+        }
+
+
+
+        this.vel.add(this.acc);
+
+        this.pos.add(this.vel);
+
+        this.acc.mult(0);
+
+        this.vel.mult(0.9);
+
+      }
+
+      dibuixar() {
+
+        noStroke();
+
+        fill(20, 20, 20);
+
+        ellipse(this.pos.x, this.pos.y, midaPunt, midaPunt);
+
+      }
+
+    }
+
+
+
+    function windowResized() {
+
+      resizeCanvas(windowWidth, windowHeight);
+
+      imatgesProcessades = imatgesOriginals.map(img => processarImatgeCover(img));
+
+      calcularPunts(indexActual);
+
+    }
+
+  </script>
+
+</body>
+
+</html>

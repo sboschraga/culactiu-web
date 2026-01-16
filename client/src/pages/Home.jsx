@@ -1,26 +1,37 @@
 import React, { useState } from 'react';
 import imgCercle from '../assets/cercle.png';
 import imgCasa from '../assets/casa.png';
-import './Home.css'; // Importem el nou fitxer d'estils
+import './Home.css';
 
 function Home() {
   const [hoverLeft, setHoverLeft] = useState(false);
   const [hoverRight, setHoverRight] = useState(false);
 
-  // Funció per facilitar el toggle en dispositius tàctils
-  const handleToggleLeft = () => setHoverLeft(!hoverLeft);
-  const handleToggleRight = () => setHoverRight(!hoverRight);
-
   return (
     <div className="home-main-container">
-      <div className="home-content-container">
+      {/* El fons interactiu aïllat per a màxim rendiment */}
+      <iframe 
+        src="/fons.html" 
+        title="fons"
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          border: 'none',
+          zIndex: 0,
+          pointerEvents: 'auto'
+        }}
+      />
 
-        {/* --- QUI SOM --- */}
+      <div className="home-content-container">
+        {/* COLUMNA ESQUERRA */}
         <div
           className="home-column"
           onMouseEnter={() => setHoverLeft(true)}
           onMouseLeave={() => setHoverLeft(false)}
-          onClick={handleToggleLeft}
+          onClick={() => setHoverLeft(!hoverLeft)}
         >
           {!hoverLeft ? (
             <img src={imgCercle} alt="Cercle" className="home-image" />
@@ -36,12 +47,12 @@ function Home() {
           )}
         </div>
 
-        {/* --- QUÈ FEM --- */}
+        {/* COLUMNA DRETA */}
         <div
           className="home-column"
           onMouseEnter={() => setHoverRight(true)}
           onMouseLeave={() => setHoverRight(false)}
-          onClick={handleToggleRight}
+          onClick={() => setHoverRight(!hoverRight)}
         >
           {!hoverRight ? (
             <img src={imgCasa} alt="Casa" className="home-image" />
@@ -54,7 +65,6 @@ function Home() {
             </div>
           )}
         </div>
-
       </div>
     </div>
   );
