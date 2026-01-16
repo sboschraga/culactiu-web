@@ -2,6 +2,8 @@
   padding: 20px 40px;
   max-width: 1300px;
   margin: 0 auto;
+  /* Evitem qualsevol desbordament accidental del contenidor pare */
+  overflow-x: hidden; 
 }
 
 .back-link-container { margin-bottom: 20px; }
@@ -12,10 +14,10 @@
    ============================================= */
 .main-grid-layout {
   display: grid;
-  grid-template-columns: auto 1fr; /* Fotos esquerra, Text dreta */
+  grid-template-columns: auto 1fr;
   grid-template-areas: 
     "visual detalls"
-    "infonom infonom"; /* Nom a sota ocupant tota l'amplada */
+    "infonom infonom";
   gap: 30px;
 }
 
@@ -40,13 +42,32 @@
 .paragraf-pregunta { font-weight: bold; margin-bottom: 5px; }
 .paragraf-normal { margin-bottom: 25px; }
 
-.header-flex { display: flex; justify-content: space-between; align-items: flex-start; }
+.header-flex { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: flex-start; 
+  width: 100%; /* Ens assegurem que ocupi el 100% sense sortir */
+  box-sizing: border-box;
+}
+
 .nom-carrer { font-size: 1.8rem; text-transform: uppercase; font-weight: bold; margin: 0; }
 .ubicacio { font-size: 1.1rem; color: #666; margin: 5px 0 0 0; }
 
 .boto-veure-accio-destacat {
-  background-color: black; color: white; text-decoration: none;
-  padding: 10px 20px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase;
+  background-color: black; 
+  color: white; 
+  text-decoration: none;
+  padding: 10px 20px; 
+  font-size: 0.8rem; 
+  font-weight: bold; 
+  text-transform: uppercase;
+  /* MILLORA: Evitar scroll horitzontal */
+  display: inline-block;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  white-space: normal; /* Permet que el text baixi de línia si no hi cap */
+  word-wrap: break-word;
 }
 
 .galeria-mobil { display: none; }
@@ -55,17 +76,22 @@
    ADAPTACIÓ MÒBIL
    ============================================= */
 @media (max-width: 768px) {
-  .detall-container { padding: 20px; }
+  .detall-container { 
+    padding: 20px; 
+    width: 100%;
+    box-sizing: border-box;
+  }
 
   .main-grid-layout {
     display: flex;
-    flex-direction: column; /* Passem a vertical */
+    flex-direction: column;
     gap: 0;
+    width: 100%;
   }
 
   .fotos-group-pc { display: none; }
   
-  .area-visual { order: 1; }
+  .area-visual { order: 1; width: 100%; }
   
   .galeria-mobil {
     display: block;
@@ -83,22 +109,37 @@
 
   /* PEU DE FOTO AL MÒBIL */
   .area-info-nom {
-    order: 2; /* Just sota la foto */
+    order: 2;
     margin-bottom: 30px;
     border-top: 1px solid black;
     padding-top: 15px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .area-detalls {
-    order: 3; /* Símbols i text al final */
+    order: 3;
     flex-direction: column;
     gap: 30px;
+    width: 100%;
   }
 
   .simbols-vertical { flex-direction: row; flex-wrap: wrap; }
   .text-descriptiu { max-width: 100%; margin-top: 0; }
-  .header-flex { flex-direction: column; gap: 20px; }
-  .boto-veure-accio-destacat { width: 100%; text-align: center; padding: 15px; }
+  
+  .header-flex { 
+    flex-direction: column; 
+    gap: 20px; 
+    align-items: flex-start; /* Alineat a l'esquerra per coherència */
+  }
+
+  /* BOTÓ ADAPTAT AL MÒBIL */
+  .boto-veure-accio-destacat { 
+    width: 100%; /* Ara ocupa tota l'amplada per evitar l'scroll horitzontal */
+    text-align: center; 
+    padding: 15px; 
+    box-sizing: border-box;
+  }
 }
 
 /* Modals */
