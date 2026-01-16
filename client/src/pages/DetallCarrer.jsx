@@ -6,24 +6,30 @@ import "./DetallCarrer.css";
 function DetallCarrer() {
   const { nom } = useParams();
   const navigate = useNavigate(); 
-  const nomCarrer = decodeURIComponent(nom).trim(); 
-  const carrer = infoCarrers[nomCarrer];
+  const nomUrl = decodeURIComponent(nom).trim(); 
+
+  // BUSCA EL CARRER (Ignorant majúscules/minúscules)
+  const clauReal = Object.keys(infoCarrers).find(
+    key => key.toLowerCase() === nomUrl.toLowerCase()
+  );
+  const carrer = clauReal ? infoCarrers[clauReal] : null;
 
   const [fotoAmpliada, setFotoAmpliada] = useState(null);
   const [adrecaText, setAdrecaText] = useState("Calculant ubicació...");
   const [indexFotoMobil, setIndexFotoMobil] = useState(0);
 
+  // Diccionari d'accions (revisa que els noms de les claus siguin iguals al catàleg)
   const enllacosAccions = {
     "C/ DE GORDI": "/accio/muralla",
     "C/ D'EN GORDI": "/accio/muralla",
     "C/ DE LES CAROLINES": "/accio/fletxes",
+    "CARRERÓ DE LES CAROLINES": "/accio/fletxes",
     "C/ DEL TONELL": "/accio/neteja",
     "C/ DE RERA SANT JUST": "/accio/cassolada",
     "C/ DE MARIA VICTÒRIA": "/accio/esport"
   };
 
-  const nomNet = nomCarrer.toUpperCase();
-  const pathAccio = enllacosAccions[nomNet];
+  const pathAccio = enllacosAccions[nomUrl.toUpperCase()];
 
   useEffect(() => {
     if (carrer && carrer.lat && carrer.lon) {
@@ -42,11 +48,9 @@ function DetallCarrer() {
     }
   }, [carrer]);
 
-  if (!carrer) return null;
-
-  const seguentFoto = () => {
-    setIndexFotoMobil((prev) => (prev + 1) % carrer.fotos.length);
-  };
+  if (!carrer) {
+    return <div style={{padding: "100px", textAlign: "center"}}><h2>Carrer "{nomUrl}" no trobat</h2><button onClick={() => navigate('/cataleg')}>Tornar al catàleg</button></div>;
+  }
 
   return (
     <div className="detall-container">
@@ -55,45 +59,34 @@ function DetallCarrer() {
       </div>
 
       <div className="main-grid-layout">
-        
-        {/* BLOC 1: VISUAL (Fotos PC / Galeria Mòbil) */}
         <div className="area-visual">
-          <div className="galeria-mobil" onClick={seguentFoto}>
+          <div className="galeria-mobil" onClick={() => setIndexFotoMobil((prev) => (prev + 1) % carrer.fotos.length)}>
             <img src={carrer.fotos[indexFotoMobil]} alt="foto galeria" />
             <div className="indicador-fotos">{indexFotoMobil + 1} / {carrer.fotos.length}</div>
           </div>
-
           <div className="fotos-group-pc">
-            {carrer.fotos.map((src, index) => (
-              src && src !== "null" && (
-                <div key={index} className="foto-box-pc" onClick={() => setFotoAmpliada(src)}>
-                  <img src={src} alt="foto carrer" />
-                </div>
-              )
+            {carrer.fotos.map((src, index) => src && src !== "null" && (
+              <div key={index} className="foto-box-pc" onClick={() => setFotoAmpliada(src)}>
+                <img src={src} alt="foto carrer" />
+              </div>
             ))}
           </div>
         </div>
 
-        {/* BLOC 2: INFO NOM (A PC va a sota, a Mòbil va aquí com a peu de foto) */}
         <div className="area-info-nom">
           <div className="header-flex">
             <div className="title-block">
-              <h1 className="nom-carrer">{nomCarrer}</h1>
+              <h1 className="nom-carrer">{clauReal}</h1>
               <p className="ubicacio">{adrecaText}</p>
             </div>
-            {pathAccio && (
-              <Link to={pathAccio} className="boto-veure-accio-destacat">VEURE L'ACCIÓ</Link>
-            )}
+            {pathAccio && <Link to={pathAccio} className="boto-veure-accio-destacat">VEURE L'ACCIÓ</Link>}
           </div>
         </div>
 
-        {/* BLOC 3: TEXT I SÍMBOLS (A la dreta a PC) */}
         <div className="area-detalls">
           <div className="simbols-vertical">
             {carrer.simbols.map((simbol, index) => (
-              <div key={index} className="simbol-box">
-                <img src={simbol} className="simbol-img" alt="icona" />
-              </div>
+              <div key={index} className="simbol-box"><img src={simbol} className="simbol-img" alt="icona" /></div>
             ))}
           </div>
           <div className="text-descriptiu">
@@ -102,7 +95,6 @@ function DetallCarrer() {
             ))}
           </div>
         </div>
-
       </div>
 
       {fotoAmpliada && (
