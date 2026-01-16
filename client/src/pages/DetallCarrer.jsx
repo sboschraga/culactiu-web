@@ -8,17 +8,20 @@ function DetallCarrer() {
   const navigate = useNavigate(); 
   const nomUrl = decodeURIComponent(nom).trim(); 
 
-  // BUSCA EL CARRER (Ignorant majúscules/minúscules)
+  // 1. BUSCA EL CARRER (Ignorant majúscules/minúscules)
   const clauReal = Object.keys(infoCarrers).find(
     key => key.toLowerCase() === nomUrl.toLowerCase()
   );
   const carrer = clauReal ? infoCarrers[clauReal] : null;
 
+  // --- MILLORA: FILTREM LES FOTOS REALS ---
+  // Això treu els "null", strings buits o undefined perquè el comptador sigui real
+  const fotosValides = carrer ? carrer.fotos.filter(f => f && f !== "null" && f !== "") : [];
+
   const [fotoAmpliada, setFotoAmpliada] = useState(null);
   const [adrecaText, setAdrecaText] = useState("Calculant ubicació...");
   const [indexFotoMobil, setIndexFotoMobil] = useState(0);
 
-  // Diccionari d'accions (revisa que els noms de les claus siguin iguals al catàleg)
   const enllacosAccions = {
     "C/ DE GORDI": "/accio/muralla",
     "C/ D'EN GORDI": "/accio/muralla",
@@ -52,6 +55,13 @@ function DetallCarrer() {
     return <div style={{padding: "100px", textAlign: "center"}}><h2>Carrer "{nomUrl}" no trobat</h2><button onClick={() => navigate('/cataleg')}>Tornar al catàleg</button></div>;
   }
 
+  // Funció per passar foto només si n'hi ha més d'una
+  const seguentFoto = () => {
+    if (fotosValides.length > 1) {
+      setIndexFotoMobil((prev) => (prev + 1) % fotosValides.length);
+    }
+  };
+
   return (
     <div className="detall-container">
       <div className="back-link-container">
@@ -60,12 +70,27 @@ function DetallCarrer() {
 
       <div className="main-grid-layout">
         <div className="area-visual">
-          <div className="galeria-mobil" onClick={() => setIndexFotoMobil((prev) => (prev + 1) % carrer.fotos.length)}>
-            <img src={carrer.fotos[indexFotoMobil]} alt="foto galeria" />
-            <div className="indicador-fotos">{indexFotoMobil + 1} / {carrer.fotos.length}</div>
+          
+          {/* GALERIA MÒBIL CORREGIDA */}
+          <div 
+            className="galeria-mobil" 
+            onClick={seguentFoto}
+            style={{ cursor: fotosValides.length > 1 ? "pointer" : "default" }}
+          >
+            {/* Fem servir fotosValides en lloc de carrer.fotos */}
+            <img src={fotosValides[indexFotoMobil]} alt="foto galeria" />
+            
+            {/* EL COMPTADOR NOMÉS SURT SI HI HA MÉS D'UNA FOTO REAL */}
+            {fotosValides.length > 1 && (
+              <div className="indicador-fotos">
+                {indexFotoMobil + 1} / {fotosValides.length}
+              </div>
+            )}
           </div>
+
           <div className="fotos-group-pc">
-            {carrer.fotos.map((src, index) => src && src !== "null" && (
+            {/* Fem servir fotosValides també aquí per seguretat */}
+            {fotosValides.map((src, index) => (
               <div key={index} className="foto-box-pc" onClick={() => setFotoAmpliada(src)}>
                 <img src={src} alt="foto carrer" />
               </div>
