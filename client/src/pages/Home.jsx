@@ -39,9 +39,22 @@ function Home() {
             <div className="home-text-block">
               <h2>QUI SOM?</h2>
               <p className="home-paragraph">
-                Som un col·lectiu dedicat als culs-de-sac, entesos com a espais de pausa urbana i no productivitat. Reflexionem sobre la ciutat, els seus ritmes i l'espai construït compartit.
-                {'\n\n'} 
-                Us convidem a replicar les nostres accions o a crear-ne de noves, tot reivindicant que aquests espais existeixen i són essencials per seguir tenint esperança en l’espai urbà.
+                Som un col·lectiu dedicat
+als culs de sac, entesos
+com a espais de pausa
+urbana i no productivitat.
+Reflexionem sobre la ciutat,
+els seus ritmes i l’espai
+construït compartit.
+{'\n\n'} 
+Us convidem a replicar
+les nostres accions o a
+crear-ne de noves, tot
+reivindicant que aquests
+espais existeixen i són
+essencials per seguir
+tenint esperança en
+l’espai urbà.               
               </p>
             </div>
           )}
@@ -60,7 +73,9 @@ function Home() {
             <div className="home-text-block">
               <h2>QUÈ FEM?</h2>
               <p className="home-paragraph">
-                La nostra proposta com a col·lectiu es basa en la participació del cos en aquests espais, hem dissenyat cinc accions on, amb el cos com a protagonista. 
+                La nostra proposta com a col.lectiu es basa en la participació del cos en aquests espais, hem dissenyat cinc accions amb el cos com a protagonista.
+{'\n\n'} 
+Recorda, no fer-ho els dies més freds de l’any ni tampoc els més calorosos; volem evitar refredats i cops de calor.
               </p>
             </div>
           )}
